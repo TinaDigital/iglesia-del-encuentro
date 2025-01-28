@@ -14,6 +14,20 @@ interface Video {
   thumbnail: string
 }
 
+interface YouTubePlaylistItem {
+  snippet: {
+    resourceId: {
+      videoId: string
+    }
+    title: string
+    thumbnails: {
+      high: {
+        url: string
+      }
+    }
+  }
+}
+
 export function VideoCarousel() {
   const [videos, setVideos] = useState<Video[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -27,7 +41,7 @@ export function VideoCarousel() {
         )
         const data = await response.json()
 
-        const formattedVideos = data.items.map((item: any) => ({
+        const formattedVideos = data.items.map((item: YouTubePlaylistItem) => ({
           id: item.snippet.resourceId.videoId,
           title: item.snippet.title,
           thumbnail: item.snippet.thumbnails.high.url,
@@ -106,4 +120,3 @@ export function VideoCarousel() {
     </section>
   )
 }
-
