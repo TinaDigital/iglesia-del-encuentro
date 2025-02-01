@@ -3,11 +3,12 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube } from "lucide-react"
+import { LucideIcon } from "lucide-react"
 
 type FooterLink = {
   name: string
   href: string
-  icon?: React.ComponentType<any>
+  icon?: LucideIcon
 }
 
 type FooterSection = {
