@@ -6,12 +6,18 @@ const config: Config = {
   content: ["./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    screens: {
+      "2xl": "1400px",
+      "xl": "1280px",
+      "lg": "1024px",
+      "md": "768px",
+      "sm": "640px",
+      "xsm": "425px",
+      "xxsm": "360px",
+    },
     container: {
       center: true,
       padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
     },
     extend: {
       colors: {

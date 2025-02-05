@@ -27,7 +27,7 @@ export default function IDEEnPasosPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center">
+      <section className="relative aspect-[4/5] xsm:aspect-[14/9] lg:aspect-[3/1] flex items-center justify-center">
         <Image src="/placeholder.svg?height=800&width=1920" alt="IDE en Pasos" fill className="object-cover" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/90" />
         <div className="relative z-10 container mx-auto px-4 text-center text-white">

@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 export function Banner() {
   return (
-    <div className="relative h-[80vh] min-h-[500px] w-full overflow-hidden" style={{backgroundColor: '#1a1a1a'}}>
+    <div className="relative aspect-[4/5] xsm:aspect-[14/9] lg:aspect-[3/1] w-full overflow-hidden" style={{backgroundColor: '#1a1a1a'}}>
       <Image
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/placeholder-church-banner-KxR5mg3JD6k9YvPjxQr4h0IpYEuX5F.jpg"
         alt="Banner de la Iglesia del Encuentro"

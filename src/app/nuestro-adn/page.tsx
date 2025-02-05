@@ -35,7 +35,7 @@ export default function NuestroADNPage() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center">
+      <section className="relative aspect-[4/5] xsm:aspect-[14/9] lg:aspect-[3/1] flex items-center justify-center">
         <Image
           src="/placeholder.svg?height=800&width=1920"
           alt="Nuestro ADN"
