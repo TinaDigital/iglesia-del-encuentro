@@ -63,6 +63,7 @@ export function VideoCarousel() {
           throw new Error(data.error.message || "Error al cargar los videos")
         }
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const formattedVideos = data.items.map((item: any) => ({
           id: item.snippet.resourceId.videoId,
           title: item.snippet.title,
@@ -269,6 +270,7 @@ export function VideoCarousel() {
                   >
                     {/* Miniatura con efecto de hover */}
                     <div className="aspect-video relative overflow-hidden">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src={video.thumbnail || "/placeholder.svg"}
                         alt={video.title}
