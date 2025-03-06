@@ -149,13 +149,6 @@ export function MainNav() {
                   />
                 </motion.div>
               ))}
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 rounded-full bg-gradient-to-r from-violet-500/90 to-violet-700/90 text-white font-medium hover:from-violet-500 hover:to-violet-700 transition-all shadow-lg shadow-violet-500/20"
-              >
-                Donar
-              </motion.button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -209,14 +202,6 @@ export function MainNav() {
                     </Link>
                   </motion.div>
                 ))}
-                <motion.button 
-                  variants={menuItemVariants}
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="mt-8 px-8 py-3 rounded-full bg-white text-violet-500 font-bold text-lg shadow-xl hover:bg-opacity-90 transition-all"
-                >
-                  Donar
-                </motion.button>
               </div>
             </motion.div>
           )}

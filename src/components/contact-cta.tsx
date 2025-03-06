@@ -87,7 +87,7 @@ export function ContactCTA() {
               whileHover={{ scale: 1.02, boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.4)" }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="relative z-10 flex items-center font-medium text-white">
+              <span className="relative z-10 flex items-center font-medium" style={{ color: isHovered ? violetColor : "white" }}>
                 <MessageSquare className="w-5 h-5 mr-2" />
                 Contactanos por WhatsApp
                 <motion.div animate={{ x: isHovered ? 4 : 0 }} transition={{ duration: 0.2 }}>

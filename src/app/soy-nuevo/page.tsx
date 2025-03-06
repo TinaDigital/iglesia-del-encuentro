@@ -57,7 +57,7 @@ export default function SoyNuevoPage() {
                 Encontrá tu lugar en nuestra <span style={{ color: violetColor }}>comunidad</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-lg">
-                Estamos felices de que estés aquí. Queremos conocerte y acompañarte en tu camino espiritual.
+                Estamos felices de que estés aquí. Queremos conocerte y acompañarte en tu camino.
               </p>
 
               <div className="flex flex-wrap gap-4">
@@ -149,7 +149,7 @@ export default function SoyNuevoPage() {
             >
               <h2 className="text-3xl font-bold mb-4">Mensaje de Bienvenida</h2>
               <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
-              <p className="text-gray-600 max-w-2xl mx-auto">Nuestros pastores tienen un mensaje especial para ti</p>
+              <p className="text-gray-600 max-w-2xl mx-auto">Nuestros pastores tienen un mensaje especial para vos</p>
             </motion.div>
 
             <motion.div

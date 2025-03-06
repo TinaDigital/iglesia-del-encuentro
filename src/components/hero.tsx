@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
@@ -11,6 +11,17 @@ import bannerdesktop from "../../public/Folleto-Desktop.png"
 
 export function Hero() {
   const [activeButton, setActiveButton] = useState<number | null>(null)
+  const [scrollY, setScrollY] = useState(0)
+
+  // Efecto para detectar el scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   // Colores personalizados con tonos más sutiles
   const violetColor = "#8b5cf6" // Violeta principal
@@ -26,42 +37,57 @@ export function Hero() {
     { href: "/dar", text: "Dar", icon: <FaHandHoldingHeart />, color: "#5b21b6" },
   ];
 
+  // Calcular la opacidad del sombreado basado en el scroll
+  const shadowOpacity = Math.min(0.6, 0.3 + (scrollY * 0.001))
+
   return (
     <>
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
+        {/* Sombreado que se intensifica con el scroll */}
+        <div 
+          className="absolute inset-0 bg-black z-10 pointer-events-none transition-opacity duration-300"
+          style={{ opacity: shadowOpacity }}
+        ></div>
+        
         {/* Elementos decorativos sutiles */}
         <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
         
         {/* Overlay sutil con tonos violeta y crema */}
         <div className="absolute inset-0 bg-gradient-to-br from-violetLight/10 to-creamLight/10 mix-blend-overlay z-5"></div>
         
-        {/* Imagen para móvil */}
-        <div className="block sm:hidden">
+        {/* Imagen para móvil - fija */}
+        <div className="block sm:hidden absolute inset-0">
           <Image
             src={bannercelu}
             alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-auto"
+            className="w-full h-full object-cover object-center"
             priority
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
         
-        {/* Imagen para tablet */}
-        <div className="hidden sm:block lg:hidden">
+        {/* Imagen para tablet - fija */}
+        <div className="hidden sm:block lg:hidden absolute inset-0">
           <Image
             src={bannertablet}
             alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-auto"
+            className="w-full h-full object-cover object-center"
             priority
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
         
-        {/* Imagen para desktop */}
-        <div className="hidden lg:block">
+        {/* Imagen para desktop - fija */}
+        <div className="hidden lg:block absolute inset-0">
           <Image
             src={bannerdesktop}
             alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-auto"
+            className="w-full h-full object-cover object-center"
             priority
+            fill
+            style={{ objectFit: 'cover' }}
           />
         </div>
       </div>
