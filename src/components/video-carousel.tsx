@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { ChevronLeft, ChevronRight, Play, Pause, Volume2, VolumeX, Maximize, X } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play } from "lucide-react"
 
 // Reemplaza con tu clave de API de YouTube y el ID de la lista de reproducción
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "AIzaSyBzkpqAsiSfgIHakQ9WSKOy3LndwIMzaOs"
@@ -14,6 +14,24 @@ interface Video {
   title: string
   thumbnail: string
   channelTitle?: string
+}
+
+interface YouTubePlaylistItem {
+  snippet: {
+    resourceId: {
+      videoId: string
+    }
+    title: string
+    thumbnails: {
+      high?: {
+        url: string
+      }
+      medium?: {
+        url: string
+      }
+    }
+    channelTitle: string
+  }
 }
 
 export function VideoCarousel() {
@@ -65,7 +83,7 @@ export function VideoCarousel() {
           throw new Error(data.error.message || "Error al cargar los videos")
         }
 
-        const formattedVideos = data.items.map((item: any) => ({
+        const formattedVideos = data.items.map((item: YouTubePlaylistItem) => ({
           id: item.snippet.resourceId.videoId,
           title: item.snippet.title,
           thumbnail: item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url,
@@ -123,35 +141,6 @@ export function VideoCarousel() {
 
   const handlePlayVideo = (videoId: string) => {
     setActiveVideo(videoId)
-  }
-
-  const toggleFullscreen = () => {
-    if (!videoContainerRef.current) return
-
-    if (!fullscreen) {
-      if (videoContainerRef.current.requestFullscreen) {
-        videoContainerRef.current.requestFullscreen()
-      }
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen()
-      }
-    }
-
-    setFullscreen(!fullscreen)
-  }
-
-  const toggleMute = () => {
-    setIsMuted(!isMuted)
-  }
-
-  const togglePlay = () => {
-    setIsPlaying(!isPlaying)
-  }
-
-  const closeVideo = () => {
-    setActiveVideo(null)
-    setIsPlaying(true)
   }
 
   // Determinar cuántos videos mostrar según el dispositivo
@@ -418,4 +407,3 @@ export function VideoCarousel() {
     </div>
   )
 }
-

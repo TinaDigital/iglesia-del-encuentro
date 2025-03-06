@@ -12,9 +12,6 @@ export default function GruposPage() {
   // Colores personalizados con tonos más sutiles
   const violetColor = "#8b5cf6" // Violeta principal
   const violetLight = "#ede9fe" // Violeta muy claro
-  const violetMedium = "#c4b5fd" // Violeta medio
-  const creamColor = "#f5f0e6" // Crema suave
-  const creamLight = "#faf7f2" // Crema muy claro
 
   const groups = [
     {
