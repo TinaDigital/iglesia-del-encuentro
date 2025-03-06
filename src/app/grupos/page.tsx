@@ -1,28 +1,66 @@
 'use client'
 
+import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { Users } from "lucide-react"
-
-const groups = [
-  {
-    name: "Primeros Pasos",
-    description: "Grupos para nuevos creyentes y personas que quieren conocer más sobre la fe.",
-    schedule: "Varios horarios disponibles",
-  },
-  {
-    name: "Grupos de Conexión",
-    description: "Espacios para crear amistades genuinas y crecer juntos en la fe.",
-    schedule: "Reuniones semanales",
-  },
-  {
-    name: "Grupos de Crecimiento",
-    description: "Profundiza en tu fe y desarrolla tu liderazgo.",
-    schedule: "Encuentros quincenales",
-  },
-]
+import { Users, ChevronRight } from "lucide-react"
+import Link from "next/link"
 
 export default function GruposPage() {
+  const [activeCard, setActiveCard] = useState<number | null>(null)
+
+  // Colores personalizados con tonos más sutiles
+  const violetColor = "#8b5cf6" // Violeta principal
+  const violetLight = "#ede9fe" // Violeta muy claro
+  const violetMedium = "#c4b5fd" // Violeta medio
+  const creamColor = "#f5f0e6" // Crema suave
+  const creamLight = "#faf7f2" // Crema muy claro
+
+  const groups = [
+    {
+      name: "Primeros Pasos",
+      description: "Grupos para nuevos creyentes y personas que quieren conocer más sobre la fe.",
+      schedule: "Varios horarios disponibles",
+    },
+    {
+      name: "Grupos de Conexión",
+      description: "Espacios para crear amistades genuinas y crecer juntos en la fe.",
+      schedule: "Reuniones semanales",
+    },
+    {
+      name: "Grupos de Crecimiento",
+      description: "Profundiza en tu fe y desarrolla tu liderazgo.",
+      schedule: "Encuentros quincenales",
+    },
+  ]
+
+  const benefits = [
+    {
+      title: "Comunidad Auténtica",
+      description: "Construye relaciones significativas y duraderas.",
+    },
+    {
+      title: "Crecimiento Espiritual",
+      description: "Profundiza en tu fe junto a otros creyentes.",
+    },
+    {
+      title: "Apoyo Mutuo",
+      description: "Encuentra apoyo en los momentos difíciles.",
+    },
+    {
+      title: "Desarrollo Personal",
+      description: "Descubre y desarrolla tus dones y talentos.",
+    },
+    {
+      title: "Oración en Comunidad",
+      description: "Experimenta el poder de la oración en grupo.",
+    },
+    {
+      title: "Impacto Social",
+      description: "Sirve a la comunidad junto a tu grupo.",
+    },
+  ]
+
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
@@ -34,7 +72,11 @@ export default function GruposPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/40" />
+        
+        {/* Overlay sutil con tonos violeta y crema */}
+        <div className="absolute inset-0 bg-gradient-to-br from-violetLight/20 to-creamLight/20 mix-blend-overlay z-5"></div>
+        
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -58,14 +100,21 @@ export default function GruposPage() {
       {/* Groups Overview */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <Users className="w-16 h-16 mx-auto text-primary mb-6" />
-            <h2 className="text-4xl font-bold mb-6">Nuestros Grupos</h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto text-center mb-16"
+          >
+            <Users className="w-16 h-16 mx-auto mb-6" style={{ color: violetColor }} />
+            <h2 className="text-4xl font-bold mb-4">Nuestros Grupos</h2>
+            <div className="w-20 h-1 mx-auto mb-6" style={{ backgroundColor: violetColor }}></div>
             <p className="text-xl text-gray-600">
               Creemos que la vida cristiana se vive mejor en comunidad. Nuestros grupos son espacios seguros para
               crecer, compartir y apoyarnos mutuamente.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {groups.map((group, index) => (
@@ -73,13 +122,40 @@ export default function GruposPage() {
                 key={group.name}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-xl shadow-lg overflow-hidden"
+                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+                onMouseEnter={() => setActiveCard(index)}
+                onMouseLeave={() => setActiveCard(null)}
               >
+                <div
+                  className="h-2 w-full"
+                  style={{
+                    background: `linear-gradient(to right, ${violetColor}, ${violetColor}CC)`,
+                  }}
+                ></div>
                 <div className="p-8">
+                  <div
+                    className="w-12 h-12 rounded-lg flex items-center justify-center text-white mb-6"
+                    style={{
+                      background: `linear-gradient(to right, ${violetColor}, ${violetColor}CC)`,
+                    }}
+                  >
+                    <Users size={20} />
+                  </div>
                   <h3 className="text-2xl font-bold mb-4">{group.name}</h3>
                   <p className="text-gray-600 mb-4">{group.description}</p>
-                  <p className="text-sm font-medium text-primary">{group.schedule}</p>
+                  <div className="flex justify-between items-center">
+                    <p className="text-sm font-medium" style={{ color: violetColor }}>{group.schedule}</p>
+                    <motion.div
+                      animate={{ 
+                        x: activeCard === index ? 0 : -5,
+                        opacity: activeCard === index ? 1 : 0
+                      }}
+                    >
+                      <ChevronRight size={18} style={{ color: violetColor }} />
+                    </motion.div>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -88,44 +164,33 @@ export default function GruposPage() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20" style={{ backgroundColor: violetLight }}>
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">¿Por qué unirte a un grupo?</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl font-bold mb-4">¿Por qué unirte a un grupo?</h2>
+            <div className="w-20 h-1 mx-auto mb-6" style={{ backgroundColor: violetColor }}></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Descubre los beneficios de formar parte de nuestra comunidad de grupos.
+            </p>
+          </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {[
-              {
-                title: "Comunidad Auténtica",
-                description: "Construye relaciones significativas y duraderas.",
-              },
-              {
-                title: "Crecimiento Espiritual",
-                description: "Profundiza en tu fe junto a otros creyentes.",
-              },
-              {
-                title: "Apoyo Mutuo",
-                description: "Encuentra apoyo en los momentos difíciles.",
-              },
-              {
-                title: "Desarrollo Personal",
-                description: "Descubre y desarrolla tus dones y talentos.",
-              },
-              {
-                title: "Oración en Comunidad",
-                description: "Experimenta el poder de la oración en grupo.",
-              },
-              {
-                title: "Impacto Social",
-                description: "Sirve a la comunidad junto a tu grupo.",
-              },
-            ].map((benefit, index) => (
+            {benefits.map((benefit, index) => (
               <motion.div
                 key={benefit.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white p-6 rounded-xl shadow-lg"
+                className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow"
               >
-                <h3 className="text-xl font-bold mb-3">{benefit.title}</h3>
+                <h3 className="text-xl font-bold mb-3" style={{ color: violetColor }}>{benefit.title}</h3>
                 <p className="text-gray-600">{benefit.description}</p>
               </motion.div>
             ))}
@@ -134,19 +199,45 @@ export default function GruposPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-primary to-secondary">
-        <div className="container mx-auto px-4 text-center text-white">
-          <h2 className="text-4xl font-bold mb-8">¿Listo para unirte a un grupo?</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Completa el formulario y nos pondremos en contacto contigo para ayudarte a encontrar el grupo perfecto para
-            ti.
-          </p>
-          <button className="bg-white text-primary px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-colors duration-300">
-            Encontrar mi grupo
-          </button>
+      <section className="py-20 relative overflow-hidden">
+        <div 
+          className="absolute inset-0 z-0" 
+          style={{ 
+            background: `linear-gradient(to right, ${violetColor}, ${violetColor}CC)`,
+          }}
+        ></div>
+        
+        {/* Elementos decorativos sutiles */}
+        <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/10 to-transparent z-10"></div>
+        
+        <div className="container mx-auto px-4 text-center text-white relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="text-4xl font-bold mb-8">¿Listo para unirte a un grupo?</h2>
+            <p className="text-xl mb-8 max-w-2xl mx-auto">
+              Completa el formulario y nos pondremos en contacto contigo para ayudarte a encontrar el grupo perfecto para
+              ti.
+            </p>
+            <Link href="/form">
+              <motion.button 
+                className="bg-white px-8 py-4 rounded-full text-lg font-semibold transition-all duration-300"
+                style={{ color: violetColor }}
+                whileHover={{ 
+                  y: -3,
+                  boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+              >
+                Encontrar mi grupo
+              </motion.button>
+            </Link>
+          </motion.div>
         </div>
       </section>
     </main>
   )
 }
-

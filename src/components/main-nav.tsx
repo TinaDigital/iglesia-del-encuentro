@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import logo from "../../public/LOGO IDE_LOGO IDE COLOR.png"
 
 const navItems = [
   { 
@@ -119,15 +120,12 @@ export function MainNav() {
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center space-x-2">
               <Image 
-                src="/logo.png" 
+                src={logo} 
                 alt="Logo Iglesia del Encuentro"
-                width={32}
-                height={32}
-                className="w-8 h-8"
+                width={80}
+                height={80}
+                className=""
               />
-              <span className="font-bold text-lg bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-                Iglesia del Encuentro
-              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -141,20 +139,20 @@ export function MainNav() {
                 >
                   <Link
                     href={item.href}
-                    className="text-gray-700 hover:text-primary font-medium transition-colors"
+                    className="text-gray-700 hover:text-violet-500 font-medium transition-colors"
                   >
                     {item.name}
                   </Link>
                   <motion.div
                     variants={underlineVariants}
-                    className="absolute bottom-0 h-[2px] bg-gradient-to-r from-primary to-secondary"
+                    className="absolute bottom-0 h-[2px] bg-gradient-to-r from-violet-500 to-violet-700"
                   />
                 </motion.div>
               ))}
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-6 py-2 rounded-full bg-gradient-to-r from-primary/90 to-secondary/90 text-white font-medium hover:from-primary hover:to-secondary transition-all shadow-lg shadow-primary/20"
+                className="px-6 py-2 rounded-full bg-gradient-to-r from-violet-500/90 to-violet-700/90 text-white font-medium hover:from-violet-500 hover:to-violet-700 transition-all shadow-lg shadow-violet-500/20"
               >
                 Donar
               </motion.button>
@@ -165,7 +163,7 @@ export function MainNav() {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white"
+              className="lg:hidden p-2 rounded-full bg-gradient-to-r from-violet-500 to-violet-700 text-white z-50"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </motion.button>
@@ -180,7 +178,8 @@ export function MainNav() {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="lg:hidden fixed inset-0 bg-gradient-to-br from-primary/95 to-secondary/95 backdrop-blur-lg"
+              className="lg:hidden fixed inset-0 bg-gradient-to-br from-violet-500/95 to-violet-700/95 backdrop-blur-lg z-50 flex flex-col justify-center items-center"
+              style={{ height: '100vh', width: '100vw' }}
             >
               <div className="absolute top-4 right-4">
                 <motion.button
@@ -214,7 +213,7 @@ export function MainNav() {
                   variants={menuItemVariants}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="mt-8 px-8 py-3 rounded-full bg-white text-primary font-bold text-lg shadow-xl hover:bg-opacity-90 transition-all"
+                  className="mt-8 px-8 py-3 rounded-full bg-white text-violet-500 font-bold text-lg shadow-xl hover:bg-opacity-90 transition-all"
                 >
                   Donar
                 </motion.button>

@@ -1,237 +1,415 @@
-'use client'
+"use client"
 
+import type React from "react"
+
+import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
-import { ArrowRight, Youtube, MessageSquare } from 'lucide-react'
+import { motion, useInView } from "framer-motion"
+import { ArrowRight, MessageSquare, Calendar, Users, Lightbulb, Heart, ChevronDown } from "lucide-react"
 
 export default function SoyNuevoPage() {
+  const processRef = useRef(null)
+  const contactRef = useRef<HTMLDivElement>(null)
+  const isProcessInView = useInView(processRef, { once: true, amount: 0.2 })
+  const isContactInView = useInView(contactRef, { once: true, amount: 0.2 })
+
+  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+    ref.current?.scrollIntoView({ behavior: "smooth" })
+  }
+
+  // Colores personalizados
+  const violetColor = "#8b5cf6" // Violeta
+  const creamColor = "#f5f0e6" // Crema
+  const lightViolet = "#ede9fe" // Violeta claro
+
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative aspect-[4/5] xsm:aspect-[14/9] lg:aspect-[3/1] flex items-center justify-center">
-        <Image
-          src="/placeholder.svg?height=800&width=1920"
-          alt="Bienvenida"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-secondary/90" />
-        <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl font-bold mb-6"
-          >
-            ¡Bienvenido a Casa!
-          </motion.h1>
-          <motion.p
+    <main className="min-h-screen bg-white">
+      {/* Sección de Bienvenida */}
+      <section
+        className="min-h-[90vh] flex items-center relative overflow-hidden"
+        style={{ backgroundColor: creamColor }}
+      >
+        {/* Figuras decorativas */}
+        <div
+          className="absolute top-20 right-20 w-64 h-64 rounded-full"
+          style={{ backgroundColor: lightViolet, opacity: 0.4 }}
+        ></div>
+        <div
+          className="absolute bottom-20 left-20 w-40 h-40 rounded-full"
+          style={{ backgroundColor: lightViolet, opacity: 0.3 }}
+        ></div>
+        <div
+          className="absolute top-40 left-10 w-20 h-20 rounded-full"
+          style={{ backgroundColor: violetColor, opacity: 0.1 }}
+        ></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <span
+                className="inline-block px-3 py-1 text-sm font-medium rounded-full mb-6"
+                style={{ backgroundColor: lightViolet, color: violetColor }}
+              >
+                BIENVENIDO
+              </span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                Encontrá tu lugar en nuestra <span style={{ color: violetColor }}>comunidad</span>
+              </h1>
+              <p className="text-lg text-gray-600 mb-8 max-w-lg">
+                Estamos felices de que estés aquí. Queremos conocerte y acompañarte en tu camino espiritual.
+              </p>
+
+              <div className="flex flex-wrap gap-4">
+                <a
+                  href="#video"
+                  className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors"
+                  style={{ backgroundColor: violetColor }}
+                  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
+                  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
+                >
+                  Ver mensaje
+                </a>
+
+                <button
+                  onClick={() => scrollToSection(contactRef)}
+                  className="inline-flex items-center px-6 py-3 border rounded-md hover:bg-white/50 transition-colors"
+                  style={{ borderColor: violetColor, color: violetColor }}
+                >
+                  Contactarnos
+                </button>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+                <Image src="/placeholder.svg?height=600&width=800" alt="Bienvenida" fill className="object-cover" />
+
+                {/* Borde decorativo */}
+                <div
+                  className="absolute -inset-1 rounded-lg -z-10"
+                  style={{ backgroundColor: violetColor, opacity: 0.2 }}
+                ></div>
+              </div>
+
+              {/* Overlay con información de servicios */}
+              <div
+                className="absolute -bottom-6 -right-6 p-6 rounded-lg shadow-lg max-w-xs"
+                style={{ backgroundColor: "white", borderLeft: `4px solid ${violetColor}` }}
+              >
+                <div className="flex items-center gap-3 mb-3">
+                  <Calendar className="w-5 h-5" style={{ color: violetColor }} />
+                  <h3 className="font-medium">Servicios Dominicales</h3>
+                </div>
+                <p className="text-sm text-gray-600">11:30hs - Av. Ejemplo 1234</p>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Indicador de scroll */}
+          <motion.div
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-xl md:text-2xl mb-8"
+            animate={{ opacity: 1, y: [0, 10, 0] }}
+            transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
           >
-            Estamos felices de que estés aquí
-          </motion.p>
+            <p className="text-sm mb-2" style={{ color: violetColor }}>
+              Descubre más
+            </p>
+            <ChevronDown className="w-5 h-5" style={{ color: violetColor }} />
+          </motion.div>
         </div>
       </section>
 
-      {/* Welcome Video Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
+      {/* Video de bienvenida */}
+      <section id="video" className="py-20 relative overflow-hidden">
+        {/* Figuras decorativas */}
+        <div
+          className="absolute top-0 right-0 w-72 h-72 rounded-full"
+          style={{ backgroundColor: creamColor, opacity: 0.5 }}
+        ></div>
+        <div
+          className="absolute bottom-0 left-0 w-48 h-48 rounded-full"
+          style={{ backgroundColor: lightViolet, opacity: 0.3 }}
+        ></div>
+
+        <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Mensaje de Bienvenida de Nuestros Pastores
-            </h2>
-            <div className="aspect-video rounded-2xl overflow-hidden shadow-2xl">
-              <iframe
-                src="https://www.youtube.com/embed/VIDEO_ID"
-                title="Mensaje de Bienvenida"
-                className="w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-10"
+            >
+              <h2 className="text-3xl font-bold mb-4">Mensaje de Bienvenida</h2>
+              <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
+              <p className="text-gray-600 max-w-2xl mx-auto">Nuestros pastores tienen un mensaje especial para ti</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="relative"
+            >
+              <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                <iframe
+                  src="https://www.youtube.com/embed/VIDEO_ID"
+                  title="Mensaje de Bienvenida"
+                  className="w-full h-full"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              {/* Elementos decorativos */}
+              <div
+                className="absolute -top-4 -left-4 w-16 h-16 rounded-full"
+                style={{ backgroundColor: creamColor }}
+              ></div>
+              <div
+                className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full"
+                style={{ backgroundColor: lightViolet }}
+              ></div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Sección de Proceso */}
+      <section ref={processRef} className="py-20 relative overflow-hidden" style={{ backgroundColor: creamColor }}>
+        {/* Figuras decorativas */}
+        <div
+          className="absolute top-40 right-10 w-32 h-32 rounded-full"
+          style={{ backgroundColor: violetColor, opacity: 0.1 }}
+        ></div>
+        <div
+          className="absolute bottom-20 left-20 w-48 h-48 rounded-full"
+          style={{ backgroundColor: "white", opacity: 0.6 }}
+        ></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isProcessInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">IDE en Pasos</h2>
+            <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">Tu camino de crecimiento espiritual</p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Línea conectora */}
+              <div
+                className="absolute left-[39px] top-12 bottom-12 w-px hidden md:block"
+                style={{ backgroundColor: violetColor, opacity: 0.3 }}
+              ></div>
+
+              <div className="space-y-12">
+                {[
+                  {
+                    step: 1,
+                    title: "Asistí a un Encuentro",
+                    description: "Participá de nuestros servicios dominicales",
+                    icon: <Calendar className="w-5 h-5" />,
+                  },
+                  {
+                    step: 2,
+                    title: "Conectate",
+                    description: "Unite a un grupo de conexión",
+                    icon: <Users className="w-5 h-5" />,
+                  },
+                  {
+                    step: 3,
+                    title: "Descubrí tu propósito",
+                    description: "Conocé tus dones y talentos",
+                    icon: <Lightbulb className="w-5 h-5" />,
+                  },
+                  {
+                    step: 4,
+                    title: "Serví",
+                    description: "Sé parte de nuestros equipos de servicio",
+                    icon: <Heart className="w-5 h-5" />,
+                  },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    className="flex gap-6 items-start"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={isProcessInView ? { opacity: 1, x: 0 } : {}}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full text-white flex items-center justify-center z-10"
+                      style={{ backgroundColor: violetColor }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                      <p className="text-gray-600">{item.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                className="mt-12 text-center"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isProcessInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <Link
+                  href="/ide-en-pasos"
+                  className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors group"
+                  style={{ backgroundColor: violetColor }}
+                  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
+                  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
+                >
+                  Más información
+                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Action Cards */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {/* Central Meetings Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
-            >
-              <div className="p-8">
-                <Youtube className="w-12 h-12 text-primary mb-6" />
-                <h3 className="text-2xl font-bold mb-4">Encuentros Centrales</h3>
-                <p className="text-gray-600 mb-6">
-                  Unite a nuestros servicios dominicales a las 11:30
-                </p>
-                <Link
-                  href="/horarios"
-                  className="inline-flex items-center text-primary font-semibold group-hover:text-secondary transition-colors duration-300"
-                >
-                  Ver horarios
-                  <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </Link>
-              </div>
-            </motion.div>
+      {/* Sección de Contacto */}
+      <section ref={contactRef} className="py-20 relative overflow-hidden">
+        {/* Figuras decorativas */}
+        <div
+          className="absolute top-0 right-0 w-64 h-64 rounded-full"
+          style={{ backgroundColor: lightViolet, opacity: 0.4 }}
+        ></div>
+        <div
+          className="absolute bottom-0 left-0 w-48 h-48 rounded-full"
+          style={{ backgroundColor: creamColor, opacity: 0.6 }}
+        ></div>
 
-            {/* Contact Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden group hover:shadow-2xl transition-shadow duration-300"
-            >
-              <div className="p-8">
-                <MessageSquare className="w-12 h-12 text-primary mb-6" />
-                <h3 className="text-2xl font-bold mb-4">Escribinos</h3>
-                <p className="text-gray-600 mb-6">
-                  Queremos conocerte y responder tus preguntas
-                </p>
-                <a
-                  href="https://wa.me/+yourphonenumber"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center text-primary font-semibold group-hover:text-secondary transition-colors duration-300"
-                >
-                  Contactar por WhatsApp
-                  <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+        <div className="container mx-auto px-4 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={isContactInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl font-bold mb-4">Contacto</h2>
+            <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
+            <p className="text-gray-600 max-w-2xl mx-auto">Dejanos tus datos y nos pondremos en contacto contigo</p>
+          </motion.div>
 
-      {/* Steps Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-16">
-            La IDE en Pasos
-          </h2>
           <div className="max-w-4xl mx-auto">
-            <div className="grid gap-8">
-              {[
-                {
-                  step: "1",
-                  title: "Asistí a un Encuentro",
-                  description: "Participá de nuestros servicios dominicales",
-                },
-                {
-                  step: "2",
-                  title: "Conectate",
-                  description: "Unite a un grupo de conexión",
-                },
-                {
-                  step: "3",
-                  title: "Descubrí tu propósito",
-                  description: "Conocé tus dones y talentos",
-                },
-                {
-                  step: "4",
-                  title: "Serví",
-                  description: "Sé parte de nuestros equipos de servicio",
-                },
-              ].map((item, index) => (
-                <motion.div
-                  key={item.step}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="flex items-start gap-6 bg-white p-6 rounded-xl shadow-lg"
-                >
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white flex items-center justify-center font-bold text-lg">
-                    {item.step}
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+              <div className="md:col-span-2 space-y-8">
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: lightViolet }}
+                  >
+                    <MessageSquare className="w-5 h-5" style={{ color: violetColor }} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-600">{item.description}</p>
+                    <h3 className="font-medium mb-1">WhatsApp</h3>
+                    <a
+                      href="https://wa.me/+yourphonenumber"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ color: violetColor }}
+                      className="hover:underline"
+                    >
+                      +54 9 11 1234-5678
+                    </a>
                   </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+                </div>
 
-      {/* Contact Form Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-              Dejá tus datos
-            </h2>
-            <form className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
-                    Nombre
-                  </label>
-                  <input
-                    type="text"
-                    id="nombre"
-                    name="nombre"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="apellido" className="block text-sm font-medium text-gray-700 mb-1">
-                    Apellido
-                  </label>
-                  <input
-                    type="text"
-                    id="apellido"
-                    name="apellido"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                    required
-                  />
+                <div className="flex items-start gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: lightViolet }}
+                  >
+                    <Calendar className="w-5 h-5" style={{ color: violetColor }} />
+                  </div>
+                  <div>
+                    <h3 className="font-medium mb-1">Horarios</h3>
+                    <p className="text-gray-600">Domingos 11:30hs</p>
+                  </div>
                 </div>
               </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">
-                  Teléfono
-                </label>
-                <input
-                  type="tel"
-                  id="telefono"
-                  name="telefono"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="w-full bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-6 rounded-lg hover:opacity-90 transition-opacity duration-300"
+
+              <motion.div
+                className="md:col-span-3 bg-white p-8 rounded-lg shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={isContactInView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                style={{ borderTop: `4px solid ${violetColor}` }}
               >
-                Enviar
-              </button>
-            </form>
+                <form className="space-y-6">
+                  <div>
+                    <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
+                      Nombre completo
+                    </label>
+                    <input
+                      type="text"
+                      id="nombre"
+                      name="nombre"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">
+                      Teléfono
+                    </label>
+                    <input
+                      type="tel"
+                      id="telefono"
+                      name="telefono"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
+                      required
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full text-white font-medium py-3 px-6 rounded-md transition-colors"
+                    style={{ backgroundColor: violetColor }}
+                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
+                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
+                  >
+                    Enviar
+                  </button>
+                </form>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
     </main>
   )
 }
+

@@ -1,106 +1,263 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
+import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight } from "lucide-react"
 
 export function Ministries() {
-  const ministries = [
-    {
-      name: "Entretiempo",
-      description: "Un espacio divertido y seguro donde los niños aprenden sobre Dios a través de juegos, música y actividades creativas.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RCd8ojbZaFuExFFvbMvjcZLAWYOn0u.png",
-      instagram: "https://instagram.com/entretiempo",
-      gradient: "from-orange-400 to-pink-500",
-      schedule: "Domingos 11:00hs"
-    },
-    {
-      name: "Boomerang", 
-      description: "Un ministerio dinámico para adolescentes donde pueden crecer en su fe, hacer amigos y divertirse en un ambiente seguro.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/boomerang-placeholder-uOE9m2JKLwqxvF5tR7yHn4IpYWsX8D.jpg",
-      instagram: "https://instagram.com/boomerang",
-      gradient: "from-purple-500 to-indigo-500",
-      schedule: "Sábados 17:00hs"
-    },
-    {
-      name: "Pulso",
-      description: "Un espacio vibrante para jóvenes adultos donde pueden profundizar su fe, construir relaciones genuinas y descubrir su propósito.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg", 
-      instagram: "https://instagram.com/pulso",
-      gradient: "from-teal-500 to-cyan-500",
-      schedule: "Sábados 20:00hs"
-    },
-    {
-      name: "Break Point",
-      description: "Un ministerio para adultos jóvenes donde pueden encontrar comunidad, mentoría y crecimiento espiritual en cada etapa de la vida.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/breakpoint-placeholder-mPE5s8NKLwqxvF3tR7yHn4IjYWsX9B.jpg",
-      instagram: "https://instagram.com/breakpoint", 
-      gradient: "from-green-500 to-lime-500",
-      schedule: "Viernes 20:00hs"
-    },
-  ]
-
+  const [activeMinistry, setActiveMinistry] = useState(0)
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   })
 
+  // Colores personalizados con tonos sutiles
+  const violetColor = "#8b5cf6" // Violeta principal
+  const violetLight = "#ede9fe" // Violeta muy claro
+  const violetMedium = "#c4b5fd" // Violeta medio
+  const creamColor = "#f5f0e6" // Crema suave
+  const creamLight = "#faf7f2" // Crema muy claro
+
+  const ministries = [
+    {
+      name: "Entretiempo",
+      description:
+        "Un espacio divertido y seguro donde los niños aprenden sobre Dios a través de juegos, música y actividades creativas.",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RCd8ojbZaFuExFFvbMvjcZLAWYOn0u.png",
+      instagram: "https://instagram.com/entretiempo",
+      schedule: "Domingos 11:00hs",
+      ageGroup: "Niños",
+    },
+    {
+      name: "Boomerang",
+      description:
+        "Un ministerio dinámico para adolescentes donde pueden crecer en su fe, hacer amigos y divertirse en un ambiente seguro.",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/boomerang-placeholder-uOE9m2JKLwqxvF5tR7yHn4IpYWsX8D.jpg",
+      instagram: "https://instagram.com/boomerang",
+      schedule: "Sábados 17:00hs",
+      ageGroup: "Adolescentes",
+    },
+    {
+      name: "Pulso",
+      description:
+        "Un espacio vibrante para jóvenes adultos donde pueden profundizar su fe, construir relaciones genuinas y descubrir su propósito.",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
+      instagram: "https://instagram.com/pulso",
+      schedule: "Sábados 20:00hs",
+      ageGroup: "Jóvenes",
+    },
+    {
+      name: "Break Point",
+      description:
+        "Un ministerio para adultos jóvenes donde pueden encontrar comunidad, mentoría y crecimiento espiritual en cada etapa de la vida.",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/breakpoint-placeholder-mPE5s8NKLwqxvF3tR7yHn4IjYWsX9B.jpg",
+      instagram: "https://instagram.com/breakpoint",
+      schedule: "Viernes 20:00hs",
+      ageGroup: "Adultos jóvenes",
+    },
+  ]
+
+  const nextMinistry = () => {
+    setActiveMinistry((prev) => (prev === ministries.length - 1 ? 0 : prev + 1))
+  }
+
+  const prevMinistry = () => {
+    setActiveMinistry((prev) => (prev === 0 ? ministries.length - 1 : prev - 1))
+  }
+
   return (
-    <section className="py-20 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4" ref={ref}>
+    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: creamLight }}>
+      {/* Elementos decorativos */}
+      <div className="absolute top-0 left-0 w-full h-1 opacity-40" 
+        style={{ background: `linear-gradient(to right, transparent, ${violetColor}, transparent)` }}></div>
+      <div className="absolute bottom-0 left-0 w-full h-1 opacity-40" 
+        style={{ background: `linear-gradient(to right, transparent, ${violetColor}, transparent)` }}></div>
+      
+      {/* Círculos decorativos */}
+      <div className="absolute -left-24 -top-24 w-64 h-64 rounded-full opacity-20" 
+        style={{ background: `linear-gradient(135deg, ${violetLight}, ${violetMedium})` }}></div>
+      <div className="absolute -right-24 -bottom-24 w-64 h-64 rounded-full opacity-20" 
+        style={{ background: `linear-gradient(135deg, ${creamColor}, ${violetLight})` }}></div>
+      
+      {/* Puntos decorativos */}
+      <div className="absolute left-1/4 top-12 w-2 h-2 rounded-full" 
+        style={{ backgroundColor: violetColor, opacity: 0.3 }}></div>
+      <div className="absolute right-1/4 bottom-12 w-3 h-3 rounded-full" 
+        style={{ backgroundColor: violetMedium, opacity: 0.4 }}></div>
+      <div className="absolute right-1/3 top-1/3 w-2 h-2 rounded-full" 
+        style={{ backgroundColor: creamColor, opacity: 0.5 }}></div>
+      <div className="absolute left-1/3 bottom-1/3 w-4 h-4 rounded-full" 
+        style={{ backgroundColor: violetLight, opacity: 0.3 }}></div>
+      
+      <div className="container mx-auto px-4 max-w-6xl relative z-10" ref={ref}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
-            Nuestros Ministerios
+          <h2 className="text-4xl md:text-5xl font-light mb-3 tracking-tight">
+            Nuestros <span className="font-semibold" style={{ color: violetColor }}>Ministerios</span>
           </h2>
-          <p className="text-xl text-gray-700">Encontrá tu lugar en nuestra comunidad</p>
+          <div className="w-20 h-1 mx-auto mb-6" style={{ background: `linear-gradient(to right, ${creamColor}, ${violetColor})` }}></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">
+            Espacios diseñados para cada etapa de la vida, donde podrás crecer espiritualmente, formar parte de una
+            comunidad y descubrir tu propósito.
+          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {ministries.map((ministry, index) => (
-            <motion.div
-              key={ministry.name}
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              whileHover={{ y: -10 }}
-              className="group"
-            >
-              <div className="bg-white rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:shadow-2xl">
-                <div className="relative h-48">
-                  <Image
-                    src={ministry.image}
-                    alt={`Ministerio ${ministry.name}`}
-                    fill
-                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+        {/* Navegación móvil con nombre del ministerio actual y flechas */}
+        <div className="md:hidden mb-8 flex items-center justify-between">
+          <button 
+            onClick={prevMinistry}
+            className="p-2 rounded-full"
+            style={{ backgroundColor: violetLight, color: violetColor }}
+            aria-label="Ministerio anterior"
+          >
+            <ArrowLeft className="w-5 h-5" />
+          </button>
+          
+          <div className="text-center">
+            <h3 className="font-semibold text-lg" style={{ color: violetColor }}>
+              {ministries[activeMinistry].name}
+            </h3>
+            <p className="text-xs text-gray-500">
+              {activeMinistry + 1} de {ministries.length}
+            </p>
+          </div>
+          
+          <button 
+            onClick={nextMinistry}
+            className="p-2 rounded-full"
+            style={{ backgroundColor: violetLight, color: violetColor }}
+            aria-label="Siguiente ministerio"
+          >
+            <ArrowRight className="w-5 h-5" />
+          </button>
+        </div>
+
+        {/* Tabs de navegación en desktop */}
+        <motion.div
+          className="hidden md:flex justify-center mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className="inline-flex border-b" style={{ borderColor: violetLight }}>
+            {ministries.map((ministry, index) => (
+              <button
+                key={ministry.name}
+                onClick={() => setActiveMinistry(index)}
+                className={`relative px-8 py-4 text-sm font-medium transition-all duration-200`}
+                style={{ 
+                  color: activeMinistry === index ? violetColor : "gray-500"
+                }}
+              >
+                <span className="relative z-10">{ministry.name}</span>
+                {activeMinistry === index && (
+                  <motion.div
+                    className="absolute bottom-0 left-0 right-0 h-0.5"
+                    style={{ background: violetColor }}
+                    layoutId="activeTab"
+                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
                   />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-r ${ministry.gradient} opacity-30 group-hover:opacity-70 transition-opacity duration-300`}
-                  />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white font-semibold bg-gradient-to-t from-black/60 to-transparent">
-                    {ministry.schedule}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="font-bold text-2xl mb-2 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    {ministry.name}
-                  </h3>
-                  <p className="text-gray-700 mb-4 h-24">{ministry.description}</p>
-                  <a
-                    href={ministry.instagram}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`inline-block w-full py-3 px-6 text-center text-white rounded-lg bg-gradient-to-r ${ministry.gradient} transform transition-all duration-300 hover:scale-105 hover:shadow-lg`}
-                  >
-                    Seguinos en Instagram
-                  </a>
-                </div>
+                )}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Contenido del ministerio activo */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeMinistry}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
+          >
+            {/* Imagen - En móvil arriba, en desktop a la izquierda */}
+            <div className="relative aspect-[4/3] overflow-hidden rounded-lg shadow-xl order-1">
+              <Image
+                src={ministries[activeMinistry].image || "/placeholder.svg"}
+                alt={`Ministerio ${ministries[activeMinistry].name}`}
+                fill
+                className="object-cover"
+                priority
+              />
+              <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom right, ${violetColor}10, ${creamColor}20)` }}></div>
+              
+              {/* Esquinas decorativas en la imagen */}
+              <div className="absolute top-0 left-0 w-12 h-12 border-t-2 border-l-2 rounded-tl-md" 
+                style={{ borderColor: violetLight }}></div>
+              <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 rounded-tr-md" 
+                style={{ borderColor: violetLight }}></div>
+              <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 rounded-bl-md" 
+                style={{ borderColor: violetLight }}></div>
+              <div className="absolute bottom-0 right-0 w-12 h-12 border-b-2 border-r-2 rounded-br-md" 
+                style={{ borderColor: violetLight }}></div>
+            </div>
+
+            {/* Información - En móvil abajo, en desktop a la derecha */}
+            <div className="space-y-5 order-2">
+              <div>
+                <h3 className="text-2xl md:text-3xl font-semibold mb-2" style={{ color: violetColor }}>
+                  {ministries[activeMinistry].name}
+                </h3>
+                <p className="text-sm uppercase tracking-wider font-medium" style={{ color: "gray-500" }}>
+                  {ministries[activeMinistry].ageGroup}
+                </p>
               </div>
-            </motion.div>
+
+              <div className="w-12 h-0.5" style={{ background: `linear-gradient(to right, ${creamColor}, ${violetColor})` }}></div>
+
+              <p className="text-gray-700 leading-relaxed">{ministries[activeMinistry].description}</p>
+
+              <div className="flex items-center text-sm" style={{ color: violetColor }}>
+                <Clock className="w-4 h-4 mr-2" />
+                <span>{ministries[activeMinistry].schedule}</span>
+              </div>
+
+              <a
+                href={ministries[activeMinistry].instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 rounded-md transition-colors group"
+                style={{ 
+                  backgroundColor: violetColor, 
+                  color: "white",
+                  boxShadow: `0 4px 6px -1px ${violetColor}40`
+                }}
+              >
+                <Instagram className="w-4 h-4 mr-2" />
+                <span>Seguinos en Instagram</span>
+                <ChevronRight className="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" />
+              </a>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Indicadores de navegación */}
+        <div className="flex justify-center mt-8 md:mt-12 space-x-2">
+          {ministries.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveMinistry(index)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                activeMinistry === index ? "w-8" : ""
+              }`}
+              style={{ 
+                backgroundColor: activeMinistry === index ? violetColor : violetLight,
+                boxShadow: activeMinistry === index ? `0 0 8px ${violetColor}60` : "none"
+              }}
+              aria-label={`Ver ministerio ${index + 1}`}
+            />
           ))}
         </div>
       </div>

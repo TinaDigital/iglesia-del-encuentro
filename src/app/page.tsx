@@ -1,5 +1,4 @@
-import { Banner } from "@/components/banner"
-import { ActionButtons } from "@/components/action-buttons"
+import { Hero } from "@/components/hero"
 import { VideoCarousel } from "@/components/video-carousel"
 import { Ministries } from "@/components/ministries"
 import { ContactCTA } from "@/components/contact-cta"
@@ -7,8 +6,7 @@ import { ContactCTA } from "@/components/contact-cta"
 export default function Home() {
   return (
     <main>
-      <Banner />
-      <ActionButtons />
+      <Hero />
       <VideoCarousel />
       <Ministries />
       <ContactCTA />
