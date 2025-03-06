@@ -16,33 +16,13 @@ interface Video {
   channelTitle?: string
 }
 
-interface YouTubePlaylistItem {
-  snippet: {
-    resourceId: {
-      videoId: string
-    }
-    title: string
-    thumbnails: {
-      high?: {
-        url: string
-      }
-      medium?: {
-        url: string
-      }
-    }
-    channelTitle: string
-  }
-}
-
 export function VideoCarousel() {
   const [videos, setVideos] = useState<Video[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [activeVideo, setActiveVideo] = useState<string | null>(null)
-  const [fullscreen, setFullscreen] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(true)
+
   const carouselRef = useRef<HTMLDivElement>(null)
   const videoContainerRef = useRef<HTMLDivElement>(null)
 
@@ -83,7 +63,7 @@ export function VideoCarousel() {
           throw new Error(data.error.message || "Error al cargar los videos")
         }
 
-        const formattedVideos = data.items.map((item: YouTubePlaylistItem) => ({
+        const formattedVideos = data.items.map((item: any) => ({
           id: item.snippet.resourceId.videoId,
           title: item.snippet.title,
           thumbnail: item.snippet.thumbnails.high?.url || item.snippet.thumbnails.medium?.url,
@@ -143,6 +123,7 @@ export function VideoCarousel() {
     setActiveVideo(videoId)
   }
 
+  
   // Determinar cuántos videos mostrar según el dispositivo
   const slidesToShow = isMobile ? 1 : 3
 
@@ -255,7 +236,7 @@ export function VideoCarousel() {
           >
             <div className="aspect-video bg-black">
               <iframe
-                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&mute=${isMuted ? 1 : 0}&controls=1&modestbranding=1&rel=0&showinfo=0`}
+                src={`https://www.youtube.com/embed/${activeVideo}?autoplay=1&controls=1&modestbranding=1&rel=0&showinfo=0`}
                 title="YouTube video player"
                 className="w-full h-full transition-transform duration-500"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -407,3 +388,4 @@ export function VideoCarousel() {
     </div>
   )
 }
+
