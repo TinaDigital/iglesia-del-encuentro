@@ -14,7 +14,7 @@ export default function SoyNuevoPage() {
   const isProcessInView = useInView(processRef, { once: true, amount: 0.2 })
   const isContactInView = useInView(contactRef, { once: true, amount: 0.2 })
 
-  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+  const scrollToSection = (ref: React.RefObject<HTMLElement | HTMLDivElement | null>) => {
     ref.current?.scrollIntoView({ behavior: "smooth" })
   }
 
