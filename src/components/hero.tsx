@@ -13,18 +13,8 @@ import dardesktop from "../../public/dar-desktop.jpg"
 
 export function Hero() {
   const [activeButton, setActiveButton] = useState<number | null>(null)
-  const [scrollY, setScrollY] = useState(0)
   const [showDarPopup, setShowDarPopup] = useState(false)
 
-  // Efecto para detectar el scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY)
-    }
-    
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
 
   // Colores personalizados con tonos más sutiles
   const violetColor = "#8b5cf6" // Violeta principal
