@@ -177,7 +177,7 @@ export default function SoyNuevoPage() {
                   className="w-full h-full object-cover"
                   preload="metadata"
                 >
-                  <source src="/Bienvenida Web.mp4" type="video/mp4" />
+                  <source src="/Bienvenida-web.mp4" type="video/mp4" />
                   Tu navegador no soporta la reproducción de videos.
                 </video>
               </div>
