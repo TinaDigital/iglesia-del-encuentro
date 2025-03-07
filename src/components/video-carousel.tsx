@@ -3,7 +3,7 @@
 import type React from "react"
 
 import { useState, useEffect, useRef } from "react"
-import { ChevronLeft, ChevronRight, Play } from "lucide-react"
+import { ChevronLeft, ChevronRight, Play, Youtube } from "lucide-react"
 
 // Reemplaza con tu clave de API de YouTube y el ID de la lista de reproducción
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "AIzaSyBzkpqAsiSfgIHakQ9WSKOy3LndwIMzaOs"
@@ -222,12 +222,20 @@ export function VideoCarousel() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Título del carrusel */}
-        <h2
-          className="text-2xl md:text-4xl font-bold text-center mb-8 bg-clip-text text-transparent"
-          style={{ backgroundImage: `linear-gradient(to right, ${creamColor}, white)` }}
-        >
-          Explora Nuestra Colección de Videos
-        </h2>
+        <div className="flex flex-col items-center justify-center mb-8 px-4 text-center">
+          <div className="flex flex-col md:flex-row items-center justify-center mb-3 gap-2">
+            <div className="rounded-full p-2">
+              <Youtube className="h-8 w-8 md:h-10 md:w-10" style={{ color: creamColor }} />
+            </div>
+            <h2
+              className="text-xl md:text-4xl font-bold bg-clip-text text-transparent text-center"
+              style={{ backgroundImage: `linear-gradient(to right, ${creamColor}, white)` }}
+            >
+              Prédicas sobre nuestro ADN
+            </h2>
+          </div>
+          <div className="w-24 h-1 rounded-full mb-4" style={{ backgroundColor: creamColor }}></div>
+        </div>
 
         {/* Reproductor de video activo */}
         {activeVideo && (
@@ -322,9 +330,9 @@ export function VideoCarousel() {
             </div>
           </div>
 
-          {/* Botones de navegación */}
+          {/* Botones de navegación - solo visibles en desktop */}
           <button
-            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 md:p-3 rounded-full text-white transition-all duration-300 z-10 transform hover:scale-110"
+            className="absolute left-2 top-1/2 -translate-y-1/2 p-2 md:p-3 rounded-full text-white transition-all duration-300 z-10 transform hover:scale-110 hidden md:block"
             style={{
               backgroundColor: "rgba(0, 0, 0, 0.4)",
               backdropFilter: "blur(4px)",
@@ -338,7 +346,7 @@ export function VideoCarousel() {
           </button>
 
           <button
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 md:p-3 rounded-full text-white transition-all duration-300 z-10 transform hover:scale-110"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-2 md:p-3 rounded-full text-white transition-all duration-300 z-10 transform hover:scale-110 hidden md:block"
             style={{
               backgroundColor: "rgba(0, 0, 0, 0.4)",
               backdropFilter: "blur(4px)",
@@ -390,4 +398,3 @@ export function VideoCarousel() {
     </div>
   )
 }
-

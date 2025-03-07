@@ -6,7 +6,9 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { ArrowRight, MessageSquare, Calendar, Users, Lightbulb, Heart, ChevronDown } from "lucide-react"
+import { ArrowRight, MessageSquare, Calendar, Users, Lightbulb, Heart, ChevronDown, DoorOpen, Map, BookOpen, Target, GraduationCap } from "lucide-react"
+import pasos from "../../../public/pasos.jpg"
+import soynuevo from "../../../public/soynuevo.jpg"
 
 export default function SoyNuevoPage() {
   const processRef = useRef(null)
@@ -88,7 +90,7 @@ export default function SoyNuevoPage() {
               className="relative"
             >
               <div className="aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
-                <Image src="/placeholder.svg?height=600&width=800" alt="Bienvenida" fill className="object-cover" />
+                <Image src={soynuevo} alt="Bienvenida" fill className="object-cover" />
 
                 {/* Borde decorativo */}
                 <div
@@ -104,7 +106,7 @@ export default function SoyNuevoPage() {
               >
                 <div className="flex items-center gap-3 mb-3">
                   <Calendar className="w-5 h-5" style={{ color: violetColor }} />
-                  <h3 className="font-medium">Servicios Dominicales</h3>
+                  <h3 className="font-medium">Encuentros Dominicales</h3>
                 </div>
                 <p className="text-sm text-gray-600">11:30hs - Av. Ejemplo 1234</p>
               </div>
@@ -147,7 +149,7 @@ export default function SoyNuevoPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-10"
             >
-              <h2 className="text-3xl font-bold mb-4">Mensaje de Bienvenida</h2>
+              <h2 className="text-3xl font-bold mb-4">Mensaje de bienvenida, dale Play!</h2>
               <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
               <p className="text-gray-600 max-w-2xl mx-auto">Nuestros pastores tienen un mensaje especial para vos</p>
             </motion.div>
@@ -159,25 +161,26 @@ export default function SoyNuevoPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="relative"
             >
-              <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
-                <iframe
-                  src="https://www.youtube.com/embed/VIDEO_ID"
-                  title="Mensaje de Bienvenida"
-                  className="w-full h-full"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-
-              {/* Elementos decorativos */}
+              {/* Elementos decorativos movidos arriba del video */}
               <div
-                className="absolute -top-4 -left-4 w-16 h-16 rounded-full"
+                className="absolute -top-8 -left-8 w-16 h-16 rounded-full -z-10"
                 style={{ backgroundColor: creamColor }}
               ></div>
               <div
-                className="absolute -bottom-4 -right-4 w-24 h-24 rounded-full"
+                className="absolute -top-12 -right-8 w-24 h-24 rounded-full -z-10"
                 style={{ backgroundColor: lightViolet }}
               ></div>
+
+              <div className="aspect-video rounded-lg overflow-hidden shadow-lg">
+                <video
+                  controls
+                  className="w-full h-full object-cover"
+                  preload="metadata"
+                >
+                  <source src="/Bienvenida Web.mp4" type="video/mp4" />
+                  Tu navegador no soporta la reproducción de videos.
+                </video>
+              </div>
             </motion.div>
           </div>
         </div>
@@ -207,80 +210,122 @@ export default function SoyNuevoPage() {
             <p className="text-gray-600 max-w-2xl mx-auto">Tu camino de crecimiento espiritual</p>
           </motion.div>
 
-          <div className="max-w-4xl mx-auto">
-            <div className="relative">
-              {/* Línea conectora */}
-              <div
-                className="absolute left-[39px] top-12 bottom-12 w-px hidden md:block"
-                style={{ backgroundColor: violetColor, opacity: 0.3 }}
-              ></div>
+          <div className="max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+              <div className="relative">
+                {/* Línea conectora */}
+                <div
+                  className="absolute left-[39px] top-12 bottom-12 w-px hidden md:block"
+                  style={{ backgroundColor: violetColor, opacity: 0.3 }}
+                ></div>
 
-              <div className="space-y-12">
-                {[
-                  {
-                    step: 1,
-                    title: "Asistí a un Encuentro",
-                    description: "Participá de nuestros servicios dominicales",
-                    icon: <Calendar className="w-5 h-5" />,
-                  },
-                  {
-                    step: 2,
-                    title: "Conectate",
-                    description: "Unite a un grupo de conexión",
-                    icon: <Users className="w-5 h-5" />,
-                  },
-                  {
-                    step: 3,
-                    title: "Descubrí tu propósito",
-                    description: "Conocé tus dones y talentos",
-                    icon: <Lightbulb className="w-5 h-5" />,
-                  },
-                  {
-                    step: 4,
-                    title: "Serví",
-                    description: "Sé parte de nuestros equipos de servicio",
-                    icon: <Heart className="w-5 h-5" />,
-                  },
-                ].map((item, index) => (
-                  <motion.div
-                    key={index}
-                    className="flex gap-6 items-start"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={isProcessInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                  >
-                    <div
-                      className="flex-shrink-0 w-10 h-10 rounded-full text-white flex items-center justify-center z-10"
-                      style={{ backgroundColor: violetColor }}
+                <div className="space-y-12">
+                  {[
+                    {
+                      step: 0,
+                      title: "Puertas de Acceso",
+                      description: "Ser familia para los que quieren ser familia",
+                      icon: <DoorOpen className="w-5 h-5" />,
+                    },
+                    {
+                      step: 1,
+                      title: "Sumate",
+                      description: "Tener un primer contacto personal",
+                      icon: <Users className="w-5 h-5" />,
+                    },
+                    {
+                      step: 2,
+                      title: "Grupos Primeros Pasos",
+                      description: "Conocer a Jesús e integrarse a la comunidad",
+                      icon: <Map className="w-5 h-5" />,
+                    },
+                    {
+                      step: 3,
+                      title: "Grupos de Bautismo",
+                      description: "Clarificar el significado bíblico del bautismo",
+                      icon: <BookOpen className="w-5 h-5" />,
+                    },
+                    {
+                      step: 4,
+                      title: "Grupos de Servicio",
+                      description: "Descubrir y desarrollar los dones para servir",
+                      icon: <Target className="w-5 h-5" />,
+                    },
+                    {
+                      step: 5,
+                      title: "Grupos de Crecimiento",
+                      description: "Madurar como discípulo de Cristo y arraigarse en la comunidad",
+                      icon: <Heart className="w-5 h-5" />,
+                    },
+                    {
+                      step: 6,
+                      title: "Grupos de Entrenamiento",
+                      description: "Capacitaciones específicas",
+                      icon: <GraduationCap className="w-5 h-5" />,
+                    },
+                  ].map((item, index) => (
+                    <motion.div
+                      key={index}
+                      className="flex gap-6 items-start"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={isProcessInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
                     >
-                      {item.icon}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                      <div
+                        className="flex-shrink-0 w-10 h-10 rounded-full text-white flex items-center justify-center z-10"
+                        style={{ backgroundColor: violetColor }}
+                      >
+                        {item.icon}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                        <p className="text-gray-600">{item.description}</p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-
+              
               <motion.div
-                className="mt-12 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isProcessInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.5 }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={isProcessInView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="relative"
               >
-                <Link
-                  href="/ide-en-pasos"
-                  className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors group"
-                  style={{ backgroundColor: violetColor }}
-                  onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
-                  onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
-                >
-                  Más información
-                  <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Link>
+                <div className="rounded-lg overflow-hidden shadow-lg">
+                  <Image 
+                    src={pasos} 
+                    alt="IDE en Pasos" 
+                    className="w-full h-auto object-cover" 
+                    placeholder="blur"
+                  />
+                  
+                  {/* Borde decorativo */}
+                  <div
+                    className="absolute -inset-1 rounded-lg -z-10"
+                    style={{ backgroundColor: violetColor, opacity: 0.2 }}
+                  ></div>
+                </div>
               </motion.div>
             </div>
+
+            <motion.div
+              className="mt-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              animate={isProcessInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <Link
+                href="/ide-en-pasos"
+                className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors group"
+                style={{ backgroundColor: violetColor }}
+                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
+                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
+              >
+                Más información
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -412,4 +457,3 @@ export default function SoyNuevoPage() {
     </main>
   )
 }
-

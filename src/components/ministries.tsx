@@ -5,6 +5,9 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight } from "lucide-react"
+import breakpoint from "../../public/breakpoint.jpeg"
+import ninos from "../../public/311.jpeg"
+import boomerang from "../../public/boomerang.jpg"
 
 export function Ministries() {
   const [activeMinistry, setActiveMinistry] = useState(0)
@@ -25,7 +28,7 @@ export function Ministries() {
       name: "Entretiempo",
       description:
         "Un espacio divertido y seguro donde los niños aprenden sobre Dios a través de juegos, música y actividades creativas.",
-      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RCd8ojbZaFuExFFvbMvjcZLAWYOn0u.png",
+      image: ninos,
       instagram: "https://instagram.com/entretiempo",
       schedule: "Domingos 11:00hs",
       ageGroup: "Niños",
@@ -35,7 +38,7 @@ export function Ministries() {
       description:
         "Un ministerio dinámico para adolescentes donde pueden crecer en su fe, hacer amigos y divertirse en un ambiente seguro.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/boomerang-placeholder-uOE9m2JKLwqxvF5tR7yHn4IpYWsX8D.jpg",
+        boomerang,
       instagram: "https://instagram.com/boomerang",
       schedule: "Sábados 17:00hs",
       ageGroup: "Adolescentes",
@@ -55,7 +58,7 @@ export function Ministries() {
       description:
         "Un ministerio para adultos jóvenes donde pueden encontrar comunidad, mentoría y crecimiento espiritual en cada etapa de la vida.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/breakpoint-placeholder-mPE5s8NKLwqxvF3tR7yHn4IjYWsX9B.jpg",
+        breakpoint,
       instagram: "https://instagram.com/breakpoint",
       schedule: "Viernes 20:00hs",
       ageGroup: "Adultos jóvenes",
