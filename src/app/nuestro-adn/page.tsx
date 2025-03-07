@@ -4,9 +4,8 @@ import type React from "react"
 
 import { useRef, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion, useInView, AnimatePresence } from "framer-motion"
-import { Heart, Youtube, Dna, Zap, ArrowRight, ChevronDown, Sparkles, Star, Shield, Smile } from "lucide-react"
+import { Heart, Youtube, Dna, Zap, ChevronDown, Sparkles, Star, Shield, Smile } from "lucide-react"
 import { VideoCarousel } from "@/components/video-carousel"
 import adn from "../../../public/adn.jpg"
 
@@ -69,7 +68,6 @@ export default function NuestroADNPage() {
   const valuesRef = useRef<HTMLDivElement>(null)
   const videosRef = useRef<HTMLDivElement>(null)
   const isValuesInView = useInView(valuesRef, { once: true, amount: 0.2 })
-  const isVideosInView = useInView(videosRef, { once: true, amount: 0.2 })
   const [activeValue, setActiveValue] = useState<number | null>(null)
 
   // Colores personalizados

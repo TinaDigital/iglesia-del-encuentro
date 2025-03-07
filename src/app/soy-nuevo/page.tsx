@@ -6,7 +6,7 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView } from "framer-motion"
-import { ArrowRight, MessageSquare, Calendar, Users, Lightbulb, Heart, ChevronDown, DoorOpen, Map, BookOpen, Target, GraduationCap } from "lucide-react"
+import { ArrowRight, MessageSquare, Calendar, Users, Heart, ChevronDown, DoorOpen, Map, BookOpen, Target, GraduationCap } from "lucide-react"
 import pasos from "../../../public/pasos.jpg"
 import soynuevo from "../../../public/soynuevo.jpg"
 

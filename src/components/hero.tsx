@@ -40,8 +40,6 @@ export function Hero() {
     { href: "#", text: "Dar", icon: <FaHandHoldingHeart />, color: "#5b21b6", onClick: () => setShowDarPopup(true) },
   ];
 
-  // Calcular la opacidad del sombreado basado en el scroll
-  const shadowOpacity = Math.min(0.6, 0.3 + (scrollY * 0.001))
 
   return (
     <>

@@ -3,8 +3,8 @@
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion, useInView, AnimatePresence, useScroll, useTransform, useSpring } from "framer-motion"
-import { ChevronRight, Users, Lightbulb, Heart, ArrowRight, DoorOpen, Map, Target, Presentation, GraduationCap, BookOpen, ChevronDown, ChevronLeft, MousePointer } from 'lucide-react'
+import { motion, useInView, AnimatePresence, useScroll, useSpring } from "framer-motion"
+import { ChevronRight, Users, Heart, ArrowRight, DoorOpen, Map, Target, GraduationCap, BookOpen, ChevronDown, ChevronLeft, MousePointer } from 'lucide-react'
 
 export default function IDEEnPasosPage() {
   const [activeStep, setActiveStep] = useState(0)
