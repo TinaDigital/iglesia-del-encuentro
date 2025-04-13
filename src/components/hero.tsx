@@ -8,12 +8,10 @@ import { FaUser, FaClock, FaPersonWalking, FaUsers } from "react-icons/fa6"
 import bannercelu from "../../public/Folleto-Mobile.png"
 import bannertablet from "../../public/Folleto-Tablet.png"
 import bannerdesktop from "../../public/Folleto-Desktop.png"
-import darcelu from "../../public/dar-celu.jpg"
-import dardesktop from "../../public/dar-desktop.jpg"
+
 
 export function Hero() {
   const [activeButton, setActiveButton] = useState<number | null>(null)
-  const [showDarPopup, setShowDarPopup] = useState(false)
 
 
   // Colores personalizados con tonos más sutiles
@@ -109,103 +107,53 @@ export function Hero() {
                 />
 
                 {/* Botón principal con colores más sutiles */}
-                {button.onClick ? (
-                  <button onClick={button.onClick} className="block w-full">
+                <Link href={button.href} className="block w-full">
+                  <div
+                    className={`relative w-full h-14 md:h-16 flex justify-center items-center rounded-full shadow-md transition-all duration-300 overflow-hidden`}
+                    style={{
+                      backgroundColor: activeButton === index ? creamLight : violetColor,
+                      color: activeButton === index ? violetColor : creamLight,
+                      border: activeButton === index ? `1px solid ${violetLight}` : "none",
+                    }}
+                  >
+                    {/* Efecto de resplandor sutil */}
                     <div
-                      className={`relative w-full h-14 md:h-16 flex justify-center items-center rounded-full shadow-md transition-all duration-300 overflow-hidden`}
+                      className={`absolute inset-0 transition-opacity duration-300 ${
+                        activeButton === index ? "opacity-10" : "opacity-0"
+                      }`}
                       style={{
-                        backgroundColor: activeButton === index ? creamLight : violetColor,
-                        color: activeButton === index ? violetColor : creamLight,
-                        border: activeButton === index ? `1px solid ${violetLight}` : "none",
+                        background: `linear-gradient(135deg, ${creamColor}80 0%, ${violetLight}40 100%)`,
                       }}
-                    >
-                      {/* Efecto de resplandor sutil */}
+                    />
+
+                    {/* Contenido del botón */}
+                    <div className="flex items-center space-x-2 md:space-x-3 px-3 md:px-6">
                       <div
-                        className={`absolute inset-0 transition-opacity duration-300 ${
-                          activeButton === index ? "opacity-10" : "opacity-0"
-                        }`}
+                        className={`flex items-center justify-center rounded-full transition-all duration-300`}
                         style={{
-                          background: `linear-gradient(135deg, ${creamColor}80 0%, ${violetLight}40 100%)`,
+                          color: activeButton === index ? violetColor : creamLight,
                         }}
-                      />
-
-                      {/* Contenido del botón */}
-                      <div className="flex items-center space-x-2 md:space-x-3 px-3 md:px-6">
-                        <div
-                          className={`flex items-center justify-center rounded-full transition-all duration-300`}
-                          style={{
-                            color: activeButton === index ? violetColor : creamLight,
-                          }}
-                        >
-                          {button.icon}
-                        </div>
-                        <span className="font-medium text-sm md:text-base lg:text-lg">{button.text}</span>
-                      </div>
-
-                      {/* Indicador de hover */}
-                      <motion.div
-                        className="absolute right-3 md:right-4 opacity-0 transition-opacity duration-300"
-                        animate={{ opacity: activeButton === index ? 1 : 0, x: activeButton === index ? 0 : 10 }}
                       >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </motion.div>
+                        {button.icon}
+                      </div>
+                      <span className="font-medium text-sm md:text-base lg:text-lg">{button.text}</span>
                     </div>
-                  </button>
-                ) : (
-                  <Link href={button.href} className="block w-full">
-                    <div
-                      className={`relative w-full h-14 md:h-16 flex justify-center items-center rounded-full shadow-md transition-all duration-300 overflow-hidden`}
-                      style={{
-                        backgroundColor: activeButton === index ? creamLight : violetColor,
-                        color: activeButton === index ? violetColor : creamLight,
-                        border: activeButton === index ? `1px solid ${violetLight}` : "none",
-                      }}
+
+                    {/* Indicador de hover */}
+                    <motion.div
+                      className="absolute right-3 md:right-4 opacity-0 transition-opacity duration-300"
+                      animate={{ opacity: activeButton === index ? 1 : 0, x: activeButton === index ? 0 : 10 }}
                     >
-                      {/* Efecto de resplandor sutil */}
-                      <div
-                        className={`absolute inset-0 transition-opacity duration-300 ${
-                          activeButton === index ? "opacity-10" : "opacity-0"
-                        }`}
-                        style={{
-                          background: `linear-gradient(135deg, ${creamColor}80 0%, ${violetLight}40 100%)`,
-                        }}
-                      />
-
-                      {/* Contenido del botón */}
-                      <div className="flex items-center space-x-2 md:space-x-3 px-3 md:px-6">
-                        <div
-                          className={`flex items-center justify-center rounded-full transition-all duration-300`}
-                          style={{
-                            color: activeButton === index ? violetColor : creamLight,
-                          }}
-                        >
-                          {button.icon}
-                        </div>
-                        <span className="font-medium text-sm md:text-base lg:text-lg">{button.text}</span>
-                      </div>
-
-                      {/* Indicador de hover */}
-                      <motion.div
-                        className="absolute right-3 md:right-4 opacity-0 transition-opacity duration-300"
-                        animate={{ opacity: activeButton === index ? 1 : 0, x: activeButton === index ? 0 : 10 }}
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
-                          <path
-                            fillRule="evenodd"
-                            d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                      </motion.div>
-                    </div>
-                  </Link>
-                )}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path
+                          fillRule="evenodd"
+                          d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </motion.div>
+                  </div>
+                </Link>
               </motion.div>
             </div>
           ))}
