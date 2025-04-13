@@ -11,7 +11,7 @@ export default function GruposPage() {
   const [activeTab, setActiveTab] = useState(0)
   
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true, threshold: 0.1 })
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 })
 
   // Colores personalizados con tonos más sutiles
   const violetColor = "#8b5cf6" // Violeta principal
