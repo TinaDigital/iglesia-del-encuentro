@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
-import { FaUser, FaClock, FaBook, FaHandHoldingHeart } from "react-icons/fa"
+import { FaUser, FaClock, FaPersonWalking, FaUsers } from "react-icons/fa6"
 import bannercelu from "../../public/Folleto-Mobile.png"
 import bannertablet from "../../public/Folleto-Tablet.png"
 import bannerdesktop from "../../public/Folleto-Desktop.png"
@@ -24,10 +24,10 @@ export function Hero() {
   const creamLight = "#faf7f2" // Crema muy claro
 
   const buttons = [
-    { href: "/form", text: "¡Contanos sobre vos!", icon: <FaUser />, color: violetColor },
+    { href: "/soy-nuevo", text: "Soy nuevo", icon: <FaUser />, color: violetColor },
     { href: "/horarios", text: "Horarios y Encuentros", icon: <FaClock />, color: "#7c3aed" },
-    { href: "/creencias", text: "En esto creemos", icon: <FaBook />, color: "#6d28d9" },
-    { href: "#", text: "Dar", icon: <FaHandHoldingHeart />, color: "#5b21b6", onClick: () => setShowDarPopup(true) },
+    { href: "/primeros-pasos", text: "Primeros Pasos", icon: <FaPersonWalking />, color: "#6d28d9" },
+    { href: "/somos-familia", text: "Somos Familia", icon: <FaUsers />, color: "#5b21b6" },
   ];
 
 
@@ -211,46 +211,6 @@ export function Hero() {
           ))}
         </motion.div>
       </div>
-
-      {/* Pop-up de Dar */}
-      {showDarPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/70">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="relative max-w-4xl w-full mx-4"
-          >
-            {/* Botón para cerrar */}
-            <button 
-              onClick={() => setShowDarPopup(false)}
-              className="absolute -top-12 right-0 text-white bg-violetColor p-2 rounded-full"
-              style={{ backgroundColor: violetColor }}
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-            
-            {/* Imagen para móvil */}
-            <div className="block md:hidden">
-              <Image
-                src={darcelu}
-                alt="Información para dar"
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
-            </div>
-            
-            {/* Imagen para desktop */}
-            <div className="hidden md:block">
-              <Image
-                src={dardesktop}
-                alt="Información para dar"
-                className="w-full h-auto rounded-lg shadow-xl"
-              />
-            </div>
-          </motion.div>
-        </div>
-      )}
 
       {/* Estilos para la animación de brillo */}
       <style jsx global>{`

@@ -56,30 +56,22 @@ export default function SoyNuevoPage() {
                 BIENVENIDO
               </span>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                Encontrá tu lugar en nuestra <span style={{ color: violetColor }}>comunidad</span>
+                ¡Llegaste a <span style={{ color: violetColor }}>casa!</span>
               </h1>
               <p className="text-lg text-gray-600 mb-8 max-w-lg">
-                Estamos felices de que estés aquí. Queremos conocerte y acompañarte en tu camino.
+                ¡Te damos la bienvenida a la IDE! Es una alegría enorme que puedas estar aquí. Hemos estado pensando en vos desde hace algún tiempo. Nos hemos propuesto ser una comunidad de fe que haga fácil y sencilla la integración de aquellos que aún no nos conocen. ¡Te esperamos el próximo domingo!
               </p>
 
               <div className="flex flex-wrap gap-4">
-                <a
-                  href="#video"
+                <Link
+                  href="/horarios-y-encuentros"
                   className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors"
                   style={{ backgroundColor: violetColor }}
                   onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
                   onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
                 >
-                  Ver mensaje
-                </a>
-
-                <button
-                  onClick={() => scrollToSection(contactRef)}
-                  className="inline-flex items-center px-6 py-3 border rounded-md hover:bg-white/50 transition-colors"
-                  style={{ borderColor: violetColor, color: violetColor }}
-                >
-                  Contactarnos
-                </button>
+                  Horarios y encuentros
+                </Link>
               </div>
             </motion.div>
 
@@ -101,21 +93,21 @@ export default function SoyNuevoPage() {
 
               {/* Overlay con información de servicios */}
               <div
-                className="absolute -bottom-6 -right-6 p-6 rounded-lg shadow-lg max-w-xs"
+                className="absolute -bottom-6 -right-6 p-6 rounded-lg shadow-lg max-w-xs hidden lg:block"
                 style={{ backgroundColor: "white", borderLeft: `4px solid ${violetColor}` }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <Calendar className="w-5 h-5" style={{ color: violetColor }} />
                   <h3 className="font-medium">Encuentros Dominicales</h3>
                 </div>
-                <p className="text-sm text-gray-600">11:30hs - Av. Ejemplo 1234</p>
+                <p className="text-sm text-gray-600">9:30hs y 11:30hs - Olavarría 319, Quilmes centro</p>
               </div>
             </motion.div>
           </div>
 
           {/* Indicador de scroll */}
           <motion.div
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+            className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center hidden md:flex"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, y: [0, 10, 0] }}
             transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY, delay: 1 }}
@@ -149,9 +141,9 @@ export default function SoyNuevoPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-10"
             >
-              <h2 className="text-3xl font-bold mb-4">Mensaje de bienvenida, dale Play!</h2>
+              <h2 className="text-3xl font-bold mb-4">La vida es compleja, queremos ayudarte</h2>
               <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
-              <p className="text-gray-600 max-w-2xl mx-auto">Nuestros pastores tienen un mensaje especial para vos</p>
+              <p className="text-gray-600 max-w-2xl mx-auto">¡Un saludo de bienvenida para vos!</p>
             </motion.div>
 
             <motion.div
@@ -207,7 +199,9 @@ export default function SoyNuevoPage() {
           >
             <h2 className="text-3xl font-bold mb-4">IDE en Pasos</h2>
             <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">Tu camino de crecimiento espiritual</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Creemos que la vida es mejor en grupos y es por eso que desde tu primer día en la IDE te invitaremos a sumarte a un grupo donde semana tras semana irás avanzando en pasos para que tu acceso a la comunidad sea simple, fácil y sencillo. Nuestro deseo es que a lo largo de cada semana, te encuentres con Jesús y sea El quien transforme tu vida para siempre.
+            </p>
           </motion.div>
 
           <div className="max-w-6xl mx-auto">
@@ -322,7 +316,7 @@ export default function SoyNuevoPage() {
                 onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
                 onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
               >
-                Más información
+                Conocé + sobre IDE en PASOS
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </motion.div>
@@ -349,107 +343,36 @@ export default function SoyNuevoPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold mb-4">Contacto</h2>
+            <h2 className="text-3xl font-bold mb-4">¡Queremos conocerte!</h2>
             <div className="w-20 h-1 mx-auto mb-4" style={{ backgroundColor: violetColor }}></div>
-            <p className="text-gray-600 max-w-2xl mx-auto">Dejanos tus datos y nos pondremos en contacto contigo</p>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Nuestra motivación es poder ser familia con vos, ya que hemos encontrado en Dios a un Padre que nos ama de una manera sorprendente. Te animamos a dejarnos tus datos para poder conectar con vos y ayudarte en lo que necesites.
+            </p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
-              <div className="md:col-span-2 space-y-8">
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: lightViolet }}
-                  >
-                    <MessageSquare className="w-5 h-5" style={{ color: violetColor }} />
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-1">WhatsApp</h3>
-                    <a
-                      href="https://wa.me/+yourphonenumber"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      style={{ color: violetColor }}
-                      className="hover:underline"
-                    >
-                      +54 9 11 1234-5678
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div
-                    className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: lightViolet }}
-                  >
-                    <Calendar className="w-5 h-5" style={{ color: violetColor }} />
-                  </div>
-                  <div>
-                    <h3 className="font-medium mb-1">Horarios</h3>
-                    <p className="text-gray-600">Domingos 11:30hs</p>
-                  </div>
-                </div>
-              </div>
-
-              <motion.div
-                className="md:col-span-3 bg-white p-8 rounded-lg shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={isContactInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                style={{ borderTop: `4px solid ${violetColor}` }}
+            <div className="flex justify-center gap-8">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfc8XLwOQTXrqy_WaFbCE4BPRljfsA2ocQp_wDdBjUm5N3YTA/viewform"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors"
+                style={{ backgroundColor: violetColor }}
+                onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
+                onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
               >
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-1">
-                      Nombre completo
-                    </label>
-                    <input
-                      type="text"
-                      id="nombre"
-                      name="nombre"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
+                Dejá tus datos
+              </a>
 
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="telefono" className="block text-sm font-medium text-gray-700 mb-1">
-                      Teléfono
-                    </label>
-                    <input
-                      type="tel"
-                      id="telefono"
-                      name="telefono"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-violet-500 focus:border-transparent"
-                      required
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full text-white font-medium py-3 px-6 rounded-md transition-colors"
-                    style={{ backgroundColor: violetColor }}
-                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
-                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = violetColor)}
-                  >
-                    Enviar
-                  </button>
-                </form>
-              </motion.div>
+              <a
+                href="https://wa.me/+yourphonenumber"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 border rounded-md hover:bg-white/50 transition-colors"
+                style={{ borderColor: violetColor, color: violetColor }}
+              >
+                Escribinos
+              </a>
             </div>
           </div>
         </div>

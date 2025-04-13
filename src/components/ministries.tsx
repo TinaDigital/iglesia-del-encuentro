@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
-import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight } from "lucide-react"
+import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight, MapPin } from "lucide-react"
 import breakpoint from "../../public/breakpoint.jpeg"
 import ninos from "../../public/311.jpeg"
 import boomerang from "../../public/boomerang.jpg"
@@ -25,43 +25,58 @@ export function Ministries() {
 
   const ministries = [
     {
-      name: "Entretiempo",
+      name: "Estación 3.11",
       description:
-        "Un espacio divertido y seguro donde los niños aprenden sobre Dios a través de juegos, música y actividades creativas.",
+        "Ayudamos a los niños en edad preescolar a descubrir a Dios de una manera divertida y atractiva! ¡Hay muchos saltos, cantos, bailes, aprendizaje de la Biblia y risas en cada experiencia!",
       image: ninos,
+      instagram: "https://instagram.com/estacion311",
+      schedule: "Domingos 11:30 a 13h",
+      ageGroup: "Niños de 3 a 11 años",
+      location: "Olavarría 316, Quilmes centro"
+    },
+    {
+      name: "Entre Tiempo",
+      description:
+        "El camino a través de la secundaria puede ser difícil, pero no tiene por qué ser solitario. Hemos preparado un ambiente donde puedan aprender cómo Dios los ve y descubrir su verdadera identidad. Realizamos actividades generales y en Grupos.",
+      image:
+        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
       instagram: "https://instagram.com/entretiempo",
-      schedule: "Domingos 11:00hs",
-      ageGroup: "Niños",
+      schedule: "Sábados 17:30 a 19:45h",
+      ageGroup: "Pre Adolescentes de 11 a 13 años",
+      location: "Olavarría 319, Quilmes centro"
     },
     {
       name: "Boomerang",
       description:
-        "Un ministerio dinámico para adolescentes donde pueden crecer en su fe, hacer amigos y divertirse en un ambiente seguro.",
+        "Los años previos a la facultad suelen ser cruciales. Boomerang está aquí para ayudar a que cada estudiante encuentre un lugar seguro donde poder descubrir el propósito de Dios para su vida. Realizamos actividades generales y en Grupos.",
       image:
         boomerang,
       instagram: "https://instagram.com/boomerang",
-      schedule: "Sábados 17:00hs",
-      ageGroup: "Adolescentes",
+      schedule: "Sábados 20 a 23h",
+      ageGroup: "Adolescentes de 14 a 17 años",
+      location: "Olavarría 319, Quilmes centro"
     },
     {
       name: "Pulso",
       description:
-        "Un espacio vibrante para jóvenes adultos donde pueden profundizar su fe, construir relaciones genuinas y descubrir su propósito.",
+        "Los universitarios enfrentan nuevos desafíos de crecimiento y madurez que requieren buenos consejos y buenas influencias. Pulso es el lugar ideal para conectar con Dios y hacer nuevos amigos. Realizamos actividades generales y en Grupos.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
       instagram: "https://instagram.com/pulso",
-      schedule: "Sábados 20:00hs",
-      ageGroup: "Jóvenes",
+      schedule: "Sábados 20h",
+      ageGroup: "Jóvenes de 18 a 29 años",
+      location: "Olavarría 319, Quilmes centro"
     },
     {
       name: "Break Point",
       description:
-        "Un ministerio para adultos jóvenes donde pueden encontrar comunidad, mentoría y crecimiento espiritual en cada etapa de la vida.",
+        "Alcanzar la madurez no se trata solamente de cumplir años. En Break Point amamos el desafío de aprender a mirar atrás con gratitud y hacia adelante con expectativas. Realizamos actividades generales y en Grupos.",
       image:
         breakpoint,
       instagram: "https://instagram.com/breakpoint",
-      schedule: "Viernes 20:00hs",
-      ageGroup: "Adultos jóvenes",
+      schedule: "Sábados 20h",
+      ageGroup: "Jóvenes adultos de 30 a 40 años",
+      location: "Olavarría 319, Quilmes centro"
     },
   ]
 
@@ -222,9 +237,14 @@ export function Ministries() {
 
               <p className="text-gray-700 leading-relaxed">{ministries[activeMinistry].description}</p>
 
-              <div className="flex items-center text-sm" style={{ color: violetColor }}>
+              <div className="flex items-center text-sm mb-2" style={{ color: violetColor }}>
                 <Clock className="w-4 h-4 mr-2" />
                 <span>{ministries[activeMinistry].schedule}</span>
+              </div>
+              
+              <div className="flex items-center text-sm mb-4" style={{ color: violetColor }}>
+                <MapPin className="w-4 h-4 mr-2" />
+                <span>{ministries[activeMinistry].location}</span>
               </div>
 
               <a
@@ -239,7 +259,7 @@ export function Ministries() {
                 }}
               >
                 <Instagram className="w-4 h-4 mr-2" />
-                <span>Seguinos en Instagram</span>
+                <span>¿Tenés preguntas sobre {ministries[activeMinistry].name}?</span>
                 <ChevronRight className="w-4 h-4 ml-2 transform transition-transform group-hover:translate-x-1" />
               </a>
             </div>
