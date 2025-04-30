@@ -49,9 +49,9 @@ export function ContactCTA() {
             className="mb-12"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3">
-              Somos familia para los que{" "}
+            LLegaste a{" "}
               <span className="font-semibold" style={{ color: violetColor }}>
-                no tienen familia
+             casa
               </span>
             </h2>
 

@@ -7,7 +7,7 @@ import { ChevronLeft, ChevronRight, Play, Youtube } from "lucide-react"
 
 // Reemplaza con tu clave de API de YouTube y el ID de la lista de reproducción
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "AIzaSyBzkpqAsiSfgIHakQ9WSKOy3LndwIMzaOs"
-const PLAYLIST_ID = "PLYSj8gAXLPQkhtglOvUVHtEgNTHS2bf7E"
+const PLAYLIST_ID = "PLYSj8gAXLPQm1FcbyIYGYGOhhVVFSW_fU"
 
 interface Video {
   id: string
@@ -231,10 +231,14 @@ export function VideoCarousel() {
               className="text-xl md:text-4xl font-bold bg-clip-text text-transparent text-center"
               style={{ backgroundImage: `linear-gradient(to right, ${creamColor}, white)` }}
             >
-              Prédicas sobre nuestro ADN
+              Unite a la serie del mes
             </h2>
           </div>
           <div className="w-24 h-1 rounded-full mb-4" style={{ backgroundColor: creamColor }}></div>
+          <p className="text-sm md:text-base text-gray-200 max-w-2xl mx-auto">
+            Los mensajes y reflexiones están enfocados para que la fe se pueda vivir de 
+            manera práctica y relevante. ¡Creemos que la Biblia transforma vidas!
+          </p>
         </div>
 
         {/* Reproductor de video activo */}

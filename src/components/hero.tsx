@@ -1,6 +1,8 @@
+// Boton de soy nuevo pasa a segundo y horarios y encuentre pasa a primero
+
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"

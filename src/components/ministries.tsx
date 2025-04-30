@@ -120,12 +120,13 @@ export function Ministries() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-light mb-3 tracking-tight">
-            Nuestros <span className="font-semibold" style={{ color: violetColor }}>Ministerios</span>
+            Discipulado <span className="font-semibold" style={{ color: violetColor }}>Generacional</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-6" style={{ background: `linear-gradient(to right, ${creamColor}, ${violetColor})` }}></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            Espacios diseñados para cada etapa de la vida, donde podrás crecer espiritualmente, formar parte de una
-            comunidad y descubrir tu propósito.
+          Queremos preparar a la próxima generación hacia un encuentro personal con 
+          Jesús que transforme sus vidas. Desde niños hasta jovenes adultos, todos tienen 
+          un lugar donde pertenecer y ser familia.
           </p>
         </motion.div>
 
@@ -140,13 +141,19 @@ export function Ministries() {
             <ArrowLeft className="w-5 h-5" />
           </button>
           
-          <div className="text-center">
-            <h3 className="font-semibold text-lg" style={{ color: violetColor }}>
-              {ministries[activeMinistry].name}
-            </h3>
-            <p className="text-xs text-gray-500">
-              {activeMinistry + 1} de {ministries.length}
-            </p>
+          <div className="text-center flex items-center">
+            <div className="w-8 h-8 rounded-full mr-2 flex items-center justify-center" 
+              style={{ backgroundColor: violetLight, color: violetColor }}>
+              <span className="text-xs font-bold">{ministries[activeMinistry].name.charAt(0)}</span>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg" style={{ color: violetColor }}>
+                {ministries[activeMinistry].name}
+              </h3>
+              <p className="text-xs text-gray-500">
+                {activeMinistry + 1} de {ministries.length}
+              </p>
+            </div>
           </div>
           
           <button 
@@ -171,11 +178,18 @@ export function Ministries() {
               <button
                 key={ministry.name}
                 onClick={() => setActiveMinistry(index)}
-                className={`relative px-8 py-4 text-sm font-medium transition-all duration-200`}
+                className={`relative px-8 py-4 text-sm font-medium transition-all duration-200 flex items-center`}
                 style={{ 
                   color: activeMinistry === index ? violetColor : "gray-500"
                 }}
               >
+                <div className="w-6 h-6 rounded-full mr-2 flex items-center justify-center" 
+                  style={{ 
+                    backgroundColor: activeMinistry === index ? violetLight : "transparent",
+                    color: activeMinistry === index ? violetColor : "gray-400"
+                  }}>
+                  <span className="text-xs font-bold">{ministry.name.charAt(0)}</span>
+                </div>
                 <span className="relative z-10">{ministry.name}</span>
                 {activeMinistry === index && (
                   <motion.div
@@ -224,13 +238,19 @@ export function Ministries() {
 
             {/* Información - En móvil abajo, en desktop a la derecha */}
             <div className="space-y-5 order-2">
-              <div>
-                <h3 className="text-2xl md:text-3xl font-semibold mb-2" style={{ color: violetColor }}>
-                  {ministries[activeMinistry].name}
-                </h3>
-                <p className="text-sm uppercase tracking-wider font-medium" style={{ color: "gray-500" }}>
-                  {ministries[activeMinistry].ageGroup}
-                </p>
+              <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full mr-3 flex items-center justify-center" 
+                  style={{ backgroundColor: violetLight, color: violetColor }}>
+                  <span className="text-lg font-bold">{ministries[activeMinistry].name.charAt(0)}</span>
+                </div>
+                <div>
+                  <h3 className="text-2xl md:text-3xl font-semibold mb-2" style={{ color: violetColor }}>
+                    {ministries[activeMinistry].name}
+                  </h3>
+                  <p className="text-sm uppercase tracking-wider font-medium" style={{ color: "gray-500" }}>
+                    {ministries[activeMinistry].ageGroup}
+                  </p>
+                </div>
               </div>
 
               <div className="w-12 h-0.5" style={{ background: `linear-gradient(to right, ${creamColor}, ${violetColor})` }}></div>
