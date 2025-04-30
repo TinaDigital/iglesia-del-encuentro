@@ -90,7 +90,7 @@ export default function SomosFamiliaPage() {
           >
             <div className="relative">
               <div className="absolute -left-4 -top-4 text-6xl opacity-20 font-serif" style={{ color: violetColor }}>
-                "
+                &ldquo;
               </div>
               <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 text-center">
                 En medio de tanta soledad que nos rodea, aprender a ser familia es un desafío común a todos. Conectar
@@ -100,7 +100,7 @@ export default function SomosFamiliaPage() {
                 className="absolute -right-4 -bottom-4 text-6xl opacity-20 font-serif"
                 style={{ color: violetColor }}
               >
-                "
+                &rdquo;
               </div>
             </div>
 
