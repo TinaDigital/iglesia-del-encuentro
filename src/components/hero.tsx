@@ -7,14 +7,12 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { FaUser, FaClock, FaPersonWalking, FaUsers } from "react-icons/fa6"
-import bannercelu from "../../public/Folleto-Mobile.png"
-import bannertablet from "../../public/Folleto-Tablet.png"
-import bannerdesktop from "../../public/Folleto-Desktop.png"
-
+import bannercelu from "../../public/banner_mobile.gif"
+import bannertablet from "../../public/banner_tablet.gif"
+import bannerdesktop from "../../public/banner_desktop.gif"
 
 export function Hero() {
   const [activeButton, setActiveButton] = useState<number | null>(null)
-
 
   // Colores personalizados con tonos más sutiles
   const violetColor = "#8b5cf6" // Violeta principal
@@ -24,61 +22,68 @@ export function Hero() {
   const creamLight = "#faf7f2" // Crema muy claro
 
   const buttons = [
-    { href: "/soy-nuevo", text: "Soy nuevo", icon: <FaUser />, color: violetColor },
     { href: "/horarios", text: "Horarios y Encuentros", icon: <FaClock />, color: "#7c3aed" },
+    { href: "/soy-nuevo", text: "Soy nuevo", icon: <FaUser />, color: violetColor },
     { href: "/primeros-pasos", text: "Primeros Pasos", icon: <FaPersonWalking />, color: "#6d28d9" },
     { href: "/somos-familia", text: "Somos Familia", icon: <FaUsers />, color: "#5b21b6" },
-  ];
-
+  ]
 
   return (
     <>
       <div className="relative w-full overflow-hidden h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh]">
-       
-        
         {/* Elementos decorativos sutiles */}
         <div className="absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-black/30 to-transparent z-10"></div>
         
         {/* Overlay sutil con tonos violeta y crema */}
         <div className="absolute inset-0 bg-gradient-to-br from-violetLight/10 to-creamLight/10 mix-blend-overlay z-5"></div>
         
-        {/* Imagen para móvil - fija */}
+        {/* Imagen para móvil - optimizada */}
         <div className="block sm:hidden absolute inset-0">
           <Image
             src={bannercelu}
             alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full"
             priority
             fill
-            style={{ objectFit: 'cover' }}
+            quality={100}
+            sizes="100vw"
+            style={{ 
+              objectFit: 'cover',
+              objectPosition: 'center 30%'
+            }}
           />
         </div>
         
-        {/* Imagen para tablet - fija */}
+        {/* Imagen para tablet - optimizada */}
         <div className="hidden sm:block lg:hidden absolute inset-0">
           <Image
             src={bannertablet}
             alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full"
             priority
             fill
-            style={{ objectFit: 'cover' }}
+            quality={100}
+            sizes="(max-width: 1024px) 100vw"
+            style={{ 
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
           />
         </div>
         
-        {/* Imagen para desktop - fija */}
+        {/* Imagen para desktop - optimizada */}
         <div className="hidden lg:block absolute inset-0">
           <Image
             src={bannerdesktop}
             alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-full object-cover object-center"
+            className="w-full h-full"
             priority
-            fill
-            style={{ objectFit: 'cover' }}
+            quality={100}
           />
         </div>
       </div>
 
+      {/* Resto del código sin cambios */}
       <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 relative" style={{ backgroundColor: creamLight + "10" }}>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
