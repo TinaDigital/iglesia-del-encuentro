@@ -60,8 +60,9 @@ export default function Footer() {
               {/* Aquí puedes agregar tu logo */}
             </motion.div>
             <p className="text-sm text-white/80 max-w-xs">
-              Somos una comunidad comprometida con compartir el amor de Dios 
-              y hacer una diferencia en la vida de las personas.
+            La Iglesia del Encuentro es una comunidad de fe en donde amamos celebrar que
+            Jesús transforma vidas. Creemos que su Palabra es quien hace la obra y queremos
+            invitarte a que puedas comprobarlo vos mismo.
             </p>
           </div>
 

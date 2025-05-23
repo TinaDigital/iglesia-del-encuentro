@@ -79,6 +79,11 @@ export function Hero() {
             className="w-full h-full"
             priority
             quality={100}
+            sizes="(max-width: 1024px) 100vw"
+            style={{ 
+              objectFit: 'cover',
+              objectPosition: 'center',
+            }}
           />
         </div>
       </div>

@@ -8,6 +8,11 @@ import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight, MapPin } from "l
 import breakpoint from "../../public/breakpoint.jpeg"
 import ninos from "../../public/311.jpeg"
 import boomerang from "../../public/boomerang.jpg"
+import logoestacion from "../../public/Logos Edades_estacion311.png"
+import logopulso from "../../public/Logos Edades_pulso.png"
+import logobreakpoint from "../../public/Logos Edades_breakpoint.png"
+import logoentre from "../../public/Logos Edades_entretiempo.png"
+import logoboomerang from "../../public/Logos Edades_boomerang.png"
 
 export function Ministries() {
   const [activeMinistry, setActiveMinistry] = useState(0)
@@ -29,6 +34,7 @@ export function Ministries() {
       description:
         "Ayudamos a los niños en edad preescolar a descubrir a Dios de una manera divertida y atractiva! ¡Hay muchos saltos, cantos, bailes, aprendizaje de la Biblia y risas en cada experiencia!",
       image: ninos,
+      logo: logoestacion,
       instagram: "https://instagram.com/estacion311",
       schedule: "Domingos 11:30 a 13h",
       ageGroup: "Niños de 3 a 11 años",
@@ -40,6 +46,7 @@ export function Ministries() {
         "El camino a través de la secundaria puede ser difícil, pero no tiene por qué ser solitario. Hemos preparado un ambiente donde puedan aprender cómo Dios los ve y descubrir su verdadera identidad. Realizamos actividades generales y en Grupos.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
+      logo: logoentre,
       instagram: "https://instagram.com/entretiempo",
       schedule: "Sábados 17:30 a 19:45h",
       ageGroup: "Pre Adolescentes de 11 a 13 años",
@@ -51,6 +58,7 @@ export function Ministries() {
         "Los años previos a la facultad suelen ser cruciales. Boomerang está aquí para ayudar a que cada estudiante encuentre un lugar seguro donde poder descubrir el propósito de Dios para su vida. Realizamos actividades generales y en Grupos.",
       image:
         boomerang,
+      logo: logoboomerang,
       instagram: "https://instagram.com/boomerang",
       schedule: "Sábados 20 a 23h",
       ageGroup: "Adolescentes de 14 a 17 años",
@@ -62,6 +70,7 @@ export function Ministries() {
         "Los universitarios enfrentan nuevos desafíos de crecimiento y madurez que requieren buenos consejos y buenas influencias. Pulso es el lugar ideal para conectar con Dios y hacer nuevos amigos. Realizamos actividades generales y en Grupos.",
       image:
         "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
+      logo: logopulso,
       instagram: "https://instagram.com/pulso",
       schedule: "Sábados 20h",
       ageGroup: "Jóvenes de 18 a 29 años",
@@ -73,6 +82,7 @@ export function Ministries() {
         "Alcanzar la madurez no se trata solamente de cumplir años. En Break Point amamos el desafío de aprender a mirar atrás con gratitud y hacia adelante con expectativas. Realizamos actividades generales y en Grupos.",
       image:
         breakpoint,
+      logo: logobreakpoint,
       instagram: "https://instagram.com/breakpoint",
       schedule: "Sábados 20h",
       ageGroup: "Jóvenes adultos de 30 a 40 años",
@@ -120,7 +130,7 @@ export function Ministries() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-light mb-3 tracking-tight">
-            Discipulado <span className="font-semibold" style={{ color: violetColor }}>Generacional</span>
+            Tu Familia <span className="font-semibold" style={{ color: violetColor }}>importa</span>
           </h2>
           <div className="w-20 h-1 mx-auto mb-6" style={{ background: `linear-gradient(to right, ${creamColor}, ${violetColor})` }}></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
@@ -142,9 +152,14 @@ export function Ministries() {
           </button>
           
           <div className="text-center flex items-center">
-            <div className="w-8 h-8 rounded-full mr-2 flex items-center justify-center" 
-              style={{ backgroundColor: violetLight, color: violetColor }}>
-              <span className="text-xs font-bold">{ministries[activeMinistry].name.charAt(0)}</span>
+            <div className="w-8 h-8 mr-2 flex items-center justify-center overflow-hidden">
+              <Image
+                src={ministries[activeMinistry].logo}
+                alt={`Logo de ${ministries[activeMinistry].name}`}
+                width={30}
+                height={30}
+                className="object-contain"
+              />
             </div>
             <div>
               <h3 className="font-semibold text-lg" style={{ color: violetColor }}>
@@ -174,33 +189,38 @@ export function Ministries() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <div className="inline-flex border-b" style={{ borderColor: violetLight }}>
-            {ministries.map((ministry, index) => (
-              <button
-                key={ministry.name}
-                onClick={() => setActiveMinistry(index)}
-                className={`relative px-8 py-4 text-sm font-medium transition-all duration-200 flex items-center`}
-                style={{ 
-                  color: activeMinistry === index ? violetColor : "gray-500"
-                }}
-              >
-                <div className="w-6 h-6 rounded-full mr-2 flex items-center justify-center" 
-                  style={{ 
-                    backgroundColor: activeMinistry === index ? violetLight : "transparent",
-                    color: activeMinistry === index ? violetColor : "gray-400"
-                  }}>
-                  <span className="text-xs font-bold">{ministry.name.charAt(0)}</span>
-                </div>
-                <span className="relative z-10">{ministry.name}</span>
-                {activeMinistry === index && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 right-0 h-0.5"
-                    style={{ background: violetColor }}
-                    layoutId="activeTab"
-                    transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
+            {ministries.map((ministry, index) => {
+              const isActive = activeMinistry === index;
+              return (
+                <button
+                  key={`tab-${ministry.name}`}
+                  onClick={() => setActiveMinistry(index)}
+                  className={`relative px-8 py-4 text-sm font-medium transition-all duration-200 flex items-center text-gray-500 ${
+                    isActive ? 'text-violet-500' : ''
+                  }`}
+                >
+                  <div className="w-6 h-6 mr-2 flex items-center justify-center overflow-hidden">
+                    <Image
+                      src={ministry.logo}
+                      alt={`Logo de ${ministry.name}`}
+                      width={24}
+                      height={24}
+                      className="object-contain"
+                    />
+                  </div>
+                  <span className="relative z-10">{ministry.name}</span>
+                  {isActive ? (
+                    <motion.div
+                      key={`underline-${ministry.name}`}
+                      className="absolute bottom-0 left-0 right-0 h-0.5"
+                      style={{ background: violetColor }}
+                      layoutId="activeTab"
+                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
+                    />
+                  ) : null}
+                </button>
+              );
+            })}
           </div>
         </motion.div>
 
@@ -239,9 +259,14 @@ export function Ministries() {
             {/* Información - En móvil abajo, en desktop a la derecha */}
             <div className="space-y-5 order-2">
               <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full mr-3 flex items-center justify-center" 
-                  style={{ backgroundColor: violetLight, color: violetColor }}>
-                  <span className="text-lg font-bold">{ministries[activeMinistry].name.charAt(0)}</span>
+                <div className="w-12 h-12 mr-3 flex items-center justify-center overflow-hidden">
+                  <Image
+                    src={ministries[activeMinistry].logo}
+                    alt={`Logo de ${ministries[activeMinistry].name}`}
+                    width={0}
+                    height={50}
+                    className="object-contain"
+                  />
                 </div>
                 <div>
                   <h3 className="text-2xl md:text-3xl font-semibold mb-2" style={{ color: violetColor }}>
@@ -290,7 +315,7 @@ export function Ministries() {
         <div className="flex justify-center mt-8 md:mt-12 space-x-2">
           {ministries.map((_, index) => (
             <button
-              key={index}
+              key={`indicator-${index}`}
               onClick={() => setActiveMinistry(index)}
               className={`w-2 h-2 rounded-full transition-all duration-300 ${
                 activeMinistry === index ? "w-8" : ""

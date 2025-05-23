@@ -49,10 +49,10 @@ export function ContactCTA() {
             className="mb-12"
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3">
-            LLegaste a{" "}
+              ¡Llegaste a{" "}
               <span className="font-semibold" style={{ color: violetColor }}>
-             casa
-              </span>
+                Casa
+              </span>!
             </h2>
 
             <div className="relative h-0.5 w-full max-w-xs mx-auto my-6 bg-gray-100 overflow-hidden">
@@ -65,7 +65,7 @@ export function ContactCTA() {
             </div>
 
             <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
-              Queremos saber más de vos y acompañarte en tu camino espiritual
+              Durante más de 130 años, hemos estado acompañando a personas como vos a descubrir una fe práctica y auténtica en Jesús. ¡Tu próximo paso puede ser visitarnos personalmente!
             </p>
           </motion.div>
 
@@ -77,9 +77,7 @@ export function ContactCTA() {
             className="flex flex-col sm:flex-row gap-4 items-center"
           >
             <motion.a
-              href="https://wa.me/+5491112345678"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/horarios-y-encuentros"
               className="group relative inline-flex items-center gap-2 px-8 py-4 overflow-hidden rounded-md shadow-md"
               style={{ backgroundColor: violetColor }}
               onHoverStart={() => setIsHovered(true)}
@@ -88,8 +86,7 @@ export function ContactCTA() {
               whileTap={{ scale: 0.98 }}
             >
               <span className="relative z-10 flex items-center font-medium" style={{ color: isHovered ? violetColor : "white" }}>
-                <MessageSquare className="w-5 h-5 mr-2" />
-                Contactanos por WhatsApp
+                Horarios y Encuentros
                 <motion.div animate={{ x: isHovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </motion.div>
@@ -101,18 +98,6 @@ export function ContactCTA() {
                 animate={{ x: isHovered ? "0%" : "-100%" }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
-            </motion.a>
-
-            <span className="text-gray-500 text-sm">o</span>
-
-            <motion.a
-              href="/contacto"
-              className="font-medium transition-colors"
-              style={{ color: violetColor }}
-              whileHover={{ scale: 1.05, color: "#7c3aed" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Conocé más sobre nosotros
             </motion.a>
           </motion.div>
         </div>
