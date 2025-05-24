@@ -25,7 +25,7 @@ const navItems = [
       { name: "Escuela del Encuentro", href: "http://escueladelencuentro.com.ar/" },
       { name: "Dignos", href: "https://www.instagram.com/dignosok/?igsh=MXdlcm9sNnR5b3htZg%3D%3D#" },
       { name: "Quilmes Mi Casa", href: "https://fundacionhechos.org.ar/" },
-      { name: "Somos Hijos", href: "https://somoshijos.org/" },
+      { name: "Somos Hijos", href: "https://www.instagram.com/somoshijosok/" },
     ],
   },
   {
@@ -166,6 +166,8 @@ export function MainNav() {
                   <Link
                     href={item.href}
                     className="px-2 py-1.5 text-sm text-gray-700 hover:text-purple-500 flex items-center relative z-10"
+                    target={item.href.startsWith('http') ? '_blank' : undefined}
+                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                   >
                     {item.name}
                     {item.submenu && (
@@ -184,6 +186,8 @@ export function MainNav() {
                           key={subItem.name}
                           href={subItem.href}
                           className="block px-3 py-1.5 text-xs text-gray-600 hover:bg-purple-50 hover:text-purple-500 transition-colors"
+                          target={subItem.href.startsWith('http') ? '_blank' : undefined}
+                          rel={subItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         >
                           {subItem.name}
                         </Link>
@@ -294,6 +298,8 @@ export function MainNav() {
                         href={item.href}
                         onClick={() => setIsOpen(false)}
                         className="block py-3.5 text-xl text-gray-700 hover:text-purple-500 font-medium transition-colors relative group"
+                        target={item.href.startsWith('http') ? '_blank' : undefined}
+                        rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                       >
                         <div className="flex items-center">
                           <span className="absolute left-0 opacity-0 transition-opacity group-hover:opacity-70 text-purple-300 -translate-x-5">•</span>
