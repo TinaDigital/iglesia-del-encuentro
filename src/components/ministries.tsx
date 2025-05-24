@@ -37,7 +37,7 @@ export function Ministries() {
         "Ayudamos a los niños en edad preescolar a descubrir a Dios de una manera divertida y atractiva! ¡Hay muchos saltos, cantos, bailes, aprendizaje de la Biblia y risas en cada experiencia!",
       image: ninos,
       logo: logoestacion,
-      instagram: "https://instagram.com/estacion311",
+      instagram: "https://www.instagram.com/e311.ide/",
       schedule: "Domingos 11:30 a 13h",
       ageGroup: "Niños de 3 a 11 años",
       location: "Olavarría 316, Quilmes centro"
@@ -49,7 +49,7 @@ export function Ministries() {
       image:
         entretiempo,
       logo: logoentre,
-      instagram: "https://instagram.com/entretiempo",
+      instagram: "https://www.instagram.com/entretiempo.ide/",
       schedule: "Sábados 17:30 a 19:45h",
       ageGroup: "Pre Adolescentes de 11 a 13 años",
       location: "Olavarría 319, Quilmes centro"
@@ -61,7 +61,7 @@ export function Ministries() {
       image:
         boomerang,
       logo: logoboomerang,
-      instagram: "https://instagram.com/boomerang",
+      instagram: "https://www.instagram.com/boomerang.ide/",
       schedule: "Sábados 20 a 23h",
       ageGroup: "Adolescentes de 14 a 17 años",
       location: "Olavarría 319, Quilmes centro"
@@ -73,7 +73,7 @@ export function Ministries() {
       image:
         pulso,
       logo: logopulso,
-      instagram: "https://instagram.com/pulso",
+      instagram: "https://www.instagram.com/pulso.ide/",
       schedule: "Sábados 20h",
       ageGroup: "Jóvenes de 18 a 29 años",
       location: "Olavarría 319, Quilmes centro"
@@ -85,7 +85,7 @@ export function Ministries() {
       image:
         breakpoint,
       logo: logobreakpoint,
-      instagram: "https://instagram.com/breakpoint",
+      instagram: "https://www.instagram.com/breakpoint.ide/",
       schedule: "Sábados 20h",
       ageGroup: "Jóvenes adultos de 30 a 40 años",
       location: "Olavarría 319, Quilmes centro"

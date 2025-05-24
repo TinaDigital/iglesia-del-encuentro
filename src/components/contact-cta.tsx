@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
-import { MessageSquare, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 
 export function ContactCTA() {
   const controls = useAnimation()
@@ -77,7 +77,7 @@ export function ContactCTA() {
             className="flex flex-col sm:flex-row gap-4 items-center"
           >
             <motion.a
-              href="/horarios-y-encuentros"
+              href="/horarios"
               className="group relative inline-flex items-center gap-2 px-8 py-4 overflow-hidden rounded-md shadow-md"
               style={{ backgroundColor: violetColor }}
               onHoverStart={() => setIsHovered(true)}
