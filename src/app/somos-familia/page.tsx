@@ -6,6 +6,8 @@ import Link from "next/link"
 import { motion} from "framer-motion"
 import { MapPin, Calendar, Users, Heart, Sparkles, Star, Coffee } from "lucide-react"
 import { Ministries } from "../../components/ministries"
+import somosFamilia from "../../../public/somosfamilia.jpg"
+import gc from "../../../public/gc.jpg"
 
 export default function SomosFamiliaPage() {
   const growthGroupsRef = useRef<HTMLDivElement>(null)
@@ -33,7 +35,7 @@ export default function SomosFamiliaPage() {
       <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src={somosFamilia}
             alt="Somos Familia"
             fill
             className="object-cover"
@@ -228,7 +230,7 @@ export default function SomosFamiliaPage() {
                   {/* Una sola imagen para optimizar */}
                   <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
                     <Image
-                      src="/placeholder.svg?height=500&width=600"
+                      src={gc}
                       alt="Grupos de Crecimiento"
                       fill
                       className="object-cover"

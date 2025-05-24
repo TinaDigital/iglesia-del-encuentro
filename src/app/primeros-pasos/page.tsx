@@ -4,6 +4,7 @@ import { useRef } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { MapPin, Clock, Calendar, ExternalLink, Users, ChevronRight } from "lucide-react"
+import primerosPasos from "../../../public/primerospasos.jpg"
 
 export default function PrimerosPasosPage() {
   const infoRef = useRef<HTMLDivElement>(null)
@@ -91,7 +92,7 @@ export default function PrimerosPasosPage() {
                 <div className="aspect-square rounded-2xl overflow-hidden shadow-lg relative">
                   <div className="absolute inset-0 bg-gradient-to-tr from-violet-500/10 to-transparent z-10"></div>
                   <Image
-                    src="/placeholder.svg?height=600&width=600"
+                    src={primerosPasos}
                     alt="Primeros Pasos"
                     fill
                     className="object-cover"

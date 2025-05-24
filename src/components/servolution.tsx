@@ -4,7 +4,7 @@ import { useRef } from "react"
 import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import Image from "next/image"
-import fondo from "../../public/Folleto-Desktop.png"
+import fondo from "../../public/servolucion.jpg"
 
 export function Servolution() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -29,8 +29,8 @@ export function Servolution() {
         backgroundAttachment: 'fixed' // Esto crea el efecto parallax
       }}
     >
-      {/* Overlay rojo */}
-      <div className="absolute inset-0 w-full h-full bg-red-800 bg-opacity-80"></div>
+      {/* Overlay azul violeta */}
+      <div className="absolute inset-0 w-full h-full bg-purple-600 bg-opacity-80"></div>
 
       <div className="container mx-auto px-6 relative z-10 text-center text-white">
         <motion.h2 
@@ -63,7 +63,7 @@ export function Servolution() {
             href="https://fundacionhechos.org.ar/"
             target="_blank"
             rel="noopener noreferrer" 
-            className="inline-block bg-white text-red-800 font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors"
+            className="inline-block bg-white text-purple-700 font-medium py-3 px-8 rounded-md hover:bg-gray-100 transition-colors"
           >
             ¿Cómo ayudo?
           </Link>

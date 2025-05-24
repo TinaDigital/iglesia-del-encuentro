@@ -4,6 +4,9 @@ import { useRef } from "react"
 import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { MapPin, Clock, Calendar, Youtube, ExternalLink } from "lucide-react"
+import presencial from "../../../public/presencial.jpg"
+import virtual from "../../../public/virtual.jpg"
+import horarios from "../../../public/horarios.jpg"
 
 export default function HorariosPage() {
   const mapRef = useRef<HTMLDivElement>(null)
@@ -20,7 +23,7 @@ export default function HorariosPage() {
       <section className="relative h-[60vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/placeholder.svg?height=1080&width=1920"
+            src={horarios}
             alt="Comunidad IDE"
             fill
             className="object-cover"
@@ -83,7 +86,7 @@ export default function HorariosPage() {
                 <div className="md:w-1/3">
                   <div className="relative aspect-square rounded-full overflow-hidden border-4 border-white shadow-md">
                     <Image
-                      src="/placeholder.svg?height=400&width=400"
+                      src={presencial}
                       alt="Servicio presencial"
                       fill
                       className="object-cover"
@@ -149,9 +152,14 @@ export default function HorariosPage() {
                 className="flex flex-col md:flex-row-reverse gap-8 items-center"
               >
                 <div className="md:w-1/3">
-                  <div className="relative aspect-video rounded-lg overflow-hidden shadow-md">
+                  <a
+                    href="https://www.youtube.com/@IglesiadelEncuentro"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative aspect-video rounded-lg overflow-hidden shadow-md"
+                  >
                     <Image
-                      src="/placeholder.svg?height=300&width=400"
+                      src={virtual}
                       alt="Transmisión en vivo"
                       fill
                       className="object-cover"
@@ -164,7 +172,7 @@ export default function HorariosPage() {
                         <Youtube className="w-7 h-7 text-white" />
                       </div>
                     </div>
-                  </div>
+                  </a>
                 </div>
 
                 <div className="md:w-2/3">

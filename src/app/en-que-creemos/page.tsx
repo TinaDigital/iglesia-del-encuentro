@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import { Book, Cross, Heart, Sparkles, Crown, Shield, User, Church, MessageCircle, Infinity } from "lucide-react"
+import enQueCreemos from "../../../public/enquecreemos.jpg"
+import Image from "next/image"
 
 export default function EnQueCreemosPage() {
   // Colores personalizados del proyecto
@@ -18,12 +20,12 @@ export default function EnQueCreemosPage() {
     {
       titulo: "Acerca de Dios",
       icono: Crown,
-      contenido: "Dios es eterno, existente en tres personas: Padre, Hijo y Espíritu Santo. Estos tres son iguales y un solo Dios. Dios es el creador del universo, al cual mantiene en equilibrio siguiendo las leyes que él mismo formuló y estableció. Conforme a su propósito de gracia, envió al Señor Jesucristo para salvar a la raza humana (Deuteronomio 6.4; Mateo 28.19; Hebreos 1.5-6; Gálatas 4.4-6 Génesis 1:1, 26, 27; 3:22; Salmos 90:2; Mateo28:19; 1ª Pedro 1:2; II Corintios 13:14)."
+      contenido: "Dios es eterno, existente en tres personas: Padre, Hijo y Espíritu Santo. Estos tres son iguales y un solo Dios. Dios es el creador del universo, al cual mantiene en equilibrio siguiendo las leyes que él mismo formuló y estableció. Conforme a su propósito de gracia, envió al Señor Jesucristo para salvar a la raza humana (Deuteronomio 6.4; Mateo 28.19; Hebreos 1.5-6; Gálatas 4.4-6 Génesis 1:1, 26, 27; 3:22; Salmos 90:2; Mateo28:19; 1ª Pedro 1.2; II Corintios 13:14)."
     },
     {
       titulo: "Acerca de Jesucristo",
       icono: Cross,
-      contenido: "Jesucristo es Dios manifestado en carne, nacido de la virgen María por obra del Espíritu Santo. En su humanidad, Cristo fue verdadero Dios y verdadero hombre. Con su mensaje, maravillas, prodigios y milagros, comunicó la voluntad de Dios para la humanidad, tal como lo narran los cuatro evangelios. Es nuestro único Salvador y Señor. Para tal fin, venció a la muerte siendo crucificado, muerto, sepultado y resucitado al tercer día. Con su obra, pagó a Dios el precio por el rescate del pecado para toda la humanidad. Ascendió al cielo, de donde volverá en forma corporal y visible para arrebatar a los suyos y establecer posteriormente su reino. Jesucristo es el único mediador entre Dios y los hombres, es quien intercede ahora en el cielo a favor de los salvados en calidad de sumo sacerdote o pontífice (Juan 1.1-3, 18, 14.6-9; 1 Pedro 1.18-19; Hechos 2.31; 1 Tesalonicenses 4.13-17; Malaquías 1:22-23; Isaías 9:6; Judas 1:1-5; 14:10-30; Hebreos 4:14-15; 1ª Corintios 15:3-4; Romanos 1:3-4; Hechos 1:9-11; 1 Timoteo 6:14-15; Timoteo 2:13)."
+      contenido: "Jesucristo es Dios manifestado en carne, nacido de la virgen María por obra del Espíritu Santo. En su humanidad, Cristo fue verdadero Dios y verdadero hombre. Con su mensaje, maravillas, prodigios y milagros, comunicó la voluntad de Dios para la humanidad, tal como lo narran los cuatro evangelios. Es nuestro único Salvador y Señor. Para tal fin, venció a la muerte siendo crucificado, muerto, sepultado y resucitado al tercer día. Con su obra, pagó a Dios el precio por el rescate del pecado para toda la humanidad. Ascendió al cielo, de donde volverá en forma corporal y visible para arrebatar a los suyos y establecer posteriormente su reino. Jesucristo es el único mediador entre Dios y los hombres, es quien intercede ahora en el cielo a favor de los salvados en calidad de sumo sacerdote o pontífice (Juan 1.1-3, 18, 14.6-9; 1 Pedro 1.18-19; Hechos 2.31; 1 Tesalonicenses 4.13-17; Malaquías 1:22-23; Isaías 9:6; Judas 1:1-5; 14:10-30; Hebreos 4:14-15; 1ª Corintios 15:3-4; Romanos 1:3-4; Hechos 1:9-11; 1 Timoteo 6.14-15; Timoteo 2:13)."
     },
     {
       titulo: "Acerca del Espíritu Santo",
@@ -72,34 +74,22 @@ export default function EnQueCreemosPage() {
       {/* Sección principal con banner */}
       <section
         className="min-h-[60vh] flex items-center relative overflow-hidden"
-        style={{ 
-          background: `linear-gradient(135deg, ${creamColor} 0%, ${lightViolet} 100%)` 
-        }}
       >
-        {/* Figuras decorativas de fondo */}
-        <div
-          className="absolute top-20 right-20 w-64 h-64 rounded-full animate-pulse"
-          style={{ backgroundColor: violetColor, opacity: 0.1 }}
-        ></div>
-        <div
-          className="absolute bottom-20 left-20 w-40 h-40 rounded-full animate-pulse"
-          style={{ backgroundColor: lightViolet, opacity: 0.4, animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute top-40 left-10 w-20 h-20 rounded-full animate-bounce"
-          style={{ backgroundColor: violetColor, opacity: 0.2, animationDelay: "2s" }}
-        ></div>
-
-        {/* Elementos decorativos adicionales */}
-        <div className="absolute inset-0 overflow-hidden">
+        {/* Imagen de fondo */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={enQueCreemos}
+            alt="En Qué Creemos"
+            fill
+            className="object-cover"
+            priority
+          />
           <div 
-            className="absolute -top-20 -right-20 w-80 h-80 rounded-full"
-            style={{ backgroundColor: violetColor, opacity: 0.05 }}
-          ></div>
-          <div 
-            className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full"
-            style={{ backgroundColor: lightViolet, opacity: 0.3 }}
-          ></div>
+            className="absolute inset-0" 
+            style={{ 
+              background: `linear-gradient(135deg, ${creamColor}33, ${creamColor}11)` 
+            }}
+          /> {/* Overlay degradado cremita sutil */}
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -135,7 +125,7 @@ export default function EnQueCreemosPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-3xl md:text-5xl font-bold mb-8 leading-tight"
+                className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-white"
               >
                 Estas son las{" "}
                 <span style={{ color: violetColor }}>doctrinas básicas</span>{" "}
