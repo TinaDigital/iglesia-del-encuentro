@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion"
 import { ExternalLink, Heart, Sparkles, Calendar, MapPin, Youtube, Clock } from "lucide-react"
+import Image from "next/image"
+import oracion from "../../../public/oracion.jpg"
 
 export default function OracionPage() {
   // Colores personalizados del proyecto
@@ -14,38 +16,17 @@ export default function OracionPage() {
       {/* Sección principal con banner */}
       <section
         className="min-h-screen flex items-center relative overflow-hidden"
-        style={{ 
-          background: `linear-gradient(135deg, ${creamColor} 0%, ${lightViolet} 100%)` 
-        }}
       >
-        {/* Figuras decorativas de fondo */}
-        <div
-          className="absolute top-20 right-20 w-64 h-64 rounded-full animate-pulse"
-          style={{ backgroundColor: violetColor, opacity: 0.1 }}
-        ></div>
-        <div
-          className="absolute bottom-20 left-20 w-40 h-40 rounded-full animate-pulse"
-          style={{ backgroundColor: lightViolet, opacity: 0.4, animationDelay: "1s" }}
-        ></div>
-        <div
-          className="absolute top-40 left-10 w-20 h-20 rounded-full animate-bounce"
-          style={{ backgroundColor: violetColor, opacity: 0.2, animationDelay: "2s" }}
-        ></div>
-        <div
-          className="absolute top-10 right-1/3 w-32 h-32 rounded-full animate-pulse"
-          style={{ backgroundColor: "white", opacity: 0.5, animationDelay: "0.5s" }}
-        ></div>
-
-        {/* Elementos decorativos adicionales */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div 
-            className="absolute -top-20 -right-20 w-80 h-80 rounded-full"
-            style={{ backgroundColor: violetColor, opacity: 0.05 }}
-          ></div>
-          <div 
-            className="absolute -bottom-20 -left-20 w-60 h-60 rounded-full"
-            style={{ backgroundColor: lightViolet, opacity: 0.3 }}
-          ></div>
+        {/* Imagen de fondo */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src={oracion}
+            alt="Oración"
+            fill
+            className="object-cover blur-sm"
+            priority
+          />
+          <div className="absolute inset-0 bg-gray-900/20" /> {/* Overlay gris sutil */}
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -55,33 +36,11 @@ export default function OracionPage() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 0.8 }}
             >
-              {/* Icono decorativo */}
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="inline-flex items-center justify-center w-20 h-20 rounded-full mb-8"
-                style={{ backgroundColor: violetColor }}
-              >
-                <Heart className="w-10 h-10 text-white" />
-              </motion.div>
-
-              <motion.span
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="inline-block px-4 py-2 text-sm font-medium rounded-full mb-6"
-                style={{ backgroundColor: lightViolet, color: violetColor }}
-              >
-                <Sparkles className="w-4 h-4 inline mr-2" />
-                ORACIÓN
-              </motion.span>
-
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-4xl md:text-6xl font-bold mb-8 leading-tight"
+                className="text-4xl md:text-6xl font-bold mb-8 leading-tight text-white"
               >
                 ¡Creemos que la oración es la{" "}
                 <span style={{ color: violetColor }}>llave</span>{" "}
@@ -92,7 +51,7 @@ export default function OracionPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="text-lg md:text-xl text-gray-700 mb-12 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg md:text-xl text-gray-100 mb-12 max-w-3xl mx-auto leading-relaxed"
               >
                 Te animamos a compartir aquí tu necesidad para unirnos con vos en oración. 
                 Así mismo, cuando tengas una oración respondida, escríbela aquí para 

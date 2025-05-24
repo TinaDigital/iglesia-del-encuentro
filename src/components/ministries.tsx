@@ -5,10 +5,11 @@ import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight, MapPin } from "lucide-react"
-import breakpoint from "../../public/breakpoint.jpeg"
 import ninos from "../../public/311.jpg"
 import entretiempo from "../../public/entretiempo.jpg"	
-import boomerang from "../../public/boomerang.jpg"
+import boomerang from "../../public/boomerang1.jpg"
+import pulso from "../../public/pulso.jpg"
+import breakpoint from "../../public/breakpoint.jpg"
 import logoestacion from "../../public/Logos Edades_estacion311.png"
 import logopulso from "../../public/Logos Edades_pulso.png"
 import logobreakpoint from "../../public/Logos Edades_breakpoint.png"
@@ -70,7 +71,7 @@ export function Ministries() {
       description:
         "Los universitarios enfrentan nuevos desafíos de crecimiento y madurez que requieren buenos consejos y buenas influencias. Pulso es el lugar ideal para conectar con Dios y hacer nuevos amigos. Realizamos actividades generales y en Grupos.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
+        pulso,
       logo: logopulso,
       instagram: "https://instagram.com/pulso",
       schedule: "Sábados 20h",
