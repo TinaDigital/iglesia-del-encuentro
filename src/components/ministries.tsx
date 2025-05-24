@@ -6,7 +6,8 @@ import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import { Instagram, Clock, ChevronRight, ArrowLeft, ArrowRight, MapPin } from "lucide-react"
 import breakpoint from "../../public/breakpoint.jpeg"
-import ninos from "../../public/311.jpeg"
+import ninos from "../../public/311.jpg"
+import entretiempo from "../../public/entretiempo.jpg"	
 import boomerang from "../../public/boomerang.jpg"
 import logoestacion from "../../public/Logos Edades_estacion311.png"
 import logopulso from "../../public/Logos Edades_pulso.png"
@@ -45,7 +46,7 @@ export function Ministries() {
       description:
         "El camino a través de la secundaria puede ser difícil, pero no tiene por qué ser solitario. Hemos preparado un ambiente donde puedan aprender cómo Dios los ve y descubrir su verdadera identidad. Realizamos actividades generales y en Grupos.",
       image:
-        "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pulso-placeholder-kNR3qw7MvLzxcH9tB5yGp4IjYWsX2F.jpg",
+        entretiempo,
       logo: logoentre,
       instagram: "https://instagram.com/entretiempo",
       schedule: "Sábados 17:30 a 19:45h",

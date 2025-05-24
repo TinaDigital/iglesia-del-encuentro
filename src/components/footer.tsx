@@ -29,9 +29,9 @@ const footerLinks: FooterSection[] = [
   {
     title: "Contacto", 
     links: [
-      { name: '(123) 456-7890', href: 'tel:1234567890', icon: Phone },
-      { name: 'contacto@iglesia.com', href: 'mailto:contacto@iglesia.com', icon: Mail },
-      { name: 'Calle Principal #123', href: '#', icon: MapPin },
+      { name: '+54 9 11 6954-7118', href: 'tel:+5491169547118', icon: Phone },
+      { name: 'laide@iglesiadelencuentro.org.ar', href: 'mailto:laide@iglesiadelencuentro.org.ar', icon: Mail },
+      { name: 'Olavarría 319, Quilmes, Bs.As. Argentina', href: '#', icon: MapPin },
     ]
   },
   {

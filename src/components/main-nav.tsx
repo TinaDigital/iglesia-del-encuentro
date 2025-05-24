@@ -23,7 +23,7 @@ const navItems = [
     href: "#",
     submenu: [
       { name: "Escuela del Encuentro", href: "http://escueladelencuentro.com.ar/" },
-      { name: "Dignos", href: "https://dignos.org" },
+      { name: "Dignos", href: "https://www.instagram.com/dignosok/?igsh=MXdlcm9sNnR5b3htZg%3D%3D#" },
       { name: "Quilmes Mi Casa", href: "https://fundacionhechos.org.ar/" },
       { name: "Somos Hijos", href: "https://somoshijos.org/" },
     ],
@@ -32,8 +32,8 @@ const navItems = [
     name: "Recursos",
     href: "#",
     submenu: [
-      { name: "Cursos", href: "/cursos" },
-      { name: "Discípulos Maduros Podcast", href: "https://youtube.com/playlist?list=..." },
+      { name: "Cursos", href: "https://sites.google.com/view/sitio-inscripcion-cursos-ide/inicio?fbclid=PAQ0xDSwKS-PdleHRuA2FlbQIxMAABp7FGZtI1LMHcUloVD7Irmcft4nYMEHzZ8-fXhBzy6RcC_A59i1khFb4vSvvV_aem_SGZQpzC6l8EYdvy1ZStDXg" },
+      { name: "Discípulos Maduros Podcast", href: "https://www.youtube.com/playlist?list=PLYSj8gAXLPQlKqFnJ2Rn0MqV3bwZWw-mL" },
       { name: "Alpha", href: "http://somoshijos.org/alpha-2/" },
       { name: "Invitaciones", href: "/invitaciones" },
       {
@@ -45,6 +45,10 @@ const navItems = [
   {
     name: "Oración",
     href: "/oracion",
+  },
+  {
+    name: "Dar",
+    href: "https://drive.google.com/file/d/12QEuwZgK9ZzA6dmkjlmzfHgncEno16OC/view?fbclid=PAQ0xDSwKS-bFleHRuA2FlbQIxMAABp-NnXq_MFpc0ZB-FgrbV5WK8AcyNEcy-3JkGfA662jNRyqUS6wmzQ0BO85YI_aem_uGfcMINErGZSKoTxI_lIAg",
   },
 ]
 
