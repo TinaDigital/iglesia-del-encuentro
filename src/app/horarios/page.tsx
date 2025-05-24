@@ -26,7 +26,7 @@ export default function HorariosPage() {
             src={horarios}
             alt="Comunidad IDE"
             fill
-            className="object-cover"
+            className="object-cover object-center lg:object-[center_25%]"
             priority
           />
           <div
