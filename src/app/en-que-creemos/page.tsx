@@ -4,6 +4,12 @@ import { motion } from "framer-motion"
 import { Book, Cross, Heart, Sparkles, Crown, Shield, User, Church, MessageCircle, Infinity } from "lucide-react"
 import enQueCreemos from "../../../public/enquecreemos.jpg"
 import Image from "next/image"
+import enQueCreemos1 from "../../../public/enquecreemos1.jpg"
+import enQueCreemos2 from "../../../public/enquecreemos2.jpg"
+import enQueCreemos3 from "../../../public/enquecreemos3.jpg"
+import enQueCreemos4 from "../../../public/enquecreemos4.jpg"
+import enQueCreemos5 from "../../../public/enquecreemos5.jpg"
+import enQueCreemos6 from "../../../public/enquecreemos6.jpg"
 
 export default function EnQueCreemosPage() {
   // Colores personalizados del proyecto
@@ -75,21 +81,119 @@ export default function EnQueCreemosPage() {
       <section
         className="min-h-[60vh] flex items-center relative overflow-hidden"
       >
-        {/* Imagen de fondo */}
+        {/* Collage de imágenes de fondo */}
         <div className="absolute inset-0 z-0">
-          <Image
-            src={enQueCreemos}
-            alt="En Qué Creemos"
-            fill
-            className="object-cover"
-            priority
-          />
+          {/* Imagen simple para móvil */}
+          <div className="block md:hidden absolute inset-0">
+            <Image
+              src={enQueCreemos}
+              alt="En Qué Creemos"
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+
+          {/* Collage para desktop */}
+          <div className="hidden md:block">
+            {/* Foto 1 - Grande en la esquina superior izquierda */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+              animate={{ opacity: 1, scale: 1, rotate: -3 }}
+              transition={{ duration: 1, delay: 0.1 }}
+              className="absolute top-4 left-4 w-72 h-48 rounded-lg overflow-hidden shadow-lg border-4 border-white"
+            >
+              <Image
+                src={enQueCreemos1}
+                alt="En Qué Creemos 1"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Foto 2 - Mediana en la parte superior derecha */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: 8 }}
+              animate={{ opacity: 1, scale: 1, rotate: 5 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="absolute top-8 right-8 w-56 h-40 rounded-lg overflow-hidden shadow-lg border-4 border-white"
+            >
+              <Image
+                src={enQueCreemos2}
+                alt="En Qué Creemos 2"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Foto 3 - Pequeña en el centro izquierda */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -12 }}
+              animate={{ opacity: 1, scale: 1, rotate: -8 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="absolute top-1/2 left-12 w-48 h-32 rounded-lg overflow-hidden shadow-lg border-4 border-white transform -translate-y-1/2"
+            >
+              <Image
+                src={enQueCreemos3}
+                alt="En Qué Creemos 3"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Foto 4 - Mediana en el centro derecha */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: 6 }}
+              animate={{ opacity: 1, scale: 1, rotate: 4 }}
+              transition={{ duration: 1, delay: 0.7 }}
+              className="absolute top-1/2 right-16 w-64 h-44 rounded-lg overflow-hidden shadow-lg border-4 border-white transform -translate-y-1/2"
+            >
+              <Image
+                src={enQueCreemos4}
+                alt="En Qué Creemos 4"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Foto 5 - Pequeña en la parte inferior izquierda */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: 10 }}
+              animate={{ opacity: 1, scale: 1, rotate: 7 }}
+              transition={{ duration: 1, delay: 0.9 }}
+              className="absolute bottom-8 left-8 w-52 h-36 rounded-lg overflow-hidden shadow-lg border-4 border-white"
+            >
+              <Image
+                src={enQueCreemos5}
+                alt="En Qué Creemos 5"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
+            {/* Foto 6 - Grande en la esquina inferior derecha */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8, rotate: -7 }}
+              animate={{ opacity: 1, scale: 1, rotate: -4 }}
+              transition={{ duration: 1, delay: 1.1 }}
+              className="absolute bottom-4 right-4 w-64 h-48 rounded-lg overflow-hidden shadow-lg border-4 border-white"
+            >
+              <Image
+                src={enQueCreemos6}
+                alt="En Qué Creemos 6"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
+
+          {/* Overlay degradado cremita sutil sobre todo el collage */}
           <div 
             className="absolute inset-0" 
             style={{ 
-              background: `linear-gradient(135deg, ${creamColor}33, ${creamColor}11)` 
+              background: `linear-gradient(135deg, ${creamColor}55, ${creamColor}22)` 
             }}
-          /> {/* Overlay degradado cremita sutil */}
+          />
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -125,7 +229,7 @@ export default function EnQueCreemosPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-white"
+                className="text-3xl md:text-5xl font-bold mb-8 leading-tight text-white lg:text-black"
               >
                 Estas son las{" "}
                 <span style={{ color: violetColor }}>doctrinas básicas</span>{" "}

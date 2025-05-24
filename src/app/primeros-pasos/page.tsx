@@ -5,6 +5,7 @@ import Image from "next/image"
 import { motion, useInView } from "framer-motion"
 import { MapPin, Clock, Calendar, ExternalLink, Users, ChevronRight } from "lucide-react"
 import primerosPasos from "../../../public/primerospasos.jpg"
+import primerosPasos2 from "../../../public/primerospasos1.jpg"
 
 export default function PrimerosPasosPage() {
   const infoRef = useRef<HTMLDivElement>(null)
@@ -144,11 +145,13 @@ export default function PrimerosPasosPage() {
               className="flex flex-col md:flex-row gap-8 items-center"
             >
               <div className="md:w-1/3 flex justify-center">
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center"
-                  style={{ backgroundColor: lightViolet }}
-                >
-                  <Users className="w-8 h-8" style={{ color: violetColor }} />
+                <div className="relative w-32 h-32 md:w-52 md:h-52 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <Image
+                    src={primerosPasos2}
+                    alt="Primeros Pasos"
+                    fill
+                    className="object-cover"
+                  />
                 </div>
               </div>
 
