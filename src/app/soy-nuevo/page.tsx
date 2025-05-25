@@ -9,6 +9,7 @@ import { motion, useInView } from "framer-motion"
 import { ArrowRight, MessageSquare, Calendar, Users, Heart, ChevronDown, DoorOpen, Map, BookOpen, Target, GraduationCap } from "lucide-react"
 import pasos from "../../../public/pasos.jpg"
 import soynuevo from "../../../public/soynuevo.jpg"
+import videoPoster from "../../../public/video-poster.png"
 
 export default function SoyNuevoPage() {
   const processRef = useRef(null)
@@ -168,6 +169,9 @@ export default function SoyNuevoPage() {
                   controls
                   className="w-full h-full object-cover"
                   preload="metadata"
+                  poster={videoPoster.src}
+                  playsInline
+                  suppressHydrationWarning={true}
                 >
                   <source src="/Bienvenida-web.mp4" type="video/mp4" />
                   Tu navegador no soporta la reproducción de videos.
