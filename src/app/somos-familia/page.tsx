@@ -199,7 +199,7 @@ export default function SomosFamiliaPage() {
                 </div>
 
                 <Link
-                  href="/contacto"
+                  href="https://wa.me/+5491169547118"
                   className="inline-flex items-center px-5 py-2 rounded-md text-white"
                   style={{ backgroundColor: violetColor }}
                 >

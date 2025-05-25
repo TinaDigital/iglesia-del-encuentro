@@ -64,7 +64,7 @@ export default function SoyNuevoPage() {
 
               <div className="flex flex-wrap gap-4">
                 <Link
-                  href="/horarios-y-encuentros"
+                  href="/horarios"
                   className="inline-flex items-center px-6 py-3 text-white rounded-md transition-colors"
                   style={{ backgroundColor: violetColor }}
                   onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
@@ -363,9 +363,8 @@ export default function SoyNuevoPage() {
               >
                 Dejá tus datos
               </a>
-
               <a
-                href="https://wa.me/+yourphonenumber"
+                href="https://wa.me/+5491169547118"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 border rounded-md hover:bg-white/50 transition-colors"

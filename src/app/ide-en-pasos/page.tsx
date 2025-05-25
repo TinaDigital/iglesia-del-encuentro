@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useRef, useEffect } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { motion, useInView, AnimatePresence, useScroll, useSpring } from "framer-motion"
 import { ChevronRight, Users, Heart, ArrowRight, DoorOpen, Map, Target, GraduationCap, BookOpen, ChevronDown, ChevronLeft, MousePointer } from 'lucide-react'
@@ -49,12 +48,10 @@ export default function IDEEnPasosPage() {
   }, [smoothProgress])
 
   // Colores personalizados
-  const violetColor = "#8b5cf6" // Violeta
-  const creamColor = "#f5f0e6" // Crema
-  const lightViolet = "#ede9fe" // Violeta claro
-  const darkViolet = "#7c3aed" // Violeta oscuro
-  const glassBackground = "rgba(255, 255, 255, 0.1)"
-  const glassBorder = "rgba(255, 255, 255, 0.2)"
+  const violetColor = "#8b5cf6"
+  const creamColor = "#f5f0e6"
+  const lightViolet = "#ede9fe"
+  const darkViolet = "#7c3aed"
 
   // Colores para cada paso con degradados
   const stepColors = {
@@ -103,7 +100,6 @@ export default function IDEEnPasosPage() {
       longDescription: "El primer contacto con nuestra comunidad, donde te recibimos con los brazos abiertos y te hacemos sentir parte de nuestra familia desde el primer momento.",
       icon: <DoorOpen className="w-8 h-8" />,
       color: stepColors.paso0,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Conocer más",
         link: "/puertas-de-acceso",
@@ -116,7 +112,6 @@ export default function IDEEnPasosPage() {
       longDescription: "Damos el primer paso para conocerte mejor y entender cómo podemos acompañarte en tu camino espiritual, creando una conexión personal y significativa.",
       icon: <Users className="w-8 h-8" />,
       color: stepColors.paso1,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Dar el primer paso",
         link: "/sumate",
@@ -129,7 +124,6 @@ export default function IDEEnPasosPage() {
       longDescription: "Espacios diseñados para profundizar en las enseñanzas de Jesús y comenzar a formar parte activa de nuestra comunidad, construyendo relaciones significativas.",
       icon: <Map className="w-8 h-8" />,
       color: stepColors.paso2,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Encontrar un grupo",
         link: "/primeros-pasos",
@@ -142,7 +136,6 @@ export default function IDEEnPasosPage() {
       longDescription: "Exploramos juntos el profundo significado del bautismo como un paso fundamental en tu camino de fe, preparándote para este importante compromiso público.",
       icon: <BookOpen className="w-8 h-8" />,
       color: stepColors.paso3,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Sobre el bautismo",
         link: "/bautismo",
@@ -155,7 +148,6 @@ export default function IDEEnPasosPage() {
       longDescription: "Descubrimos juntos el gozo de servir a otros y profundizamos en los principios fundamentales del Reino de Dios que transformarán tu vida y perspectiva.",
       icon: <Target className="w-8 h-8" />,
       color: stepColors.paso4,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Servir",
         link: "/servir",
@@ -168,7 +160,6 @@ export default function IDEEnPasosPage() {
       longDescription: "Espacios diseñados para profundizar en tu fe, desarrollar disciplinas espirituales sólidas y fortalecer tu identidad como discípulo de Cristo en comunidad.",
       icon: <Heart className="w-8 h-8" />,
       color: stepColors.paso5,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Crecer más",
         link: "/crecimiento",
@@ -181,7 +172,6 @@ export default function IDEEnPasosPage() {
       longDescription: "Formación especializada para desarrollar tus dones y talentos, preparándote para liderar y multiplicar tu impacto en la iglesia y en la sociedad.",
       icon: <GraduationCap className="w-8 h-8" />,
       color: stepColors.paso6,
-      image: "/placeholder.svg?height=400&width=600",
       cta: {
         text: "Capacitarse",
         link: "/entrenamiento",
@@ -267,27 +257,18 @@ export default function IDEEnPasosPage() {
         </div>
       </div>
 
-      {/* Hero Section con Glassmorphism */}
+      {/* Hero Section con gradientes */}
       <section 
         ref={heroRef}
         className="relative min-h-[90vh] flex items-center overflow-hidden"
       >
         {/* Fondo con degradado */}
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/placeholder.svg?height=1080&width=1920"
-            alt="IDE en Pasos"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background: `linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(76, 29, 149, 0.8))`,
-            }}
-          />
-        </div>
+        <div 
+          className="absolute inset-0 z-0"
+          style={{
+            background: `linear-gradient(135deg, ${violetColor}, ${darkViolet}, #4c1d95)`,
+          }}
+        />
 
         {/* Formas decorativas */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -296,7 +277,7 @@ export default function IDEEnPasosPage() {
               key={i}
               className="absolute rounded-full"
               style={{
-                background: `radial-gradient(circle at center, ${i % 2 === 0 ? violetColor : creamColor}33, transparent)`,
+                background: `radial-gradient(circle at center, rgba(255,255,255,${0.1 + i * 0.05}), transparent)`,
                 width: `${150 + i * 50}px`,
                 height: `${150 + i * 50}px`,
                 left: `${(i * 15) % 80 + 10}%`,
@@ -327,11 +308,7 @@ export default function IDEEnPasosPage() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="inline-block px-4 py-2 rounded-full mb-6 backdrop-blur-md"
-                style={{ 
-                  backgroundColor: glassBackground,
-                  border: `1px solid ${glassBorder}`,
-                }}
+                className="inline-block px-4 py-2 rounded-full mb-6 backdrop-blur-md bg-white/20 border border-white/30"
               >
                 <span className="text-white font-medium">TU CAMINO DE CRECIMIENTO</span>
               </motion.div>
@@ -362,7 +339,7 @@ export default function IDEEnPasosPage() {
                 comunidad.
               </motion.p>
 
-              {/* Tarjetas de etapas con efecto glassmorphism */}
+              {/* Tarjetas de etapas */}
               <motion.div 
                 className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12"
                 variants={containerVariants}
@@ -375,12 +352,7 @@ export default function IDEEnPasosPage() {
                     variants={cardVariants}
                     custom={index}
                     whileHover="hover"
-                    className="backdrop-blur-md rounded-xl p-6 transform transition-all duration-300"
-                    style={{ 
-                      backgroundColor: glassBackground,
-                      border: `1px solid ${glassBorder}`,
-                      boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
-                    }}
+                    className="backdrop-blur-md rounded-xl p-6 bg-white/20 border border-white/30"
                   >
                     <h3 className="text-white font-bold text-2xl mb-3">{etapa.title}</h3>
                     <p className="text-white/80 mb-4">{etapa.description}</p>
@@ -389,10 +361,9 @@ export default function IDEEnPasosPage() {
                       {etapa.steps.map(stepIndex => (
                         <div 
                           key={stepIndex}
-                          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold"
+                          className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
                           style={{ 
                             background: `linear-gradient(135deg, ${steps[stepIndex].color.from}, ${steps[stepIndex].color.to})`,
-                            color: 'white'
                           }}
                         >
                           {stepIndex}
@@ -403,7 +374,7 @@ export default function IDEEnPasosPage() {
                 ))}
               </motion.div>
 
-              {/* CTA Button con efecto hover */}
+              {/* CTA Button */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -412,11 +383,10 @@ export default function IDEEnPasosPage() {
               >
                 <motion.button
                   onClick={() => scrollToSection(stepsRef)}
-                  className="group relative inline-flex items-center px-8 py-4 rounded-full font-medium overflow-hidden"
+                  className="group relative inline-flex items-center px-8 py-4 rounded-full font-medium overflow-hidden bg-gradient-to-r from-amber-200 to-yellow-100"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <span className="absolute inset-0 bg-gradient-to-r from-amber-200 to-yellow-100"></span>
                   <span className="relative flex items-center text-violet-900 font-bold">
                     Explorar el camino
                     <motion.span
@@ -432,6 +402,7 @@ export default function IDEEnPasosPage() {
             </motion.div>
           </div>
         </div>
+
         {/* Indicador de scroll */}
         <motion.div
           className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white flex flex-col items-center hidden md:flex"
@@ -480,41 +451,8 @@ export default function IDEEnPasosPage() {
         </div>
       </motion.div>
 
-      {/* Introducción con efecto de profundidad */}
-      <section className="py-20 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 -z-10"
-          style={{ 
-            background: `linear-gradient(to bottom, ${lightViolet}50, white)` 
-          }}
-        ></div>
-
-        {/* Formas decorativas */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full opacity-30"
-              style={{
-                background: i % 2 === 0 ? violetColor : creamColor,
-                width: `${100 + i * 50}px`,
-                height: `${100 + i * 50}px`,
-                right: `${(i * 20) % 80}%`,
-                top: `${(i * 25) % 70}%`,
-              }}
-              animate={{
-                x: [0, 20, 0, -20, 0],
-                y: [0, -20, 0, 20, 0],
-              }}
-              transition={{
-                duration: 15 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
-
+      {/* Introducción */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-violet-50 to-white">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -522,8 +460,7 @@ export default function IDEEnPasosPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-xl"
-              style={{ border: `1px solid ${glassBorder}` }}
+              className="bg-white/80 backdrop-blur-md rounded-2xl p-8 shadow-xl border border-violet-100"
             >
               <div className="text-center mb-8">
                 <motion.div
@@ -553,11 +490,8 @@ export default function IDEEnPasosPage() {
                 {[0, 1, 2, 3].map((step) => (
                   <motion.div
                     key={step}
-                    className="w-3 h-3 rounded-full"
-                    style={{ 
-                      background: `linear-gradient(135deg, ${violetColor}, ${darkViolet})`,
-                      opacity: 0.3 + step * 0.2 
-                    }}
+                    className="w-3 h-3 rounded-full bg-gradient-to-r from-violet-500 to-purple-700"
+                    style={{ opacity: 0.3 + step * 0.2 }}
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -573,7 +507,7 @@ export default function IDEEnPasosPage() {
       {/* Timeline interactiva */}
       <section 
         ref={timelineRef} 
-        className="py-20 relative overflow-hidden"
+        className="py-20 relative overflow-hidden bg-gray-50"
       >
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -657,7 +591,7 @@ export default function IDEEnPasosPage() {
             </div>
           )}
 
-          {/* Contenido del paso activo con tarjeta flotante */}
+          {/* Contenido del paso activo */}
           <AnimatePresence mode="wait">
             <motion.div
               key={activeStep}
@@ -665,29 +599,35 @@ export default function IDEEnPasosPage() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.5 }}
-              className="max-w-6xl mx-auto"
+              className="max-w-4xl mx-auto"
             >
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="order-2 lg:order-1">
-                  <motion.div 
-                    className="bg-white rounded-2xl p-8 shadow-xl relative overflow-hidden"
+              <div className="bg-white rounded-2xl p-8 shadow-xl relative overflow-hidden"
+                style={{ 
+                  borderLeft: `4px solid ${steps[activeStep].color.from}`,
+                  boxShadow: `0 10px 25px -5px ${steps[activeStep].color.from}20`
+                }}
+              >
+                {/* Fondo decorativo */}
+                <div 
+                  className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10 -z-10"
+                  style={{ 
+                    background: `radial-gradient(circle at center, ${steps[activeStep].color.from}, transparent)`,
+                    transform: "translate(30%, -30%)"
+                  }}
+                ></div>
+                
+                <div className="flex items-center mb-6">
+                  <div 
+                    className="w-16 h-16 rounded-full flex items-center justify-center text-white mr-6"
                     style={{ 
-                      borderLeft: `4px solid ${steps[activeStep].color.from}`,
-                      boxShadow: `0 10px 25px -5px ${steps[activeStep].color.from}20`
+                      background: `linear-gradient(135deg, ${steps[activeStep].color.from}, ${steps[activeStep].color.to})`,
                     }}
-                    whileHover={{ y: -5 }}
                   >
-                    {/* Fondo decorativo */}
-                    <div 
-                      className="absolute top-0 right-0 w-32 h-32 rounded-full opacity-10 -z-10"
-                      style={{ 
-                        background: `radial-gradient(circle at center, ${steps[activeStep].color.from}, transparent)`,
-                        transform: "translate(30%, -30%)"
-                      }}
-                    ></div>
-                    
+                    {steps[activeStep].icon}
+                  </div>
+                  <div>
                     <span 
-                      className="inline-block px-3 py-1 text-sm font-medium rounded-full mb-4"
+                      className="inline-block px-3 py-1 text-sm font-medium rounded-full mb-2"
                       style={{ 
                         backgroundColor: steps[activeStep].color.light, 
                         color: steps[activeStep].color.from 
@@ -695,106 +635,35 @@ export default function IDEEnPasosPage() {
                     >
                       {steps[activeStep].subtitle}
                     </span>
-                    
                     <h3 
-                      className="text-3xl font-bold mb-4"
+                      className="text-3xl font-bold"
                       style={{ color: steps[activeStep].color.from }}
                     >
                       {steps[activeStep].title}
                     </h3>
-                    
-                    <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                      {steps[activeStep].longDescription}
-                    </p>
-                    
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <Link
-                        href={steps[activeStep].cta.link}
-                        className="inline-flex items-center px-6 py-3 rounded-lg text-white transition-all group"
-                        style={{ 
-                          background: `linear-gradient(135deg, ${steps[activeStep].color.from}, ${steps[activeStep].color.to})`,
-                          boxShadow: `0 4px 14px ${steps[activeStep].color.from}40`
-                        }}
-                      >
-                        {steps[activeStep].cta.text}
-                        <motion.span
-                          animate={{ x: [0, 5, 0] }}
-                          transition={{ duration: 1.5, repeat: Infinity }}
-                          className="ml-2"
-                        >
-                          <ArrowRight className="w-5 h-5" />
-                        </motion.span>
-                      </Link>
-                    </motion.div>
-                  </motion.div>
+                  </div>
                 </div>
-
-                <div className="order-1 lg:order-2">
-                  <motion.div 
-                    className="relative rounded-2xl overflow-hidden shadow-2xl"
-                    initial={{ scale: 0.9, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 0.5 }}
+                
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  {steps[activeStep].longDescription}
+                </p>
+                
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Link
+                    href={steps[activeStep].cta.link}
+                    className="inline-flex items-center px-6 py-3 rounded-lg text-white transition-all group"
+                    style={{ 
+                      background: `linear-gradient(135deg, ${steps[activeStep].color.from}, ${steps[activeStep].color.to})`,
+                      boxShadow: `0 4px 14px ${steps[activeStep].color.from}40`
+                    }}
                   >
-                    <Image
-                      src={steps[activeStep].image || "/placeholder.svg"}
-                      alt={steps[activeStep].title}
-                      width={600}
-                      height={400}
-                      className="w-full h-full object-cover"
-                    />
-                    
-                    {/* Overlay con gradiente */}
-                    <div 
-                      className="absolute inset-0 opacity-30"
-                      style={{ 
-                        background: `linear-gradient(135deg, ${steps[activeStep].color.from}50, transparent)` 
-                      }}
-                    ></div>
-                    
-                    {/* Barra superior de color */}
-                    <div
-                      className="absolute top-0 left-0 w-full h-2"
-                      style={{ 
-                        background: `linear-gradient(to right, ${steps[activeStep].color.from}, ${steps[activeStep].color.to})` 
-                      }}
-                    ></div>
-                    
-                    {/* Indicador de progreso */}
-                    <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 shadow-lg">
-                      <div className="relative w-12 h-12">
-                        <svg className="w-full h-full" viewBox="0 0 100 100">
-                          <circle 
-                            cx="50" 
-                            cy="50" 
-                            r="40" 
-                            fill="none" 
-                            stroke="#e5e7eb" 
-                            strokeWidth="8"
-                          />
-                          <circle 
-                            cx="50" 
-                            cy="50" 
-                            r="40" 
-                            fill="none" 
-                            stroke={steps[activeStep].color.from} 
-                            strokeWidth="8"
-                            strokeLinecap="round"
-                            strokeDasharray={`${2 * Math.PI * 40}`}
-                            strokeDashoffset={2 * Math.PI * 40 * (1 - calculateProgress(activeStep) / 100)}
-                            transform="rotate(-90 50 50)"
-                          />
-                        </svg>
-                        <div className="absolute inset-0 flex items-center justify-center text-sm font-bold" style={{ color: steps[activeStep].color.from }}>
-                          {Math.round(calculateProgress(activeStep))}%
-                        </div>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
+                    {steps[activeStep].cta.text}
+                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           </AnimatePresence>
@@ -806,7 +675,6 @@ export default function IDEEnPasosPage() {
               className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              disabled={activeStep === 0}
             >
               <ChevronLeft className="w-6 h-6" style={{ color: violetColor }} />
             </motion.button>
@@ -816,7 +684,6 @@ export default function IDEEnPasosPage() {
               className="p-3 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              disabled={activeStep === steps.length - 1}
             >
               <ChevronRight className="w-6 h-6" style={{ color: violetColor }} />
             </motion.button>
@@ -824,10 +691,10 @@ export default function IDEEnPasosPage() {
         </div>
       </section>
 
-      {/* Pasos detallados con efecto 3D */}
+      {/* Pasos detallados */}
       <section 
         ref={stepsRef} 
-        className="py-20 relative overflow-hidden bg-gradient-to-b from-white to-gray-50"
+        className="py-20 relative overflow-hidden bg-white"
       >
         <div className="container mx-auto px-4 relative z-10">
           <motion.div
@@ -845,127 +712,69 @@ export default function IDEEnPasosPage() {
             </p>
           </motion.div>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-12">
             {steps.map((step, index) => (
               <motion.div
                 key={index}
-                className="mb-20 last:mb-0"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 onMouseEnter={() => setHoveredCard(index)}
                 onMouseLeave={() => setHoveredCard(null)}
+                className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border-l-4"
+                style={{ 
+                  borderLeftColor: step.color.from,
+                  transform: hoveredCard === index ? "translateY(-5px)" : "translateY(0px)"
+                }}
               >
-                <div 
-                  className={`flex flex-col lg:flex-row gap-8 items-center ${
-                    index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-                  }`}
-                >
-                  <div className="flex-1">
-                    <motion.div 
-                      className="bg-white rounded-2xl p-8 shadow-xl relative overflow-hidden transform transition-all duration-500"
-                      style={{ 
-                        borderTop: `4px solid ${step.color.from}`,
-                        transform: hoveredCard === index ? "perspective(1000px) rotateY(5deg)" : "perspective(1000px) rotateY(0deg)",
-                        boxShadow: hoveredCard === index 
-                          ? `0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04), 0 0 15px ${step.color.from}40` 
-                          : "0 10px 15px -3px rgba(0, 0, 0, 0.1)"
-                      }}
-                    >
-                      {/* Fondo decorativo */}
-                      <div 
-                        className="absolute top-0 right-0 w-64 h-64 rounded-full opacity-5 -z-10"
-                        style={{ 
-                          background: `radial-gradient(circle at center, ${step.color.from}, transparent)`,
-                          transform: "translate(30%, -30%)"
-                        }}
-                      ></div>
-                      
-                      <div className="flex items-center mb-6">
-                        <div 
-                          className="w-12 h-12 rounded-full flex items-center justify-center text-white mr-4 flex-shrink-0"
-                          style={{ 
-                            background: `linear-gradient(135deg, ${step.color.from}, ${step.color.to})`,
-                            boxShadow: `0 0 15px ${step.color.from}40`
-                          }}
-                        >
-                          {step.icon}
-                        </div>
-                        <div>
-                          <span 
-                            className="inline-block px-3 py-1 text-xs font-medium rounded-full mb-1"
-                            style={{ 
-                              backgroundColor: step.color.light, 
-                              color: step.color.from 
-                            }}
-                          >
-                            {step.subtitle}
-                          </span>
-                          <h3 
-                            className="text-2xl font-bold"
-                            style={{ color: step.color.from }}
-                          >
-                            {step.title}
-                          </h3>
-                        </div>
-                      </div>
-                      
-                      <p className="text-gray-700 mb-6 leading-relaxed">
-                        {step.longDescription}
-                      </p>
-                      
-                      <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                      >
-                        <Link
-                          href={step.cta.link}
-                          className="inline-flex items-center px-5 py-2 rounded-lg text-white transition-all group"
-                          style={{ 
-                            background: `linear-gradient(135deg, ${step.color.from}, ${step.color.to})`,
-                            boxShadow: `0 4px 14px ${step.color.from}40`
-                          }}
-                        >
-                          {step.cta.text}
-                          <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                      </motion.div>
-                    </motion.div>
-                  </div>
-
-                  <div className="w-20 h-20 rounded-full flex items-center justify-center text-white text-2xl font-bold hidden lg:flex"
+                <div className="flex flex-col md:flex-row md:items-center md:space-x-6">
+                  <div 
+                    className="w-20 h-20 rounded-full flex items-center justify-center text-white mb-6 md:mb-0 flex-shrink-0"
                     style={{ 
                       background: `linear-gradient(135deg, ${step.color.from}, ${step.color.to})`,
-                      boxShadow: `0 0 20px ${step.color.from}40`
                     }}
                   >
-                    {index}
+                    <div className="text-2xl font-bold">{index}</div>
                   </div>
 
                   <div className="flex-1">
-                    <motion.div 
-                      className="relative rounded-2xl overflow-hidden shadow-xl"
+                    <span 
+                      className="inline-block px-3 py-1 text-sm font-medium rounded-full mb-2"
                       style={{ 
-                        transform: hoveredCard === index ? "perspective(1000px) rotateY(-5deg)" : "perspective(1000px) rotateY(0deg)",
+                        backgroundColor: step.color.light, 
+                        color: step.color.from 
                       }}
-                      whileHover={{ scale: 1.02 }}
                     >
-                      <Image
-                        src={step.image || "/placeholder.svg"}
-                        alt={step.title}
-                        width={600}
-                        height={400}
-                        className="w-full h-full object-cover"
-                      />
-                      
-                      {/* Overlay con gradiente */}
-                      <div 
-                        className="absolute inset-0 opacity-30"
+                      {step.subtitle}
+                    </span>
+                    
+                    <h3 
+                      className="text-2xl font-bold mb-3"
+                      style={{ color: step.color.from }}
+                    >
+                      {step.title}
+                    </h3>
+                    
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      {step.longDescription}
+                    </p>
+                    
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Link
+                        href={step.cta.link}
+                        className="inline-flex items-center px-5 py-2 rounded-lg text-white transition-all group"
                         style={{ 
-                          background: `linear-gradient(135deg, ${step.color.from}50, transparent)` 
+                          background: `linear-gradient(135deg, ${step.color.from}, ${step.color.to})`,
+                          boxShadow: `0 4px 14px ${step.color.from}40`
                         }}
-                      ></div>
+                      >
+                        {step.cta.text}
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </motion.div>
                   </div>
                 </div>
@@ -975,41 +784,8 @@ export default function IDEEnPasosPage() {
         </div>
       </section>
 
-      {/* CTA Section con Glassmorphism */}
-      <section className="py-20 relative overflow-hidden">
-        <div 
-          className="absolute inset-0 -z-10"
-          style={{ 
-            background: `linear-gradient(135deg, ${lightViolet}, ${violetColor}30)` 
-          }}
-        ></div>
-
-        {/* Formas decorativas */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(3)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="absolute rounded-full opacity-20"
-              style={{
-                background: i % 2 === 0 ? violetColor : creamColor,
-                width: `${150 + i * 50}px`,
-                height: `${150 + i * 50}px`,
-                right: `${(i * 20) % 80}%`,
-                top: `${(i * 25) % 70}%`,
-              }}
-              animate={{
-                x: [0, 20, 0, -20, 0],
-                y: [0, -20, 0, 20, 0],
-              }}
-              transition={{
-                duration: 15 + i * 2,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-          ))}
-        </div>
-
+      {/* CTA Section */}
+      <section className="py-20 relative overflow-hidden bg-gradient-to-br from-violet-100 to-purple-100">
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div
@@ -1017,8 +793,7 @@ export default function IDEEnPasosPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-white/30 backdrop-blur-md rounded-2xl p-10 shadow-xl text-center"
-              style={{ border: `1px solid ${glassBorder}` }}
+              className="bg-white/70 backdrop-blur-md rounded-2xl p-10 shadow-xl text-center border border-violet-200"
             >
               <motion.div
                 initial={{ scale: 0 }}

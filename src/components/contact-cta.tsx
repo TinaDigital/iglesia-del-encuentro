@@ -22,22 +22,17 @@ export function ContactCTA() {
   }, [controls])
 
   return (
-    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: "white" }}>
-      {/* Elementos decorativos con color */}
-      <div className="absolute top-0 left-0 w-full h-1 opacity-70" style={{ 
-        background: `linear-gradient(to right, transparent, ${violetColor}, transparent)` 
-      }}></div>
-      <div className="absolute bottom-0 left-0 w-full h-1 opacity-70" style={{ 
-        background: `linear-gradient(to right, transparent, ${violetColor}, transparent)` 
-      }}></div>
-
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-violet-50 via-white to-gray-50">
       {/* Elementos decorativos con gradiente sutil */}
-      <div className="absolute left-0 top-0 w-64 h-64 md:w-96 md:h-96 -mt-48 -ml-48 rounded-full opacity-70" style={{ 
+      <div className="absolute left-0 top-0 w-64 h-64 md:w-96 md:h-96 -mt-48 -ml-48 rounded-full opacity-20" style={{ 
         background: `linear-gradient(to bottom right, ${lightViolet}, ${creamColor})` 
       }}></div>
-      <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mb-48 -mr-48 rounded-full opacity-70" style={{ 
+      <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mb-48 -mr-48 rounded-full opacity-20" style={{ 
         background: `linear-gradient(to top left, ${lightViolet}, ${creamColor})` 
       }}></div>
+
+      {/* Línea de transición sutil hacia la siguiente sección */}
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-200 to-transparent opacity-30"></div>
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="flex flex-col items-center text-center">
@@ -78,21 +73,21 @@ export function ContactCTA() {
           >
             <motion.a
               href="/horarios"
-              className="group relative inline-flex items-center gap-2 px-8 py-4 overflow-hidden rounded-md shadow-md"
+              className="group relative inline-flex items-center gap-2 px-8 py-4 overflow-hidden rounded-full shadow-lg"
               style={{ backgroundColor: violetColor }}
               onHoverStart={() => setIsHovered(true)}
               onHoverEnd={() => setIsHovered(false)}
-              whileHover={{ scale: 1.02, boxShadow: "0 10px 25px -5px rgba(139, 92, 246, 0.4)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 15px 30px -5px rgba(139, 92, 246, 0.4)" }}
               whileTap={{ scale: 0.98 }}
             >
-              <span className="relative z-10 flex items-center font-medium" style={{ color: isHovered ? violetColor : "white" }}>
+              <span className="relative z-10 flex items-center font-medium text-lg" style={{ color: isHovered ? violetColor : "white" }}>
                 Horarios y Encuentros
                 <motion.div animate={{ x: isHovered ? 4 : 0 }} transition={{ duration: 0.2 }}>
-                  <ArrowRight className="w-4 h-4 ml-2" />
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </motion.div>
               </span>
               <motion.div
-                className="absolute inset-0"
+                className="absolute inset-0 rounded-full"
                 style={{ backgroundColor: creamColor }}
                 initial={{ x: "-100%" }}
                 animate={{ x: isHovered ? "0%" : "-100%" }}
@@ -103,41 +98,17 @@ export function ContactCTA() {
         </div>
       </div>
 
-      {/* Elementos decorativos con borde de color */}
-      <div
-        className="absolute left-8 top-8 w-16 h-16 border-l-2 border-t-2 rounded-tl-md"
-        style={{ borderColor: `${violetColor}20` }}
-      ></div>
-      <div
-        className="absolute right-8 top-8 w-16 h-16 border-r-2 border-t-2 rounded-tr-md"
-        style={{ borderColor: `${violetColor}20` }}
-      ></div>
-      <div
-        className="absolute left-8 bottom-8 w-16 h-16 border-l-2 border-b-2 rounded-bl-md"
-        style={{ borderColor: `${violetColor}20` }}
-      ></div>
-      <div
-        className="absolute right-8 bottom-8 w-16 h-16 border-r-2 border-b-2 rounded-br-md"
-        style={{ borderColor: `${violetColor}20` }}
-      ></div>
+      {/* Elementos decorativos sutiles */}
+      <div className="absolute left-8 top-8 w-12 h-12 border-l-2 border-t-2 rounded-tl-lg opacity-30" style={{ borderColor: violetColor }}></div>
+      <div className="absolute right-8 top-8 w-12 h-12 border-r-2 border-t-2 rounded-tr-lg opacity-30" style={{ borderColor: violetColor }}></div>
+      <div className="absolute left-8 bottom-8 w-12 h-12 border-l-2 border-b-2 rounded-bl-lg opacity-30" style={{ borderColor: violetColor }}></div>
+      <div className="absolute right-8 bottom-8 w-12 h-12 border-r-2 border-b-2 rounded-br-lg opacity-30" style={{ borderColor: violetColor }}></div>
 
-      {/* Puntos decorativos con color */}
-      <div
-        className="absolute left-1/4 top-12 w-2 h-2 rounded-full"
-        style={{ backgroundColor: violetColor, opacity: 0.3 }}
-      ></div>
-      <div
-        className="absolute left-1/3 bottom-16 w-3 h-3 rounded-full"
-        style={{ backgroundColor: creamColor, opacity: 0.5 }}
-      ></div>
-      <div
-        className="absolute right-1/4 top-20 w-4 h-4 rounded-full"
-        style={{ backgroundColor: creamColor, opacity: 0.4 }}
-      ></div>
-      <div
-        className="absolute right-1/3 bottom-12 w-2 h-2 rounded-full"
-        style={{ backgroundColor: violetColor, opacity: 0.25 }}
-      ></div>
+      {/* Puntos decorativos sutiles */}
+      <div className="absolute left-1/4 top-16 w-2 h-2 rounded-full opacity-40" style={{ backgroundColor: violetColor }}></div>
+      <div className="absolute left-1/3 bottom-20 w-3 h-3 rounded-full opacity-30" style={{ backgroundColor: creamColor }}></div>
+      <div className="absolute right-1/4 top-24 w-2 h-2 rounded-full opacity-35" style={{ backgroundColor: creamColor }}></div>
+      <div className="absolute right-1/3 bottom-16 w-2 h-2 rounded-full opacity-25" style={{ backgroundColor: violetColor }}></div>
     </section>
   )
 }

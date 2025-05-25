@@ -21,9 +21,11 @@ const footerLinks: FooterSection[] = [
     title: "Navegación",
     links: [
       { name: 'Soy Nuevo', href: '/soy-nuevo' },
-      { name: 'Ide en Pasos', href: '/ide-en-pasos' },
       { name: 'Nuestro ADN', href: '/nuestro-adn' },
-      { name: 'Grupos', href: '/grupos' },
+      { name: 'Oración', href: '/oracion' },
+      { name: 'En qué creemos', href: '/en-que-creemos' },
+     
+
     ]
   },
   {
@@ -37,9 +39,9 @@ const footerLinks: FooterSection[] = [
   {
     title: "Redes Sociales",
     links: [
-      { name: 'Facebook', href: '#', icon: Facebook },
-      { name: 'Instagram', href: '#', icon: Instagram },
-      { name: 'YouTube', href: '#', icon: Youtube },
+      { name: 'Facebook', href: 'https://www.facebook.com/iglesiadelencuentroquilmes/?locale=es_LA', icon: Facebook },
+      { name: 'Instagram', href: 'https://www.instagram.com/iglesiadelencuentro/', icon: Instagram },
+      { name: 'YouTube', href: 'https://www.youtube.com/@IglesiadelEncuentro', icon: Youtube },
     ]
   }
 ]
@@ -96,7 +98,7 @@ export default function Footer() {
         <div className="border-t border-white/20 mt-8 sm:mt-12 pt-8">
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/60 text-center sm:text-left">
-              © {new Date().getFullYear()} Tina Digital. Todos los derechos reservados.
+              © {new Date().getFullYear()} Iglesia del Encuentro. Todos los derechos reservados.
             </p>
             <div className="flex flex-wrap justify-center sm:justify-end gap-4">
               <Link 

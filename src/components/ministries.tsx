@@ -101,28 +101,25 @@ export function Ministries() {
   }
 
   return (
-    <section className="py-24 relative overflow-hidden" style={{ backgroundColor: creamLight }}>
-      {/* Elementos decorativos */}
-      <div className="absolute top-0 left-0 w-full h-1 opacity-40" 
-        style={{ background: `linear-gradient(to right, transparent, ${violetColor}, transparent)` }}></div>
-      <div className="absolute bottom-0 left-0 w-full h-1 opacity-40" 
-        style={{ background: `linear-gradient(to right, transparent, ${violetColor}, transparent)` }}></div>
+    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
+      {/* Línea de transición sutil desde la sección anterior */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-200 to-transparent opacity-30"></div>
       
       {/* Círculos decorativos */}
-      <div className="absolute -left-24 -top-24 w-64 h-64 rounded-full opacity-20" 
+      <div className="absolute -left-24 -top-24 w-64 h-64 rounded-full opacity-10" 
         style={{ background: `linear-gradient(135deg, ${violetLight}, ${violetMedium})` }}></div>
-      <div className="absolute -right-24 -bottom-24 w-64 h-64 rounded-full opacity-20" 
+      <div className="absolute -right-24 -bottom-24 w-64 h-64 rounded-full opacity-10" 
         style={{ background: `linear-gradient(135deg, ${creamColor}, ${violetLight})` }}></div>
       
       {/* Puntos decorativos */}
-      <div className="absolute left-1/4 top-12 w-2 h-2 rounded-full" 
-        style={{ backgroundColor: violetColor, opacity: 0.3 }}></div>
-      <div className="absolute right-1/4 bottom-12 w-3 h-3 rounded-full" 
-        style={{ backgroundColor: violetMedium, opacity: 0.4 }}></div>
-      <div className="absolute right-1/3 top-1/3 w-2 h-2 rounded-full" 
-        style={{ backgroundColor: creamColor, opacity: 0.5 }}></div>
-      <div className="absolute left-1/3 bottom-1/3 w-4 h-4 rounded-full" 
-        style={{ backgroundColor: violetLight, opacity: 0.3 }}></div>
+      <div className="absolute left-1/4 top-16 w-2 h-2 rounded-full opacity-25" 
+        style={{ backgroundColor: violetColor }}></div>
+      <div className="absolute right-1/4 bottom-16 w-3 h-3 rounded-full opacity-20" 
+        style={{ backgroundColor: violetMedium }}></div>
+      <div className="absolute right-1/3 top-1/3 w-2 h-2 rounded-full opacity-30" 
+        style={{ backgroundColor: creamColor }}></div>
+      <div className="absolute left-1/3 bottom-1/3 w-2 h-2 rounded-full opacity-15" 
+        style={{ backgroundColor: violetLight }}></div>
       
       <div className="container mx-auto px-4 max-w-6xl relative z-10" ref={ref}>
         <motion.div
