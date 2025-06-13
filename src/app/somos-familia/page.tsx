@@ -80,43 +80,6 @@ export default function SomosFamiliaPage() {
         </div>
       </section>
 
-      {/* Frase introductoria optimizada */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto"
-          >
-            <div className="relative">
-              <div className="absolute -left-4 -top-4 text-6xl opacity-20 font-serif" style={{ color: violetColor }}>
-                &ldquo;
-              </div>
-              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 text-center">
-                En medio de tanta soledad que nos rodea, aprender a ser familia es un desafío común a todos. Conectar
-                con personas en la misma etapa de tu vida será simple y desafiante.
-              </p>
-              <div
-                className="absolute -right-4 -bottom-4 text-6xl opacity-20 font-serif"
-                style={{ color: violetColor }}
-              >
-                &rdquo;
-              </div>
-            </div>
-
-            <div className="p-6 rounded-xl text-center mt-8" style={{ backgroundColor: lightViolet }}>
-              <p className="text-xl font-bold" style={{ color: violetColor }}>
-                ¡En la IDE hay lugar para todos!
-              </p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      <Ministries />
-
       {/* Grupos de Crecimiento optimizado */}
       <section ref={growthGroupsRef} className="py-16 bg-white">
         <div className="container mx-auto px-4">
@@ -128,17 +91,13 @@ export default function SomosFamiliaPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6 }}
-                  className="text-3xl font-bold mb-4"
+                  className="text-4xl md:text-5xl font-bold mb-4"
                   style={{ color: violetColor }}
                 >
                   Grupos de Crecimiento
                 </motion.h2>
 
                 <div className="h-1 w-16 mb-6" style={{ backgroundColor: violetColor }}></div>
-
-                <p className="text-gray-700 mb-6">
-                  <span className="font-medium">Para todas las edades.</span>
-                </p>
 
                 <p className="text-gray-700 mb-6">
                   Creemos que la vida es mejor en Grupos y hemos decidido no sólo ser asistentes a un lugar, sino
@@ -180,7 +139,7 @@ export default function SomosFamiliaPage() {
                     </div>
                     <div>
                       <h3 className="font-medium mb-1">Días y horarios</h3>
-                      <p className="text-gray-600">De lunes a viernes. Horarios variados.</p>
+                      <p className="text-gray-600">De lunes a sábados. Horarios variados.</p>
                     </div>
                   </div>
 
@@ -254,6 +213,43 @@ export default function SomosFamiliaPage() {
           </div>
         </div>
       </section>
+
+      {/* Frase introductoria optimizada */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="max-w-3xl mx-auto"
+          >
+            <div className="relative">
+              <div className="absolute -left-4 -top-4 text-6xl opacity-20 font-serif" style={{ color: violetColor }}>
+                &ldquo;
+              </div>
+              <p className="text-xl md:text-2xl text-gray-700 leading-relaxed mb-8 text-center">
+                En medio de tanta soledad que nos rodea, aprender a ser familia es un desafío común a todos. Conectar
+                con personas en la misma etapa de tu vida será simple y desafiante.
+              </p>
+              <div
+                className="absolute -right-4 -bottom-4 text-6xl opacity-20 font-serif"
+                style={{ color: violetColor }}
+              >
+                &rdquo;
+              </div>
+            </div>
+
+            <div className="p-6 rounded-xl text-center mt-8" style={{ backgroundColor: lightViolet }}>
+              <p className="text-xl font-bold" style={{ color: violetColor }}>
+                ¡En la IDE hay lugar para todos!
+              </p>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <Ministries />
     </main>
   )
 }

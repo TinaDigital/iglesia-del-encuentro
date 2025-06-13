@@ -190,7 +190,7 @@ export default function PrimerosPasosPage() {
                   <h2 className="text-3xl font-bold mb-4">Información Práctica</h2>
                   <div className="h-1 w-16 mb-6" style={{ backgroundColor: violetColor }}></div>
                   <p className="text-gray-600">
-                    Todo lo que necesitas saber para unirte a nuestros encuentros de Primeros Pasos.
+                    Todo lo que necesitas saber para unirte a nuestros grupos de Primeros Pasos.
                   </p>
                 </motion.div>
               </motion.div>

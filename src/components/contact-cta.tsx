@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { ArrowRight } from 'lucide-react'
+import Image from "next/image"
+import fondo from "../../public/llegasteacasa.jpg"
 
 export function ContactCTA() {
   const controls = useAnimation()
@@ -22,17 +24,23 @@ export function ContactCTA() {
   }, [controls])
 
   return (
-    <section className="py-24 relative overflow-hidden bg-gradient-to-b from-violet-50 via-white to-gray-50">
-      {/* Elementos decorativos con gradiente sutil */}
-      <div className="absolute left-0 top-0 w-64 h-64 md:w-96 md:h-96 -mt-48 -ml-48 rounded-full opacity-20" style={{ 
-        background: `linear-gradient(to bottom right, ${lightViolet}, ${creamColor})` 
-      }}></div>
-      <div className="absolute right-0 bottom-0 w-64 h-64 md:w-96 md:h-96 -mb-48 -mr-48 rounded-full opacity-20" style={{ 
-        background: `linear-gradient(to top left, ${lightViolet}, ${creamColor})` 
-      }}></div>
-
-      {/* Línea de transición sutil hacia la siguiente sección */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-violet-200 to-transparent opacity-30"></div>
+    <section className="py-24 relative overflow-hidden">
+      {/* Imagen de fondo */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src={fondo}
+          alt="Fondo Llegaste a Casa"
+          fill
+          className="object-cover opacity-75"
+          quality={100}
+          priority
+          style={{
+            objectPosition: "center 35%" // Ajustado para bajar la posición de la imagen
+          }}
+        />
+        {/* Overlay para mejorar legibilidad */}
+        <div className="absolute inset-0 bg-black/40"></div>
+      </div>
 
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="flex flex-col items-center text-center">
@@ -43,14 +51,14 @@ export function ContactCTA() {
             transition={{ duration: 0.8 }}
             className="mb-12"
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-gray-900 mb-3">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white mb-3">
               ¡Llegaste a{" "}
-              <span className="font-semibold" style={{ color: violetColor }}>
+              <span className="font-semibold" style={{ color: creamColor }}>
                 Casa
               </span>!
             </h2>
 
-            <div className="relative h-0.5 w-full max-w-xs mx-auto my-6 bg-gray-100 overflow-hidden">
+            <div className="relative h-0.5 w-full max-w-xs mx-auto my-6 bg-white/20 overflow-hidden">
               <motion.div
                 className="absolute inset-0"
                 style={{ background: `linear-gradient(to right, ${violetColor}, ${creamColor})` }}
@@ -59,7 +67,7 @@ export function ContactCTA() {
               />
             </div>
 
-            <p className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto">
               Durante más de 130 años, hemos estado acompañando a personas como vos a descubrir una fe práctica y auténtica en Jesús. ¡Tu próximo paso puede ser visitarnos personalmente!
             </p>
           </motion.div>
@@ -99,16 +107,16 @@ export function ContactCTA() {
       </div>
 
       {/* Elementos decorativos sutiles */}
-      <div className="absolute left-8 top-8 w-12 h-12 border-l-2 border-t-2 rounded-tl-lg opacity-30" style={{ borderColor: violetColor }}></div>
-      <div className="absolute right-8 top-8 w-12 h-12 border-r-2 border-t-2 rounded-tr-lg opacity-30" style={{ borderColor: violetColor }}></div>
-      <div className="absolute left-8 bottom-8 w-12 h-12 border-l-2 border-b-2 rounded-bl-lg opacity-30" style={{ borderColor: violetColor }}></div>
-      <div className="absolute right-8 bottom-8 w-12 h-12 border-r-2 border-b-2 rounded-br-lg opacity-30" style={{ borderColor: violetColor }}></div>
+      <div className="absolute left-8 top-8 w-12 h-12 border-l-2 border-t-2 rounded-tl-lg opacity-30 border-white"></div>
+      <div className="absolute right-8 top-8 w-12 h-12 border-r-2 border-t-2 rounded-tr-lg opacity-30 border-white"></div>
+      <div className="absolute left-8 bottom-8 w-12 h-12 border-l-2 border-b-2 rounded-bl-lg opacity-30 border-white"></div>
+      <div className="absolute right-8 bottom-8 w-12 h-12 border-r-2 border-b-2 rounded-br-lg opacity-30 border-white"></div>
 
       {/* Puntos decorativos sutiles */}
-      <div className="absolute left-1/4 top-16 w-2 h-2 rounded-full opacity-40" style={{ backgroundColor: violetColor }}></div>
-      <div className="absolute left-1/3 bottom-20 w-3 h-3 rounded-full opacity-30" style={{ backgroundColor: creamColor }}></div>
-      <div className="absolute right-1/4 top-24 w-2 h-2 rounded-full opacity-35" style={{ backgroundColor: creamColor }}></div>
-      <div className="absolute right-1/3 bottom-16 w-2 h-2 rounded-full opacity-25" style={{ backgroundColor: violetColor }}></div>
+      <div className="absolute left-1/4 top-16 w-2 h-2 rounded-full opacity-40 bg-white"></div>
+      <div className="absolute left-1/3 bottom-20 w-3 h-3 rounded-full opacity-30 bg-white"></div>
+      <div className="absolute right-1/4 top-24 w-2 h-2 rounded-full opacity-35 bg-white"></div>
+      <div className="absolute right-1/3 bottom-16 w-2 h-2 rounded-full opacity-25 bg-white"></div>
     </section>
   )
 }

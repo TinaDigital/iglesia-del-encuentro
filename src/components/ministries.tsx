@@ -38,7 +38,7 @@ export function Ministries() {
       image: ninos,
       logo: logoestacion,
       instagram: "https://www.instagram.com/e311.ide/",
-      schedule: "Domingos 11:30 a 13h",
+      schedule: "Domingos 11:20h",
       ageGroup: "Niños de 3 a 11 años",
       location: "Olavarría 316, Quilmes centro"
     },
@@ -86,9 +86,9 @@ export function Ministries() {
         breakpoint,
       logo: logobreakpoint,
       instagram: "https://www.instagram.com/breakpoint.ide/",
-      schedule: "Sábados 20h",
-      ageGroup: "Jóvenes adultos de 30 a 40 años",
-      location: "Olavarría 319, Quilmes centro"
+      schedule: "Viernes cada 15 días, 20h",
+      ageGroup: "Jóvenes adultos de 30 a 40 años", 
+      location: "Alvear 780"
     },
   ]
 

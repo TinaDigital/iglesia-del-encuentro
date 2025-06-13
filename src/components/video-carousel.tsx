@@ -7,7 +7,12 @@ import { ChevronLeft, ChevronRight, Play, Youtube } from "lucide-react"
 
 // Reemplaza con tu clave de API de YouTube y el ID de la lista de reproducción
 const YOUTUBE_API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY || "AIzaSyBzkpqAsiSfgIHakQ9WSKOy3LndwIMzaOs"
-const PLAYLIST_ID = "PLYSj8gAXLPQm1FcbyIYGYGOhhVVFSW_fU"
+const DEFAULT_PLAYLIST_ID = "PLYSj8gAXLPQm1FcbyIYGYGOhhVVFSW_fU"
+
+interface VideoCarouselProps {
+  title?: string;
+  playlistId?: string;
+}
 
 interface Video {
   id: string
@@ -16,7 +21,10 @@ interface Video {
   channelTitle?: string
 }
 
-export function VideoCarousel() {
+export function VideoCarousel({ 
+  title = "Unite a la serie del mes",
+  playlistId = DEFAULT_PLAYLIST_ID 
+}: VideoCarouselProps) {
   const [videos, setVideos] = useState<Video[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
@@ -50,7 +58,7 @@ export function VideoCarousel() {
       try {
         setIsLoading(true)
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${PLAYLIST_ID}&maxResults=10&key=${YOUTUBE_API_KEY}`,
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=10&key=${YOUTUBE_API_KEY}`,
         )
 
         if (!response.ok) {
@@ -81,7 +89,7 @@ export function VideoCarousel() {
     }
 
     fetchVideos()
-  }, [])
+  }, [playlistId])
 
   // Gestión de deslizamiento táctil
   const touchStartX = useRef(0)
@@ -231,7 +239,7 @@ export function VideoCarousel() {
               className="text-xl md:text-4xl font-bold bg-clip-text text-transparent text-center"
               style={{ backgroundImage: `linear-gradient(to right, ${creamColor}, white)` }}
             >
-              Unite a la serie del mes
+              {title}
             </h2>
           </div>
           <div className="w-24 h-1 rounded-full mb-4" style={{ backgroundColor: creamColor }}></div>

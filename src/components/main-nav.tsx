@@ -13,6 +13,8 @@ const navItems = [
     href: "#",
     submenu: [
       { name: "En qué creemos", href: "/en-que-creemos" },
+      { name: "Grupos", href: "/grupos" },
+      { name: "Ide en pasos", href: "/ide-en-pasos" },
       { name: "La radiografía de la IDE", href: "/radiografia" },
       { name: "Nuestro ADN", href: "/nuestro-adn" },
       { name: "Nuestra historia", href: "/nuestra-historia" },
@@ -25,7 +27,7 @@ const navItems = [
       { name: "Escuela del Encuentro", href: "http://escueladelencuentro.com.ar/" },
       { name: "Dignos", href: "https://www.instagram.com/dignosok/?igsh=MXdlcm9sNnR5b3htZg%3D%3D#" },
       { name: "Quilmes Mi Casa", href: "https://fundacionhechos.org.ar/" },
-      { name: "Somos Hijos", href: "https://www.instagram.com/somoshijosok/" },
+      { name: "Somos Hijos", href: "http://somoshijos.org/" },
     ],
   },
   {

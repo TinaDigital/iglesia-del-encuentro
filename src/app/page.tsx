@@ -10,7 +10,7 @@ export default function Home() {
       <Hero />
       <ContactCTA />
       <Ministries />
-      <VideoCarousel />
+      <VideoCarousel title="Unite a la serie del mes" playlistId="PLYSj8gAXLPQm1FcbyIYGYGOhhVVFSW_fU" />
       <Servolution />
     </main>
   )
