@@ -161,7 +161,7 @@ export default function NuestroADNPage() {
               <div className="h-1 w-24 mb-6 hidden lg:block" style={{ backgroundColor: violetColor }}></div>
 
               <p className="text-base md:text-lg text-gray-600 mb-6 md:mb-8 max-w-lg mx-auto lg:mx-0">
-                En la IDE todo lo que hacemos tiene un "para qué" y un "cómo" hacerlo. Es nuestro ADN, es decir, la manera en que somos identificados por los que nos miran y conocen.
+                En la IDE todo lo que hacemos tiene un &quot;para qué&quot; y un &quot;cómo&quot; hacerlo. Es nuestro ADN, es decir, la manera en que somos identificados por los que nos miran y conocen.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

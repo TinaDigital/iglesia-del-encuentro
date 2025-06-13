@@ -96,7 +96,7 @@ export default function RadiografiaPage() {
 
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [isModalOpen, zoomLevel])
+  }, [isModalOpen, zoomLevel, closeModal, zoomOut])
 
   return (
     <main className="min-h-screen bg-white">
