@@ -4,7 +4,6 @@ import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { ArrowRight } from 'lucide-react'
 import Image from "next/image"
-import fondo from "../../public/llegasteacasa.jpg"
 
 export function ContactCTA() {
   const controls = useAnimation()
@@ -28,14 +27,14 @@ export function ContactCTA() {
       {/* Imagen de fondo */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={fondo}
+          src="https://placehold.co/1920x1080/8b5cf6/f5f0e6?text=Llegaste+a+Casa"
           alt="Fondo Llegaste a Casa"
           fill
           className="object-cover opacity-75"
           quality={100}
           priority
           style={{
-            objectPosition: "center 35%" // Ajustado para bajar la posición de la imagen
+            objectPosition: "center 35%"
           }}
         />
         {/* Overlay para mejorar legibilidad */}
