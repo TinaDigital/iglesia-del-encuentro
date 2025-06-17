@@ -39,6 +39,7 @@ export default function SomosFamiliaPage() {
             alt="Somos Familia"
             fill
             className="object-cover"
+            style={{ objectPosition: 'center 25%' }}
             priority
           />
           <div

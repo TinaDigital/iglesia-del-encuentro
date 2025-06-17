@@ -28,6 +28,7 @@ export default function HorariosPage() {
             fill
             className="object-cover object-center lg:object-[center_25%]"
             priority
+            style={{ objectPosition: 'center 65%' }}
           />
           <div
             className="absolute inset-0"

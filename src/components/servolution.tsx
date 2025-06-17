@@ -3,7 +3,7 @@
 import { useRef } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import fondo from "../../public/servolucion.jpg"
+import fondo from "../../public/qmc.webp"
 
 export function Servolution() {
   const sectionRef = useRef<HTMLDivElement>(null)
