@@ -11,17 +11,18 @@ export function Hero() {
   const [activeButton, setActiveButton] = useState<number | null>(null)
 
   // Colores personalizados con tonos más sutiles
-  const violetColor = "#8b5cf6" // Violeta principal
-  const violetLight = "#ede9fe" // Violeta muy claro
-  const violetMedium = "#c4b5fd" // Violeta medio
-  const creamColor = "#f5f0e6" // Crema suave
-  const creamLight = "#faf7f2" // Crema muy claro
+  const violetColor = "#7c3aed" // Violeta principal
+  const violetLight = "#a78bfa" // Violeta claro
+  const violetDark = "#5b21b6" // Violeta oscuro
+  const creamColor = "#fef7ed" // Crema principal
+  const creamLight = "#fffbf5" // Crema muy claro
+  const creamDark = "#f59e0b" // Acento dorado/crema oscuro
 
   const buttons = [
-    { href: "/horarios", text: "Horarios y Encuentros", icon: <FaClock />, color: "#7c3aed" },
+    { href: "/horarios", text: "Horarios y Encuentros", icon: <FaClock />, color: "#6d28d9" },
     { href: "/soy-nuevo", text: "Soy nuevo", icon: <FaUser />, color: violetColor },
-    { href: "/primeros-pasos", text: "Primeros Pasos", icon: <FaPersonWalking />, color: "#6d28d9" },
-    { href: "/somos-familia", text: "Somos Familia", icon: <FaUsers />, color: "#5b21b6" },
+    { href: "/primeros-pasos", text: "Primeros Pasos", icon: <FaPersonWalking />, color: "#5b21b6" },
+    { href: "/somos-familia", text: "Somos Familia", icon: <FaUsers />, color: "#4c1d95" },
   ]
 
   return (
@@ -103,7 +104,7 @@ export function Hero() {
                     activeButton === index ? "opacity-100" : "opacity-0"
                   }`}
                   style={{
-                    background: `linear-gradient(90deg, ${button.color}, ${violetMedium}, ${creamColor})`,
+                    background: `linear-gradient(90deg, ${button.color}, ${violetDark}, ${creamDark})`,
                     backgroundSize: "200% 200%",
                     animation: activeButton === index ? "shimmer 2s linear infinite" : "none",
                   }}

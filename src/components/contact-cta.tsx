@@ -11,9 +11,12 @@ export function ContactCTA() {
   const [isHovered, setIsHovered] = useState(false)
 
   // Colores personalizados
-  const violetColor = "#8b5cf6" // Violeta
-  const creamColor = "#f5f0e6" // Crema
-  const lightViolet = "#ede9fe" // Violeta claro
+  const violetColor = "#7c3aed" // Violeta principal
+  const violetLight = "#a78bfa" // Violeta claro
+  const violetDark = "#5b21b6" // Violeta oscuro
+  const creamColor = "#fef7ed" // Crema principal
+  const creamLight = "#fffbf5" // Crema muy claro
+  const creamDark = "#f59e0b" // Acento dorado/crema oscuro
 
   // Efecto sutil de línea que se dibuja
   useEffect(() => {

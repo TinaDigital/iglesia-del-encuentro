@@ -14,9 +14,12 @@ export default function SomosFamiliaPage() {
 
 
   // Colores personalizados
-  const violetColor = "#8b5cf6" // Violeta
-  const creamColor = "#f5f0e6" // Crema
-  const lightViolet = "#ede9fe" // Violeta claro
+  const violetColor = "#7c3aed" // Violeta principal
+  const violetLight = "#a78bfa" // Violeta claro
+  const violetDark = "#5b21b6" // Violeta oscuro
+  const creamColor = "#fef7ed" // Crema principal
+  const creamLight = "#fffbf5" // Crema muy claro
+  const creamDark = "#f59e0b" // Acento dorado/crema oscuro
 
   // Tipos de grupos de crecimiento con iconos y colores
   const growthGroups = [
@@ -61,7 +64,7 @@ export default function SomosFamiliaPage() {
         ></div>
         <div
           className="absolute bottom-20 left-20 w-48 h-48 rounded-full opacity-20 hidden md:block"
-          style={{ backgroundColor: lightViolet }}
+          style={{ backgroundColor: violetLight }}
         ></div>
 
         <div className="container mx-auto px-4 relative z-10">
@@ -138,7 +141,7 @@ export default function SomosFamiliaPage() {
                   <div className="flex items-start">
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-                      style={{ backgroundColor: lightViolet }}
+                      style={{ backgroundColor: violetLight }}
                     >
                       <Calendar className="w-5 h-5" style={{ color: violetColor }} />
                     </div>
@@ -151,7 +154,7 @@ export default function SomosFamiliaPage() {
                   <div className="flex items-start">
                     <div
                       className="w-10 h-10 rounded-full flex items-center justify-center mr-3 flex-shrink-0"
-                      style={{ backgroundColor: lightViolet }}
+                      style={{ backgroundColor: violetLight }}
                     >
                       <MapPin className="w-5 h-5" style={{ color: violetColor }} />
                     </div>
