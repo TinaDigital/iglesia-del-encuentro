@@ -4,12 +4,8 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import { FaUser, FaClock, FaPersonWalking, FaUsers } from "react-icons/fa6"
-import bannercelu from "../../public/banner_mobile.gif"
-import bannertablet from "../../public/banner_tablet.gif"
-import bannerdesktop from "../../public/banner_desktop.gif"
 
 export function Hero() {
   const [activeButton, setActiveButton] = useState<number | null>(null)
@@ -37,53 +33,48 @@ export function Hero() {
         {/* Overlay sutil con tonos violeta y crema */}
         <div className="absolute inset-0 bg-gradient-to-br from-violetLight/10 to-creamLight/10 mix-blend-overlay z-5"></div>
         
-        {/* Imagen para móvil - optimizada */}
+        {/* Video para móvil */}
         <div className="block sm:hidden absolute inset-0">
-          <Image
-            src={bannercelu}
-            alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-full"
-            priority
-            fill
-            quality={100}
-            sizes="100vw"
-            style={{ 
-              objectFit: 'cover',
-              objectPosition: 'center 30%'
-            }}
+          <video
+            src="/gif_mobil.mp4"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center 30%' }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            controls={false}
           />
         </div>
         
-        {/* Imagen para tablet - optimizada */}
+        {/* Video para tablet */}
         <div className="hidden sm:block lg:hidden absolute inset-0">
-          <Image
-            src={bannertablet}
-            alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-full"
-            priority
-            fill
-            quality={100}
-            sizes="(max-width: 1024px) 100vw"
-            style={{ 
-              objectFit: 'cover',
-              objectPosition: 'center',
-            }}
+          <video
+            src="/gif_tablet.mp4"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center' }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            controls={false}
           />
         </div>
         
-        {/* Imagen para desktop - optimizada */}
+        {/* Video para desktop */}
         <div className="hidden lg:block absolute inset-0">
-          <Image
-            src={bannerdesktop}
-            alt="Banner de la Iglesia del Encuentro"
-            className="w-full h-full"
-            priority
-            quality={100}
-            sizes="(max-width: 1024px) 100vw"
-            style={{ 
-              objectFit: 'cover',
-              objectPosition: 'center',
-            }}
+          <video
+            src="/gif_compu.mp4"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center' }}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            controls={false}
           />
         </div>
       </div>

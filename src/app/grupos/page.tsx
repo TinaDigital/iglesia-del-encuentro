@@ -46,14 +46,24 @@ export default function GruposPage() {
       icon: <Heart className="w-5 h-5" />,
     },
     {
+      name: "Grupos Novios",
+      description: "Apoyo especial a las parejas para establecer cimientos sólidos en el noviazgo.",
+      icon: <Heart className="w-5 h-5" />,
+    },
+    {
       name: "Grupos de Interés",
       description: "Comunidades unidas por pasiones e intereses comunes.",
       icon: <Coffee className="w-5 h-5" />,
     },
     {
-      name: "Grupos de Servicio",
+      name: "Grupos de Servicio", 
       description: "Equipos dedicados a servir a la iglesia y a la comunidad.",
       icon: <UserPlus className="w-5 h-5" />,
+    },
+    {
+      name: "Grupos de Adultos mayores (+65 años)",
+      description: "Un espacio pensado para vivir esta etapa acompañado creciendo en la fe. Encuentro mensual de todos los grupos: 1 sábado al mes 10 hs (más info @adultosmayores)",
+      icon: <Users className="w-5 h-5" />,
     },
   ]
 

@@ -58,7 +58,7 @@ export function VideoCarousel({
       try {
         setIsLoading(true)
         const response = await fetch(
-          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=10&key=${YOUTUBE_API_KEY}`,
+          `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${playlistId}&maxResults=30&key=${YOUTUBE_API_KEY}`,
         )
 
         if (!response.ok) {

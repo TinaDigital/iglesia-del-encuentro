@@ -25,8 +25,10 @@ export default function SomosFamiliaPage() {
     { name: "Grupos Mixtos", icon: <Star className="w-4 h-4" />, color: "#f59e0b" },
     { name: "Grupos Recién Casados", icon: <Sparkles className="w-4 h-4" />, color: "#10b981" },
     { name: "Grupos Matrimoniales", icon: <Heart className="w-4 h-4" />, color: "#8b5cf6" },
+    { name: "Grupos Novios", icon: <Heart className="w-4 h-4" />, color: "#e11d48" },
     { name: "Grupos de interés", icon: <Coffee className="w-4 h-4" />, color: "#f43f5e" },
     { name: "Grupos de servicio", icon: <Users className="w-4 h-4" />, color: "#0ea5e9" },
+    { name: "Grupos Adultos Mayores", icon: <Users className="w-4 h-4" />, color: "#6366f1" },
   ]
 
   return (
@@ -41,6 +43,8 @@ export default function SomosFamiliaPage() {
             className="object-cover"
             style={{ objectPosition: 'center 25%' }}
             priority
+            quality={75}
+            sizes="100vw"
           />
           <div
             className="absolute inset-0"
@@ -194,6 +198,8 @@ export default function SomosFamiliaPage() {
                       alt="Grupos de Crecimiento"
                       fill
                       className="object-cover"
+                      quality={75}
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                     <div
                       className="absolute inset-0"

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 import { motion, useAnimation } from "framer-motion"
 import { ArrowRight } from 'lucide-react'
 import Image from "next/image"
-import llegasteaCasa from "../../public/llegaste.jpg"
+import llegasteaCasa from "../../public/qmc.jpg"
 
 export function ContactCTA() {
   const controls = useAnimation()
@@ -32,8 +32,9 @@ export function ContactCTA() {
           alt="Fondo Llegaste a Casa"
           fill
           className="object-cover opacity-75"
-          quality={100}
+          quality={75}
           priority
+          sizes="100vw"
           style={{
             objectPosition: "center 25%"
           }}
