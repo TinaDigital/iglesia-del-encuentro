@@ -215,7 +215,7 @@ export default function SomosFamiliaPage() {
                   {/* Un solo elemento decorativo */}
                   <div
                     className="absolute -bottom-4 -right-4 w-16 h-16 rounded-full -z-10"
-                    style={{ backgroundColor: lightViolet }}
+                    style={{ backgroundColor: violetLight }}
                   ></div>
                 </motion.div>
               </div>
@@ -250,7 +250,7 @@ export default function SomosFamiliaPage() {
               </div>
             </div>
 
-            <div className="p-6 rounded-xl text-center mt-8" style={{ backgroundColor: lightViolet }}>
+            <div className="p-6 rounded-xl text-center mt-8" style={{ backgroundColor: violetLight }}>
               <p className="text-xl font-bold" style={{ color: violetColor }}>
                 ¡En la IDE hay lugar para todos!
               </p>
