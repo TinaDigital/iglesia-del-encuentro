@@ -44,6 +44,8 @@ export function Hero() {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
+            poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             preload="auto"
             controls={false}
           />
@@ -59,6 +61,8 @@ export function Hero() {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
+            poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             preload="auto"
             controls={false}
           />
@@ -74,6 +78,8 @@ export function Hero() {
             loop
             muted
             playsInline
+            webkit-playsinline="true"
+            poster="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
             preload="auto"
             controls={false}
           />

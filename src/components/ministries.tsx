@@ -43,7 +43,7 @@ export function Ministries() {
       location: "Olavarría 316, Quilmes centro"
     },
     {
-      name: "Entre Tiempo",
+      name: "Entretiempo",
       description:
         "El camino a través de la secundaria puede ser difícil, pero no tiene por qué ser solitario. Hemos preparado un ambiente donde puedan aprender cómo Dios los ve y descubrir su verdadera identidad. Realizamos actividades generales y en Grupos.",
       image:
